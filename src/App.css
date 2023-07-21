@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+/*--------------------------------------------------
+[NOTES] FONT FAMILIES (and their fallback font family)
+----------------------------------------------------
+font-family: 'Forum', serif;
+font-family: 'B612', sans-serif;
+---------------------------------------------------*/
+
+/*--------------------------------------------------
+IMPORT FROM EXTERNAL SOURCES
+---------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&family=Forum&display=swap");
+
+/*--------------------------------------------------
+IMPORT FROM INTERNAL SOURCES (from "./globalStyles")
+---------------------------------------------------*/
+@import "./globalStyles/animations.css";
+@import "./globalStyles/customToolbar.css";
+
+/*--------------------------------------------------
+BASIC CONFIGURATIONS
+---------------------------------------------------*/
+/* theme */
+:root {
+  --main: #f2e9e4;
+  --contrast: #22223b;
+  --accent: #c9ada7;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* box-sizing config */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* for rem unit, 1 rem = 10pt */
+html {
+  font-size: 62.5%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* default font and size */
+body {
+  font-family: "B612", sans-serif;
+  font-size: 1.8rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* use this class to give more details about something that has visual information only */
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*--------------------------------------------------
+
+---------------------------------------------------*/

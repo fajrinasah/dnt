@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+/*-------------------------------------------------*/
+// IMPORT FROM DEPENDENCIES
+/*-------------------------------------------------*/
+import { Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+
+/*-------------------------------------------------*/
+// IMPORT FROM PROJECT'S FILES
+/*-------------------------------------------------*/
+import "./App.css";
+
+/* PAGES */
+import { PageLogin } from "./components/05-pages";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header></header>
+      <main>
+        <Routes>
+          <Route path="/login" element={<PageLogin />} />
+          <Route />
+        </Routes>
+      </main>
+      <footer></footer>
     </div>
   );
 }

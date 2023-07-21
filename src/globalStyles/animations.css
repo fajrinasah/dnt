@@ -1,0 +1,79 @@
+/*===============================================
+ANIMATIONS
+===============================================*/
+
+/*-----------------------------------
+WHEN CLICKED, IT GETS DOWN A LITTLE BIT
+------------------------------------*/
+.click-to-get-down:active {
+  transform: translateY(2px);
+}
+
+/*-----------------------------
+    HOVER UNDERLINE FROM CENTER
+    -------------------------------*/
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 0;
+
+  /*------can be customed------*/
+  background: var(--accent);
+  height: 2px;
+  /*----------------------------*/
+
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-underline-from-center:hover:before,
+.hvr-underline-from-center:focus:before,
+.hvr-underline-from-center:active:before {
+  left: 0;
+  right: 0;
+}
+
+/*-------------CUSTOM COLOR------------*/
+/* based on text's color */
+.color-main.hvr-underline-from-center:before {
+  background: var(--main);
+}
+
+.color-contrast.hvr-underline-from-center:before {
+  background: var(--contrast);
+}
+
+.color-accent.hvr-underline-from-center:before {
+  background: var(--accent);
+}
+
+/*-------------CUSTOM THICKNESS------------*/
+/* based on text's local-styled size */
+
+.small.hvr-underline-from-center:before {
+  height: 1px;
+}
+
+.medium.hvr-underline-from-center:before {
+  height: 2px;
+}
+
+.large.hvr-underline-from-center:before {
+  height: 4px;
+}
