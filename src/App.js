@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import "./App.css";
 
 /* PAGES */
-import { PageLogin } from "./components/05-pages";
+import { PageLogin, Product } from "./components/05-pages";
 
 function App() {
   return (
@@ -19,8 +19,8 @@ function App() {
       <header></header>
       <main>
         <Routes>
-          <Route path="/login" element={<PageLogin />} />
-          <Route />
+          <Route path="/login" element={<PageLogin />} /><Route />
+          <Route path="/product" element={<Product />}></Route>
         </Routes>
       </main>
       <footer></footer>
