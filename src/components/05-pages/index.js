@@ -1,1 +1,1 @@
-export * from "./PageLogin";
+export * from "./forAuthAndManage";
