@@ -1,3 +1,84 @@
 /* ===============================================
-COMPONENT'S NAME
+CUSTOM TOASTS
 =================================================*/
+/*--------------CONTAINER-------------*/
+.modal-default-text {
+  place-content: center;
+  place-items: center;
+
+  text-align: center;
+
+  border-radius: 10px;
+}
+
+.modal-default-text.bold {
+  font-weight: bold;
+}
+
+.modal-default-text.bg-main {
+  background-color: var(--main);
+}
+
+.modal-default-text.bg-contrast {
+  background-color: var(--contrast);
+}
+
+.modal-default-text.bg-accent {
+  background-color: var(--accent);
+}
+
+/*--------------TYPE: TOAST-------------*/
+
+.modal-default-text.toast {
+  width: 40%;
+  box-shadow: 2px 1px 10px 0px black;
+}
+
+.modal-default-text.toast .modal-content {
+  place-content: center;
+  place-items: center;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.modal-default-text.toast .toast-icon {
+  margin-right: 1rem;
+  font-size: 2rem;
+}
+
+/*--------------CONTENT-------------*/
+.modal-default-text .modal-content {
+  padding: 1.5rem;
+  margin: 2rem;
+
+  place-content: center;
+  place-items: center;
+
+  text-align: center;
+}
+
+/*----------FRAME-----------*/
+.modal-default-text .frame {
+  width: 100%;
+  margin: 2rem;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+
+  border-top-style: solid;
+  border-bottom-style: solid;
+}
+
+.modal-default-text.color-main .frame {
+  border-top-color: var(--main);
+  border-bottom-color: var(--main);
+}
+
+.modal-default-text.color-contrast .frame {
+  border-top-color: var(--contrast);
+  border-bottom-color: var(--contrast);
+}
+
+.modal-default-text.color-accent .frame {
+  border-top-color: var(--accent);
+  border-bottom-color: var(--accent);
+}
