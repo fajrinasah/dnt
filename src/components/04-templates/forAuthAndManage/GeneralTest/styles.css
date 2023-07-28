@@ -24,3 +24,7 @@
   padding: 2rem;
   background-color: var(--accent);
 }
+
+.test-organisms {
+  width: 100vw;
+}

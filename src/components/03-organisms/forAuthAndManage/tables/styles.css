@@ -1,3 +1,8 @@
 /* ===============================================
-COMPONENT'S NAME
+TABLES
 =================================================*/
+.table.cashiers,
+.table.categories,
+.table.products {
+  width: 100%;
+}

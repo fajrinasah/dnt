@@ -60,6 +60,13 @@ import ManageCategoriesAndProductsTableRow from "../../../02-molecules/forAuthAn
 import ManageCashiersToolbars from "../../../02-molecules/forAuthAndManage/toolbars/ManageCashiersProductsToolbars";
 import ManageCategoriesToolbars from "../../../02-molecules/forAuthAndManage/toolbars/ManageCategoriesToolbars";
 
+/*--------------------------------------------------------------*/
+
+// tables
+import TableCashiers from "../../../03-organisms/forAuthAndManage/tables/TableCashiers";
+import TableCategories from "../../../03-organisms/forAuthAndManage/tables/TableCategories";
+import TableProducts from "../../../03-organisms/forAuthAndManage/tables/TableProducts";
+
 export function GeneralTest() {
   const categories = [
     { id: 1, name: "All" },
@@ -72,6 +79,48 @@ export function GeneralTest() {
   const sortingOptions = [
     { id: 1, name: "Name" },
     { id: 2, name: "Time" },
+  ];
+
+  const cashiersData = [
+    {
+      id: 1,
+      photo_profile:
+        "https://images.pexels.com/photos/4906334/pexels-photo-4906334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      username: "kumaebi",
+      email: "kumaebi@example.com",
+    },
+    {
+      id: 2,
+      photo_profile:
+        "https://images.pexels.com/photos/4906334/pexels-photo-4906334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      username: "kumaebi2",
+      email: "kumaebi2@example.com",
+    },
+  ];
+
+  const categoriesData = [
+    { id: 1, name: "Teas", created_at: "2023/07/27", updated_at: "2023/07/28" },
+    {
+      id: 2,
+      name: "Donuts",
+      created_at: "2023/07/27",
+      updated_at: "2023/07/28",
+    },
+  ];
+
+  const productsData = [
+    {
+      id: 1,
+      name: "Chai Latte",
+      created_at: "2023/07/27",
+      updated_at: "2023/07/28",
+    },
+    {
+      id: 2,
+      name: "Witch Blend",
+      created_at: "2023/07/27",
+      updated_at: "2023/07/28",
+    },
   ];
 
   return (
@@ -178,7 +227,7 @@ export function GeneralTest() {
         <br />
       </div> */}
 
-      <div className="test-molecules d-flex-col">
+      {/* <div className="test-molecules d-flex-col">
         <FormLogin />
         <br />
         <br />
@@ -284,6 +333,21 @@ export function GeneralTest() {
         <br />
         <ManageCategoriesToolbars sortingOptions={sortingOptions} />
         <br />
+        <br />
+        <br />
+        <br />
+      </div> */}
+
+      <div className="test-organisms">
+        <TableCashiers cashiersArr={cashiersData} />
+        <br />
+        <br />
+        <br />
+        <TableCategories categoriesArr={categoriesData} />
+        <br />
+        <br />
+        <br />
+        <TableProducts productsArr={productsData} />
         <br />
         <br />
         <br />
