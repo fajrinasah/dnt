@@ -2,24 +2,17 @@ import "../styles.css";
 
 export default function InputSelect({
   flexDirection,
+  color = "accent",
   inputId,
   labelText,
   placeholderOption = "",
   ref,
   multiple = false,
-  // value,
-  // onChange,
-  // onBlur,
+  value,
+  onChange,
+  onBlur,
   optionsArray = [],
 }) {
-  // const categories = [
-  //   { value: "all", content: "All" },
-  //   { value: "anthropology", content: "Anthropology" },
-  //   { value: "archaeology", content: "Archaeology" },
-  //   { value: "museology", content: "Museology" },
-  //   { value: "others", content: "Others" },
-  // ];
-
   const RenderOptions = () => {
     return optionsArray.map((option) => {
       return (
@@ -31,7 +24,7 @@ export default function InputSelect({
   };
 
   return (
-    <div className={`label-and-input d-flex-${flexDirection}`}>
+    <div className={`label-and-input d-flex-${flexDirection} ${color}`}>
       <label htmlFor={inputId} className="label-for-input">
         {labelText}
       </label>
@@ -42,9 +35,9 @@ export default function InputSelect({
         ref={ref}
         multiple={multiple}
         size="5"
-        // value={value}
-        // onChange={onChange}
-        // onBlur={onBlur}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
       >
         <option className="placeholder-option" value="">
           {placeholderOption}

@@ -9,7 +9,7 @@ DEFAULT STANDARD BUTTON
   margin: 0.5rem;
 
   border-radius: 3px;
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid;
 
   transition: background-color 0.2s ease-in-out;
@@ -58,9 +58,16 @@ DEFAULT STANDARD BUTTON
 
 /*=================STORY: GHOST====================*/
 
-.button-standard.ghost {
+.button-standard.ghost,
+.button-standard.ghost-accent {
   background-color: transparent;
   border-color: var(--accent);
+  color: var(--contrast);
+}
+
+.button-standard.ghost-main {
+  background-color: transparent;
+  border-color: var(--main);
   color: var(--contrast);
 }
 

@@ -5,6 +5,8 @@
 /*-------------------------------------------------*/
 // IMPORT FROM PROJECT'S FILES
 /*-------------------------------------------------*/
+import "./styles.css";
+
 // buttons
 import ButtonHelp from "../../../01-atoms/forAuthAndManage/buttons/ButtonHelp";
 import ButtonStandard from "../../../01-atoms/forAuthAndManage/buttons/ButtonStandard";
@@ -25,10 +27,38 @@ import InputTextArea from "../../../01-atoms/forAuthAndManage/inputs/formInputs/
 
 import InputToolbarSelect from "../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSelect";
 import InputToolbarSearch from "../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSearch";
+import InputToolbarSort from "../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSort";
 
 // titles
 import TitlePage from "../../../01-atoms/forAuthAndManage/texts/titles/TitlePage";
 import TitleSection from "../../../01-atoms/forAuthAndManage/texts/titles/TitleSection";
+
+/*--------------------------------------------------------------*/
+// forms
+import FormLogin from "../../../02-molecules/forAuthAndManage/forms/auth/FormLogin";
+import FormForgotPassword from "../../../02-molecules/forAuthAndManage/forms/auth/FormForgotPassword";
+import FormVerifyOtp from "../../../02-molecules/forAuthAndManage/forms/auth/FormVerifyOtp";
+import FormResetPassword from "../../../02-molecules/forAuthAndManage/forms/auth/FormResetPassword";
+
+import FormAddCashier from "../../../02-molecules/forAuthAndManage/forms/cashiers/FormAddCashier";
+import FormEditEmailCashier from "../../../02-molecules/forAuthAndManage/forms/cashiers/FormEditEmailCashier";
+
+import FormAddCategory from "../../../02-molecules/forAuthAndManage/forms/categories/FormAddCategory";
+import FormEditNameCategory from "../../../02-molecules/forAuthAndManage/forms/categories/FormEditNameCategory";
+
+import FormAddProduct from "../../../02-molecules/forAuthAndManage/forms/products/FormAddProduct";
+import FormEditInfoProduct from "../../../02-molecules/forAuthAndManage/forms/products/FormEditInfoProduct";
+
+// pagination
+import ManageCashiersProductsPagination from "../../../02-molecules/forAuthAndManage/ManageCashiersProductsPagination";
+
+// tr
+import ManageCashiersTableRow from "../../../02-molecules/forAuthAndManage/tableRows/ManageCashiersTableRow";
+import ManageCategoriesAndProductsTableRow from "../../../02-molecules/forAuthAndManage/tableRows/ManageCategoriesAndProductsTableRow";
+
+// toolbars
+import ManageCashiersToolbars from "../../../02-molecules/forAuthAndManage/toolbars/ManageCashiersProductsToolbars";
+import ManageCategoriesToolbars from "../../../02-molecules/forAuthAndManage/toolbars/ManageCategoriesToolbars";
 
 export function GeneralTest() {
   const categories = [
@@ -39,96 +69,225 @@ export function GeneralTest() {
     { id: 5, name: "Others" },
   ];
 
+  const sortingOptions = [
+    { id: 1, name: "Name" },
+    { id: 2, name: "Time" },
+  ];
+
   return (
     <div className="big-container">
-      <h1>Test</h1>
-      <br />
-      <br />
-      <ButtonHelp detail="See password guides" />
-      <br />
-      <br />
-      <ButtonStandard
-        story="raised-warning"
-        bold="bold"
-        width="full"
-        content="Change me"
-      />
-
-      <div className="sub-cont">
-        <ImageContainer
-          imgSource="https://images.pexels.com/photos/4906334/pexels-photo-4906334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          shape="circle"
+      {/* <div className="test-atoms">
+        <h1>Test</h1>
+        <br />
+        <br />
+        <ButtonHelp detail="See password guides" />
+        <br />
+        <br />
+        <ButtonStandard
+          story="raised-warning"
+          bold="bold"
+          width="full"
+          content="Change me"
         />
+
+        <div className="sub-cont">
+          <ImageContainer
+            imgSource="https://images.pexels.com/photos/4906334/pexels-photo-4906334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            shape="circle"
+          />
+        </div>
+
+        <InputPassword flexDirection="column" labelText="Password" />
+        <br />
+        <br />
+        <br />
+        <InputConfirmPassword
+          flexDirection="column"
+          labelText="Confirm password"
+        />
+        <br />
+        <br />
+        <InputEmail labelText="Email" />
+        <br />
+        <br />
+
+        <InputFile labelText="Image" />
+        <br />
+        <br />
+        <InputFileCustom buttonContent="Choose image" width="full" />
+
+        <br />
+        <br />
+        <InputNumber labelText="Price" />
+        <br />
+        <br />
+        <InputSelect
+          flexDirection="row"
+          labelText="Categories"
+          optionsArray={categories}
+          multiple={true}
+          placeholderOption="select categories"
+        />
+
+        <br />
+        <br />
+        <InputSubmit value="Submit" />
+
+        <br />
+        <br />
+        <InputText flexDirection="row" color="accent" labelText="Username" />
+
+        <br />
+        <br />
+        <InputTextArea flexDirection="row" labelText="Description" />
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <InputToolbarSelect options={categories} label="Filter" />
+        <br />
+        <br />
+        <InputToolbarSearch labelText="Search" inputPlaceholder="name" />
+        <br />
+        <br />
+        <div className="bg-accent">
+          <br />
+          <br />
+          <InputToolbarSelect options={categories} label="Filter" />
+          <br />
+          <br />
+          <InputToolbarSearch labelText="Search" inputPlaceholder="name" />
+          <br />
+          <br />
+          <InputToolbarSort options={sortingOptions} label="Sort" />
+        </div>
+        <br />
+        <br />
+
+        <TitlePage />
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <TitleSection border="accent" />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div> */}
+
+      <div className="test-molecules d-flex-col">
+        <FormLogin />
+        <br />
+        <br />
+        <FormForgotPassword />
+        <br />
+        <br />
+        <FormVerifyOtp />
+        <br />
+        <br />
+        <FormResetPassword />
+        <br />
+        <br />
+        <div className="card">
+          <FormAddCashier />
+        </div>
+
+        <br />
+        <br />
+        <div className="card">
+          <FormEditEmailCashier />
+        </div>
+        <br />
+        <br />
+        <div className="card">
+          <FormAddCategory />
+        </div>
+        <br />
+        <br />
+        <div className="card">
+          <FormEditNameCategory />
+        </div>
+        <br />
+        <br />
+        <div className="card">
+          <FormAddProduct />
+        </div>
+        <br />
+        <br />
+        <div className="card">
+          <FormEditInfoProduct />
+        </div>
+        <br />
+        <br />
+
+        <ManageCashiersProductsPagination totalPage="5" />
+
+        <br />
+        <br />
+        <ManageCashiersTableRow
+          type="headrow"
+          numberValue="No."
+          photoValue="https://images.pexels.com/photos/4906334/pexels-photo-4906334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        />
+
+        <ManageCashiersTableRow
+          type="bodyrow-dark"
+          numberValue="1"
+          photoValue="https://images.pexels.com/photos/4906334/pexels-photo-4906334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        />
+
+        <ManageCashiersTableRow
+          type="bodyrow-light"
+          numberValue="2"
+          photoValue="https://images.pexels.com/photos/4906334/pexels-photo-4906334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        />
+        <br />
+        <br />
+        <br />
+        <br />
+        <ManageCategoriesAndProductsTableRow
+          type="headrow"
+          nameValue="Category"
+        />
+        <ManageCategoriesAndProductsTableRow
+          type="bodyrow-light"
+          numberValue="21"
+          nameValue="Teas"
+          createdAt="2023/07/28"
+          updatedAt="2023/07/27"
+        />
+        <ManageCategoriesAndProductsTableRow
+          type="bodyrow-dark"
+          numberValue="22"
+          nameValue="Decaffeinated Black Teas"
+          createdAt="2023/07/28"
+          updatedAt="2023/07/27"
+        />
+        <br />
+        <br />
+        <ManageCashiersToolbars
+          type="cashiers"
+          sortingOptions={sortingOptions}
+          filterOptions={categories}
+        />
+        <br />
+        <br />
+        <ManageCashiersToolbars
+          type="products"
+          sortingOptions={sortingOptions}
+          filterOptions={categories}
+        />
+        <br />
+        <br />
+        <ManageCategoriesToolbars sortingOptions={sortingOptions} />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
-
-      <InputPassword flexDirection="column" labelText="Password" />
-      <br />
-      <br />
-      <br />
-      <InputConfirmPassword
-        flexDirection="column"
-        labelText="Confirm password"
-      />
-      <br />
-      <br />
-      <InputEmail labelText="Email" />
-      <br />
-      <br />
-
-      <InputFile labelText="Image" />
-      <br />
-      <br />
-      <InputFileCustom buttonContent="Choose image" width="full" />
-
-      <br />
-      <br />
-      <InputNumber labelText="Price" />
-      <br />
-      <br />
-      <InputSelect
-        flexDirection="row"
-        labelText="Categories"
-        optionsArray={categories}
-        multiple={true}
-        placeholderOption="select categories"
-      />
-
-      <br />
-      <br />
-      <InputSubmit value="Submit" />
-
-      <br />
-      <br />
-      <InputText flexDirection="row" labelText="Username" />
-
-      <br />
-      <br />
-      <InputTextArea flexDirection="row" labelText="Description" />
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <InputToolbarSelect options={categories} label="Filter" />
-      <br />
-      <br />
-      <InputToolbarSearch labelText="Search" inputPlaceholder="name" />
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <TitlePage />
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <TitleSection border="accent" />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
   );
 }

@@ -1,0 +1,40 @@
+/*=============================================
+INPUT TOOLBAR SORT
+===============================================*/
+.label-for-select {
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.input-toolbar-sort select {
+  cursor: pointer;
+
+  background-color: transparent;
+  color: var(--contrast);
+  padding: 0.5rem 1rem;
+  font-size: 1.6rem;
+
+  border: none;
+  border-top: 1px solid var(--main);
+  border-bottom: 1px solid var(--main);
+}
+
+.input-toolbar-sort .radios-container {
+  padding: 0 2rem;
+}
+
+.input-toolbar-sort .radio-container label {
+  font-size: 1.6rem;
+  margin-left: 1rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.input-toolbar-sort input[type="radio"] {
+  width: 2rem;
+  height: 2rem;
+  accent-color: var(--accent);
+  margin: 0 0.5rem;
+}

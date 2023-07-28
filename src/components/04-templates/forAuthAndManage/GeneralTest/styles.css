@@ -7,3 +7,20 @@
   width: 200px;
   height: 200px;
 }
+
+.test-molecules {
+  margin-top: 5rem;
+}
+
+.test-molecules .card {
+  width: 700px;
+  min-height: 300px;
+  background-color: var(--accent);
+}
+
+.bg-accent {
+  width: 90%;
+  height: fit-content;
+  padding: 2rem;
+  background-color: var(--accent);
+}

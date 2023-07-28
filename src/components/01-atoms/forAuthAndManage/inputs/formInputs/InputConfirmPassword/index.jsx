@@ -5,6 +5,7 @@ import CheckboxShowPassword from "../CheckboxShowPassword";
 
 export default function InputConfirmPassword({
   flexDirection = "row",
+  color = "accent",
   inputId = "",
   labelText = "",
   showClicked,
@@ -21,7 +22,7 @@ export default function InputConfirmPassword({
 }) {
   return (
     <div
-      className={`input-confirm-password label-and-input d-flex-${flexDirection}`}
+      className={`input-confirm-password label-and-input d-flex-${flexDirection} ${color}`}
     >
       <label for={inputId} className="label-for-input">
         {labelText}

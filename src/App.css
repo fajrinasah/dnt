@@ -76,9 +76,13 @@ MISC.
 .d-flex-row {
   display: flex;
   flex-direction: row;
+  place-content: center;
+  place-items: center;
 }
 
 .d-flex-col {
   display: flex;
   flex-direction: column;
+  place-content: center;
+  place-items: center;
 }

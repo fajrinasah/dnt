@@ -1,0 +1,30 @@
+/* ===============================================
+MANAGE CASHIERS' & MANAGE PRODUCTS' TOOLBARS
+=================================================*/
+.form.toolbars.cashiers.products {
+  width: 90%;
+  background-color: var(--accent);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+
+.form.toolbars.cashiers.products .sort {
+  border: none;
+}
+
+.form.toolbars.cashiers.products .filter {
+  padding: 0.5rem 2rem;
+  border: none;
+  border-right: 1px solid var(--main);
+  border-left: 1px solid var(--main);
+}
+
+.form.toolbars.cashiers.products .search {
+  border: none;
+  padding: 0.5rem 0 0.5rem 2rem;
+}
+
+.form.toolbars.cashiers.products .button-standard {
+  padding: 0.5rem 1rem;
+  margin-left: 2rem;
+}

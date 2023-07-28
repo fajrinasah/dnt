@@ -1,10 +1,10 @@
-/*=====================================
+/*======================================================
 INPUT OTHER TYPES & TEXTAREA
-====================================*/
+// color input based on what color the border should be
+========================================================*/
 .label-and-input,
 .label-and-textarea {
   display: flex;
-
   min-width: 60rem;
 }
 
@@ -17,8 +17,23 @@ INPUT OTHER TYPES & TEXTAREA
   width: 24rem;
   padding: 1rem 2rem;
 
-  background-color: var(--accent);
   color: var(--contrast);
+}
+
+.label-and-input.accent .label-for-input,
+.label-and-textarea.accent .label-for-textarea {
+  align-self: stretch;
+
+  background-color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.label-and-input.main .label-for-input,
+.label-and-textarea.main .label-for-textarea {
+  align-self: stretch;
+
+  background-color: var(--accent);
+  border: 2px solid var(--main);
 }
 
 .label-and-input.d-flex-column .label-for-input,
@@ -40,10 +55,19 @@ INPUT OTHER TYPES & TEXTAREA
   font-family: "B612", sans-serif;
   font-size: 1.8rem;
 
-  background-color: transparent;
   color: var(--contrast);
+}
 
-  border: 1px solid var(--accent);
+.label-and-input.accent .input-for-label,
+.label-and-textarea.accent .textarea-for-label {
+  background-color: transparent;
+  border: 2px solid var(--accent);
+}
+
+.label-and-input.main .input-for-label,
+.label-and-textarea.main .textarea-for-label {
+  background-color: var(--main);
+  border: 2px solid var(--main);
 }
 
 .label-and-input.d-flex-column .input-for-label,
@@ -68,7 +92,7 @@ INPUT OTHER TYPES & TEXTAREA
 
 .label-and-input.d-flex-row .input-for-label,
 .label-and-textarea.d-flex-row .textarea-for-label {
-  width: calc(100% - 25rem);
+  width: calc(100% - 24rem);
 }
 
 .label-and-input.d-flex-column .input-for-label,

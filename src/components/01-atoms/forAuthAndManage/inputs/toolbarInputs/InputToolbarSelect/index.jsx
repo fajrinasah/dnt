@@ -4,9 +4,7 @@ export default function InputToolbarSelect({
   forId = "",
   label = "Choose an option",
   options = [{ id: 0, name: "" }],
-  value = {},
-  onBlur = () => {},
-  onChange = () => {},
+  refFilterOption,
 }) {
   const RenderOptions = () =>
     options.map((option) => {
@@ -27,9 +25,7 @@ export default function InputToolbarSelect({
         name={`${forId}-select`}
         id={`${forId}-select`}
         className="select-for-label"
-        value={value}
-        onBlur={onBlur}
-        onChange={onChange}
+        ref={refFilterOption}
       >
         <RenderOptions />
       </select>

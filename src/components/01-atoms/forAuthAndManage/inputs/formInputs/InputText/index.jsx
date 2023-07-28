@@ -2,24 +2,25 @@ import "../styles.css";
 
 export default function InputText({
   flexDirection = "row",
+  color = "accent",
   inputId = "",
   labelText = "",
   required = true,
   autoCapitalize = "",
   inputName = "",
   inputPlaceholder = "",
-  // defaultValue,
+  defaultValue,
   // minLength = "",
   // maxLength = "",
   // pattern = "",
-  // title = "",
+  title = "",
   ref,
-  // value,
-  // onChange,
-  // onBlur,
+  value,
+  onChange,
+  onBlur,
 }) {
   return (
-    <div className={`label-and-input d-flex-${flexDirection}`}>
+    <div className={`label-and-input d-flex-${flexDirection} ${color}`}>
       <label htmlFor={inputId} className="label-for-input">
         {labelText}
       </label>
@@ -31,15 +32,15 @@ export default function InputText({
         id={inputId}
         name={inputName}
         placeholder={inputPlaceholder}
-        // defaultValue={defaultValue}
+        defaultValue={defaultValue}
         // minLength={minLength}
         // maxLength={maxLength}
         // pattern={pattern}
-        // title={title}
+        title={title}
         ref={ref}
-        // value={value}
-        // onChange={onChange}
-        // onBlur={onBlur}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
       />
     </div>
   );

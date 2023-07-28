@@ -2,6 +2,7 @@ import "../styles.css";
 
 export default function InputTextArea({
   flexDirection = "row",
+  color = "accent",
   inputId = "",
   labelText = "",
   required = true,
@@ -17,9 +18,10 @@ export default function InputTextArea({
   value,
   onChange,
   onBlur,
+  ref,
 }) {
   return (
-    <div className={`label-and-textarea d-flex-${flexDirection}`}>
+    <div className={`label-and-textarea d-flex-${flexDirection} ${color}`}>
       <label htmlFor={inputId} className="label-for-textarea">
         {labelText}
       </label>
@@ -39,6 +41,7 @@ export default function InputTextArea({
         value={value}
         onChange={onChange}
         onBlur={onBlur}
+        ref={ref}
       ></textarea>
     </div>
   );

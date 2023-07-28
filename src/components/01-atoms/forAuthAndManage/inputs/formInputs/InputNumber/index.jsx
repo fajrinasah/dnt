@@ -2,6 +2,7 @@ import "../styles.css";
 
 export default function InputNumber({
   flexDirection = "row",
+  color = "accent",
   inputId = "",
   labelText = "",
   required = true,
@@ -17,7 +18,7 @@ export default function InputNumber({
   onBlur,
 }) {
   return (
-    <div className={`label-and-input d-flex-${flexDirection}`}>
+    <div className={`label-and-input d-flex-${flexDirection} ${color}`}>
       <label for={inputId} className="label-for-input">
         {labelText}
       </label>

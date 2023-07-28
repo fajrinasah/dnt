@@ -7,13 +7,14 @@ import CheckboxShowPassword from "../CheckboxShowPassword";
 
 export default function InputPassword({
   flexDirection = "row",
+  color = "accent",
   inputId = "",
   labelText = "",
   helpClicked,
   showClicked,
   required = true,
   inputName = "",
-  inputPlaceholder = "",
+  // inputPlaceholder = "",
   minLength = "",
   maxLength = "",
   pattern = "",
@@ -33,7 +34,9 @@ export default function InputPassword({
   ];
 
   return (
-    <div className={`input-password label-and-input d-flex-${flexDirection}`}>
+    <div
+      className={`input-password label-and-input d-flex-${flexDirection} ${color}`}
+    >
       <label for={inputId} className="label-for-input">
         {labelText}
       </label>
@@ -47,7 +50,7 @@ export default function InputPassword({
         required={required}
         id={inputId}
         name={inputName}
-        placeholder={inputPlaceholder}
+        // placeholder={inputPlaceholder}
         minLength={minLength}
         maxLength={maxLength}
         pattern={pattern}

@@ -2,6 +2,7 @@ import "../styles.css";
 
 export default function InputFile({
   flexDirection = "row",
+  color = "accent",
   inputId = "",
   labelText = "",
   required = true,
@@ -15,7 +16,9 @@ export default function InputFile({
   // onBlur,
 }) {
   return (
-    <div className={`label-and-input d-flex-${flexDirection}`}>
+    <div
+      className={`input-file label-and-input d-flex-${flexDirection} ${color}`}
+    >
       <label htmlFor={inputId} className="label-for-input">
         {labelText}
       </label>

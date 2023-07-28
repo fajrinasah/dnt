@@ -1,3 +1,63 @@
 /* ===============================================
-COMPONENT'S NAME
+PAGINATION
 =================================================*/
+
+.pagination {
+  width: 70%;
+  place-content: center;
+  place-items: center;
+
+  margin-top: 5rem;
+}
+
+.pagination button {
+  cursor: pointer;
+
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+
+  color: var(--contrast);
+  font-family: "B612", sans-serif;
+  font-size: 1.8rem;
+}
+
+.pagination button:disabled,
+.pagination button:disabled:hover {
+  opacity: 0.5;
+  cursor: default;
+  background-color: transparent;
+  color: var(--contrast);
+}
+
+.pagination .previous,
+.pagination .next {
+  border: none;
+  border: 2px solid var(--accent);
+  border-radius: 3px;
+}
+
+.pagination .button-page-container {
+  justify-content: center;
+  width: 90%;
+  padding: 0 5rem;
+  flex-wrap: wrap;
+}
+
+.pagination .button-page {
+  width: 50px;
+  height: 50px;
+
+  margin: 1rem 0.5rem;
+  border-radius: 50%;
+  border: none;
+
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+/*-------------------HOVER------------*/
+.pagination .button-page.active,
+.pagination button:hover,
+.pagination button:active {
+  background-color: var(--accent);
+}

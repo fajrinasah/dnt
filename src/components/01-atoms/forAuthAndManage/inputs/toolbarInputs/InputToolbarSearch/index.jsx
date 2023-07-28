@@ -1,44 +1,31 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 import "./styles.css";
 
 export default function InputToolbarSearch({
   inputId = "",
-  labelText = "",
-  required = true,
-  autoCapitalize = "",
   inputName = "",
   inputPlaceholder = "",
-  // defaultValue,
-  // minLength = "",
-  // maxLength = "",
-  // pattern = "",
-  // title = "",
-  ref,
-  // value,
-  // onChange,
-  // onBlur,
+  refSearch,
 }) {
   return (
     <div className="input-toolbar-search d-flex-row">
       <label htmlFor={inputId} className="">
-        {labelText}
+        <span>
+          <FontAwesomeIcon icon={faSearch} aria-placeholder="submit search" />
+        </span>
+        <span className="sr-only">Search</span>
       </label>
       <input
         className="input-for-label"
         type="search"
-        required={required}
-        autoCapitalize={autoCapitalize}
+        // required={required}
+        // autoCapitalize={autoCapitalize}
         id={inputId}
         name={inputName}
         placeholder={inputPlaceholder}
-        // defaultValue={defaultValue}
-        // minLength={minLength}
-        // maxLength={maxLength}
-        // pattern={pattern}
-        // title={title}
-        ref={ref}
-        // value={value}
-        // onChange={onChange}
-        // onBlur={onBlur}
+        ref={refSearch}
       />
     </div>
   );
