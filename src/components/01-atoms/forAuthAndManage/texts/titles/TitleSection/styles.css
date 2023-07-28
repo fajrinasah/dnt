@@ -1,0 +1,51 @@
+/* ===============================================
+TITLE FOR SECTION
+=================================================*/
+
+.title-section {
+  width: 90%;
+
+  font-family: "Forum", serif;
+
+  display: flex;
+  place-items: center;
+  place-content: center;
+
+  padding: 3rem 0;
+
+  border-top-width: 1.5px;
+  border-bottom-width: 1.5px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+}
+
+.title-section .not-bold {
+  font-weight: normal;
+}
+
+.title-section.border-main {
+  border-top-color: var(--main);
+  border-bottom-color: var(--main);
+}
+
+.title-section.border-contrast {
+  border-top-color: var(--contrast);
+  border-bottom-color: var(--contrast);
+}
+
+.title-section.border-accent {
+  border-top-color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.title-section.small {
+  font-size: 2.2rem;
+}
+
+.title-section.medium {
+  font-size: 2.8rem;
+}
+
+.title-section.large {
+  font-size: 3.2rem;
+}

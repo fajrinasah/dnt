@@ -1,0 +1,18 @@
+/*=============================================
+INPUT FILE CUSTOM
+===============================================*/
+.input-file-custom-container {
+  width: 100%;
+  place-content: center;
+}
+
+.input-file-custom input[type="file"] {
+  display: none;
+}
+
+.input-file-custom {
+  cursor: pointer;
+
+  font-family: "B612", sans-serif;
+  color: var(--contrast);
+}

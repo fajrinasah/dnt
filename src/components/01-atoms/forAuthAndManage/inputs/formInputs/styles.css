@@ -1,0 +1,90 @@
+/*=====================================
+INPUT OTHER TYPES & TEXTAREA
+====================================*/
+.label-and-input,
+.label-and-textarea {
+  display: flex;
+
+  min-width: 60rem;
+}
+
+/*------------LABEL----------------*/
+.label-for-input,
+.label-for-textarea {
+  display: flex;
+  align-items: center;
+
+  width: 24rem;
+  padding: 1rem 2rem;
+
+  background-color: var(--accent);
+  color: var(--contrast);
+}
+
+.label-and-input.d-flex-column .label-for-input,
+.label-and-input.d-flex-column .label-for-textarea {
+  border-radius: 3px 3px 0 0;
+}
+
+.label-and-input.d-flex-row .label-for-input,
+.label-and-input.d-flex-row .label-for-textarea {
+  border-radius: 3px 0 0 3px;
+}
+
+/*------------INPUT----------------*/
+
+.input-for-label,
+.textarea-for-label {
+  padding: 1rem;
+
+  font-family: "B612", sans-serif;
+  font-size: 1.8rem;
+
+  background-color: transparent;
+  color: var(--contrast);
+
+  border: 1px solid var(--accent);
+}
+
+.label-and-input.d-flex-column .input-for-label,
+.label-and-input.d-flex-column .textarea-for-label {
+  border-radius: 0 0 3px 3px;
+}
+
+.label-and-input.d-flex-row .input-for-label,
+.label-and-input.d-flex-row .textarea-for-label {
+  border-radius: 0 3px 3px 0;
+}
+
+.label-and-input.d-flex-row,
+.label-and-textarea.d-flex-row {
+  padding: 1rem;
+}
+
+.label-and-input.d-flex-column,
+.label-and-textarea.d-flex-column {
+  padding: 3rem 1rem;
+}
+
+.label-and-input.d-flex-row .input-for-label,
+.label-and-textarea.d-flex-row .textarea-for-label {
+  width: calc(100% - 25rem);
+}
+
+.label-and-input.d-flex-column .input-for-label,
+.label-and-textarea.d-flex-column .textarea-for-label {
+  width: 100%;
+}
+
+/*------------TEXTAREA----------------*/
+
+.textarea-for-label {
+  resize: none;
+  height: 150px;
+}
+
+/*------------------INPUT BUTTON----------------*/
+.input-button .input-for-label {
+  place-content: center;
+  place-items: center;
+}

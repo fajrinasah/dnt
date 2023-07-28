@@ -1,0 +1,20 @@
+/* ===============================================
+TITLE FOR PAGE
+=================================================*/
+.title-page {
+  width: 90%;
+  font-family: "Forum", serif;
+  font-size: 4rem;
+
+  border-bottom: 3px solid var(--accent);
+  padding: 2rem;
+  margin: 3rem 0;
+
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+
+.title-page .not-bold {
+  font-weight: normal;
+}

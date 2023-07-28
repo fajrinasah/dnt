@@ -1,0 +1,72 @@
+/* ===============================================
+DEFAULT STANDARD BUTTON
+=================================================*/
+
+.button-standard {
+  font-family: "B612", sans-serif;
+
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+
+  transition: background-color 0.2s ease-in-out;
+  transition: border 0.2s ease-in-out;
+
+  cursor: pointer;
+}
+
+.button-standard.w-full {
+  width: 100%;
+}
+
+.button-standard.w-auto {
+  width: auto;
+}
+
+/*=================STORY: RAISED & RAISED-WARNING====================*/
+.button-standard.raised-accent,
+.button-standard.raised-main,
+.button-standard.raised-warning {
+  border: none;
+  box-shadow: -1px 1px 2px 0px black;
+}
+
+/*=================STORY: RAISED-ACCENT====================*/
+.button-standard.raised-accent {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--contrast);
+}
+
+/*=================STORY: RAISED-MAIN====================*/
+.button-standard.raised-main {
+  background-color: var(--main);
+  border-color: var(--main);
+  color: var(--contrast);
+}
+
+/*=================STORY: RAISED-WARNING====================*/
+
+.button-standard.raised-warning {
+  background-color: var(--warning);
+  border-color: var(--warning);
+  color: var(--main);
+}
+
+/*=================STORY: GHOST====================*/
+
+.button-standard.ghost {
+  background-color: transparent;
+  border-color: var(--accent);
+  color: var(--contrast);
+}
+
+/*=================STORY: FLAT====================*/
+
+.button-standard.flat {
+  border: none;
+  background-color: transparent;
+}

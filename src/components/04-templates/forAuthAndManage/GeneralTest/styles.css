@@ -1,0 +1,9 @@
+.big-container {
+  background-color: var(--main);
+  max-width: 100vw;
+}
+
+.sub-cont {
+  width: 200px;
+  height: 200px;
+}
