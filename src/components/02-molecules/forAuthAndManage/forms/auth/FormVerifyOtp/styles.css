@@ -1,0 +1,15 @@
+/*=============================================
+FORM VERIFY OTP TOKEN
+==============================================*/
+.form.verify {
+  padding: 15rem 0;
+}
+
+.form.verify .error-container {
+  width: 65rem;
+  margin-top: 3rem;
+}
+
+.form.verify .input-submit {
+  margin-top: 5rem;
+}
