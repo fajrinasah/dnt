@@ -15,8 +15,11 @@ export const verifyOtpToken = createAsyncThunk(
   "auth/verifyOtpToken",
   async (payload, { rejectWithValue }) => {
     try {
-      // payload: uuidWithContext --> req.params
-      const { data } = await api.post(`/auth/verify-otp/${payload}`);
+      // payload: {uuidWithContext, body: {token: ""}}
+      const { data } = await api.post(
+        `/auth/verify-otp/${payload?.uuidWithContext}`,
+        payload?.body
+      );
 
       toastSuccess(data?.message);
 
@@ -92,9 +95,15 @@ export const keepLogin = createAsyncThunk(
 
       return data;
     } catch (error) {
-      toastError(error.response ? error.response.data?.message : error);
+      toastError(
+        error.response
+          ? error.response.data?.message + ". Please login."
+          : error
+      );
       return rejectWithValue(
-        error.response ? error.response.data?.message : error
+        error.response
+          ? error.response.data?.message + ". Please login."
+          : error
       );
     }
   }
