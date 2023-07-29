@@ -10,7 +10,7 @@ export const createTransactions = createAsyncThunk(
   "transactions/createTransactions",
   async (payload, { rejectWithValue }) => {
     try {
-      // payload: req queries (if any)
+      // payload:(products)
       const { data } = await api.post(`/transaction`, payload);
 
       console.log(data)

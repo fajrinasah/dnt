@@ -1,11 +1,11 @@
 /*-------------------------------------------------*/
 // IMPORT FROM DEPENDENCIES
 /*-------------------------------------------------*/
+import { IoAdd, IoRemove } from "react-icons/io5";
 
 /*-------------------------------------------------*/
 // IMPORT FROM PROJECT'S FILES
 /*-------------------------------------------------*/
-import { IoAdd, IoRemove } from "react-icons/io5";
 import "./styles.css";
 
 export default function QuantityStepper({ product, increase, reduce }) {

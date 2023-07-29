@@ -182,11 +182,17 @@ export const getAllProducts = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       // payload: req queries (if any)
-      const { data } = await api.get(`/products/${payload}`);
+      const { page, sort, name } = payload;
+
+      const PARAMS = `page=${page}&sort=${sort}&name=${name}`
+
+      const { data } = await api.get(`/products/?${PARAMS}`);
 
       toast.promise(data, {
         loading: toastBlank("Loading..."),
       });
+
+      console.log(data)
 
       return data;
     } catch (error) {
