@@ -1,6 +1,7 @@
-/* ===============================================
-CUSTOM TOASTS
-=================================================*/
+/*=========================================
+MODAL DEFAULT TEXT
+===============================================*/
+
 /*--------------CONTAINER-------------*/
 .modal-default-text {
   place-content: center;
@@ -27,11 +28,15 @@ CUSTOM TOASTS
   background-color: var(--accent);
 }
 
+.modal-default-text.bg-warning {
+  background-color: var(--warning);
+}
+
 /*--------------TYPE: TOAST-------------*/
 
 .modal-default-text.toast {
   width: 40%;
-  box-shadow: 2px 1px 10px 0px black;
+  box-shadow: 2px 1px 10px 0px grey;
 }
 
 .modal-default-text.toast .modal-content {
@@ -49,7 +54,7 @@ CUSTOM TOASTS
 /*--------------CONTENT-------------*/
 .modal-default-text .modal-content {
   padding: 1.5rem;
-  margin: 2rem;
+  margin: 1rem;
 
   place-content: center;
   place-items: center;
@@ -57,10 +62,27 @@ CUSTOM TOASTS
   text-align: center;
 }
 
+/*----------COLOR-----------*/
+.modal-default-text.color-main {
+  color: var(--main);
+}
+
+.modal-default-text.color-contrast {
+  color: var(--contrast);
+}
+
+.modal-default-text.color-accent {
+  color: var(--accent);
+}
+
+.modal-default-text.color-warning {
+  color: var(--warning);
+}
+
 /*----------FRAME-----------*/
 .modal-default-text .frame {
   width: 100%;
-  margin: 2rem;
+  margin: 1rem;
   border-top-width: 1px;
   border-bottom-width: 1px;
 
@@ -81,4 +103,9 @@ CUSTOM TOASTS
 .modal-default-text.color-accent .frame {
   border-top-color: var(--accent);
   border-bottom-color: var(--accent);
+}
+
+.modal-default-text.color-warning .frame {
+  border-top-color: var(--warning);
+  border-bottom-color: var(--warning);
 }

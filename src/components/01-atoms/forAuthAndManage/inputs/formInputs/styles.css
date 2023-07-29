@@ -36,8 +36,8 @@ INPUT OTHER TYPES & TEXTAREA
   border: 2px solid var(--main);
 }
 
-.label-and-input.d-flex-column .label-for-input,
-.label-and-input.d-flex-column .label-for-textarea {
+.label-and-input.d-flex-col .label-for-input,
+.label-and-input.d-flex-col .label-for-textarea {
   border-radius: 3px 3px 0 0;
 }
 
@@ -70,8 +70,8 @@ INPUT OTHER TYPES & TEXTAREA
   border: 2px solid var(--main);
 }
 
-.label-and-input.d-flex-column .input-for-label,
-.label-and-input.d-flex-column .textarea-for-label {
+.label-and-input.d-flex-col .input-for-label,
+.label-and-input.d-flex-col .textarea-for-label {
   border-radius: 0 0 3px 3px;
 }
 
@@ -85,8 +85,8 @@ INPUT OTHER TYPES & TEXTAREA
   padding: 1rem;
 }
 
-.label-and-input.d-flex-column,
-.label-and-textarea.d-flex-column {
+.label-and-input.d-flex-col,
+.label-and-textarea.d-flex-col {
   padding: 3rem 1rem;
 }
 
@@ -95,8 +95,8 @@ INPUT OTHER TYPES & TEXTAREA
   width: calc(100% - 24rem);
 }
 
-.label-and-input.d-flex-column .input-for-label,
-.label-and-textarea.d-flex-column .textarea-for-label {
+.label-and-input.d-flex-col .input-for-label,
+.label-and-textarea.d-flex-col .textarea-for-label {
   width: 100%;
 }
 

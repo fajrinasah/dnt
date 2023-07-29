@@ -15,10 +15,11 @@ export default function InputPassword({
   required = true,
   inputName = "",
   // inputPlaceholder = "",
-  minLength = "",
-  maxLength = "",
-  pattern = "",
+  // minLength = "",
+  // maxLength = "",
+  // pattern = "",
   title = "",
+  guidesIsShown,
   passwordIsShown,
   value,
   onChange,
@@ -38,11 +39,11 @@ export default function InputPassword({
     <div
       className={`input-password label-and-input d-flex-${flexDirection} ${color}`}
     >
-      <label for={inputId} className="label-for-input">
+      <label htmlFor={inputId} className="label-for-input">
         {labelText}
       </label>
       <div className="guides-container">
-        <ModalHelp ulContent={passwordGuides} />
+        {guidesIsShown && <ModalHelp ulContent={passwordGuides} />}
         <ButtonHelp detail="See guides" onClick={helpClicked} />
       </div>
       <input
@@ -52,9 +53,9 @@ export default function InputPassword({
         id={inputId}
         name={inputName}
         // placeholder={inputPlaceholder}
-        minLength={minLength}
-        maxLength={maxLength}
-        pattern={pattern}
+        // minLength={minLength}
+        // maxLength={maxLength}
+        // pattern={pattern}
         title={title}
         value={value}
         onChange={onChange}

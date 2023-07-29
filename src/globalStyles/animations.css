@@ -8,13 +8,19 @@ button:hover,
 }
 
 button:active,
-.button-standard:active {
+.button-standard:active,
+a:active {
   transform: scale(0.94);
 }
 
 button:disabled,
-.button-standard:disabled {
+.button-standard:disabled,
+a:disabled {
   opacity: 0.6;
+}
+
+a:hover {
+  transform: scale(0.97);
 }
 
 /*-----------------------------------

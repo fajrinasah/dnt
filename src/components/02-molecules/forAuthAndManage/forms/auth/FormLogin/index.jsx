@@ -1,6 +1,9 @@
+import { toastError } from "../../../customToasts";
+
 import InputText from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputText";
 import InputPassword from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputPassword";
 import InputSubmit from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputSubmit";
+import ModalDefaultText from "../../../../../01-atoms/forAuthAndManage/texts/ModalDefaultText";
 
 import "./styles.css";
 
@@ -11,20 +14,23 @@ export default function FormLogin({
   isSubmitting = () => {},
   helpClicked = () => {},
   showClicked = () => {},
-  touched,
-  errors,
+  dataTouched,
+  passwordTouched,
+  dataErrors,
+  passwordErrors,
   dataValue,
   passwordValue,
+  guidesIsShown,
   passwordIsShown,
 }) {
   return (
     <form onSubmit={onSubmit} className="form login d-flex-col">
       <InputText
-        flexDirection="column"
+        flexDirection="col"
         color="accent"
         inputId="data"
         labelText="Username/email"
-        required={true}
+        required={false}
         inputName="data"
         inputPlaceholder="enter your username or email here"
         value={dataValue}
@@ -32,10 +38,15 @@ export default function FormLogin({
         onChange={handleChange}
       />
 
-      {/* {touched.data && errors.data && (
-        // show toast
-        
-      )} */}
+      {dataTouched && dataErrors && (
+        <div className="error-container data d-flex-row">
+          <ModalDefaultText
+            content={dataErrors}
+            color="main"
+            bgColor="accent"
+          />
+        </div>
+      )}
 
       <InputPassword
         flexDirection="column"
@@ -45,16 +56,23 @@ export default function FormLogin({
         labelText="Password"
         helpClicked={helpClicked}
         showClicked={showClicked}
-        required={true}
+        required={false}
+        guidesIsShown={guidesIsShown}
         passwordIsShown={passwordIsShown}
         value={passwordValue}
         onBlur={handleBlur}
         onChange={handleChange}
       />
 
-      {/* {touched.password && errors.password && (
-        // show toast
-      )} */}
+      {passwordTouched && passwordErrors && (
+        <div className="error-container password d-flex-row">
+          <ModalDefaultText
+            content={passwordErrors}
+            color="main"
+            bgColor="accent"
+          />
+        </div>
+      )}
 
       <div className="input-submit-container d-flex-row">
         <InputSubmit value="Login" disabled={isSubmitting} width="auto" />

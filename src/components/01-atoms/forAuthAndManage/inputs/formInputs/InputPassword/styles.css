@@ -4,6 +4,8 @@
   display: grid;
   grid-template: 1fr 1fr / 25rem 1fr 1fr;
   grid-template-areas: "label help show" "input input input";
+
+  padding: 3rem 1rem;
 }
 
 .input-password .label-for-input {
@@ -25,4 +27,5 @@
 
 .input-password .guides-container {
   position: relative;
+  z-index: 2;
 }

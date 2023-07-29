@@ -1,7 +1,18 @@
 /*=============================================
 FORM LOGIN
 ==============================================*/
-
 .form.login .input-submit-container {
+  margin-top: 8rem;
+}
+
+.form.login .error-container {
+  width: 65rem;
+}
+
+.form.login .error-container.password {
   margin-top: 10rem;
+}
+
+.form.login .error-container.password .modal-default {
+  margin: 0;
 }

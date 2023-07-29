@@ -1,8 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Navigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import api from "../../../utils/api.instance";
 import {
+  toastBlank,
   toastError,
   toastSuccess,
 } from "../../../../../src/components/02-molecules/forAuthAndManage/customToasts";
@@ -68,13 +70,11 @@ export const login = createAsyncThunk(
       const token = headers?.authorization.split(" ")[1];
 
       // set token in local storage
-      localStorage.setItem(token);
-
-      toastSuccess("Welcome back!");
+      localStorage.setItem("token", token);
 
       return data;
     } catch (error) {
-      toastError(error.response ? error.response.data?.message.err : error);
+      toastError(error.response ? error.response.data?.message : error);
       return rejectWithValue(
         error.response ? error.response.data?.message : error
       );
@@ -93,7 +93,7 @@ export const keepLogin = createAsyncThunk(
 
       return data;
     } catch (error) {
-      toastError(error.response ? error.response.data?.message.err : error);
+      toastError(error.response ? error.response.data?.message : error);
       return rejectWithValue(
         error.response ? error.response.data?.message : error
       );
