@@ -1,0 +1,25 @@
+/* ===============================================
+FORM ADD CASHIER
+=================================================*/
+.form.add-cashier .disclaimer {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.form.add-cashier .input-submit-container {
+  min-width: 60rem;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.form.add-cashier .input-submit-container .button-standard {
+  margin: 0;
+  margin-right: 2rem;
+}
+
+.form.add-cashier .input-submit-container .input-submit {
+  margin: 0;
+  margin-left: 2rem;
+}

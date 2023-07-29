@@ -11,7 +11,8 @@ import { useEffect } from "react";
 import "./App.css";
 
 /* PAGES */
-import { PageLogin } from "./components/05-pages";
+import { PageLogin } from "./components/05-pages/forAuthAndManage/PageLogin";
+import { GeneralTest } from "./components/04-templates/forAuthAndManage/GeneralTest";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/login" element={<PageLogin />} />
-          <Route />
+          <Route path="/test" element={<GeneralTest />} />
         </Routes>
       </main>
       <footer></footer>

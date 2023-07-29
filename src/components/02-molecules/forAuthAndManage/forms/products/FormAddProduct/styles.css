@@ -1,0 +1,22 @@
+/* ===============================================
+FORM ADD PRODUCT
+=================================================*/
+.form.add-product .input-file {
+  width: 80%;
+}
+
+.form.add-product .input-submit-container {
+  min-width: 60rem;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.form.add-product .input-submit-container .button-standard {
+  margin: 0;
+  margin-right: 2rem;
+}
+
+.form.add-product .input-submit-container .input-submit {
+  margin: 0;
+  margin-left: 2rem;
+}
