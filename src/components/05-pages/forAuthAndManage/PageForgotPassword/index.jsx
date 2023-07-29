@@ -3,7 +3,7 @@
 /*-------------------------------------------------*/
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
-// import { useNavigate } from "react-router";
+// import { redirect } from "react-router";
 
 /*-------------------------------------------------*/
 // IMPORT FROM PROJECT'S FILES
@@ -14,9 +14,8 @@ import { emailValidationSchema } from "../../../../validationSchemata";
 import TitlePage from "../../../01-atoms/forAuthAndManage/texts/titles/TitlePage";
 import FormForgotPassword from "../../../02-molecules/forAuthAndManage/forms/auth/FormForgotPassword";
 
-export function PageForgotPassword() {
+export default function PageForgotPassword() {
   const dispatch = useDispatch();
-  //   const navigate = useNavigate();
 
   return (
     <div className="page forgot-password d-flex-col">
@@ -40,8 +39,8 @@ export function PageForgotPassword() {
 
             setSubmitting(false);
 
-            // navigate to landing page (when landing page has been made)
-            // navigate("/");
+            // redirect to landing page (when landing page has been made)
+            // redirect("/");
           } catch (error) {
             console.log("error", error?.message);
             return { message: error?.message };

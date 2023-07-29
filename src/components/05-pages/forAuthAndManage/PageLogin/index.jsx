@@ -18,7 +18,7 @@ import FormLogin from "../../../02-molecules/forAuthAndManage/forms/auth/FormLog
 
 import "./styles.css";
 
-export function PageLogin() {
+export default function PageLogin() {
   const dispatch = useDispatch();
 
   /*---------------Show Password Guides Toggle-------------*/
@@ -103,7 +103,10 @@ export function PageLogin() {
       </Formik>
 
       <div className="nav-to-reset-password-page d-flex-row">
-        <Link to="/forgot-password" className="link-to-reset-password-page">
+        <Link
+          to="/auth/forgot-password"
+          className="link-to-reset-password-page"
+        >
           Forgot password?
         </Link>
       </div>
