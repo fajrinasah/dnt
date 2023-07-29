@@ -9,12 +9,10 @@ export default function InputConfirmPassword({
   inputId = "",
   labelText = "",
   showClicked,
+  passwordIsShown,
   required = true,
   inputName = "",
   inputPlaceholder = "",
-  minLength = "",
-  maxLength = "",
-  pattern = "",
   title = "",
   value,
   onChange,
@@ -29,14 +27,11 @@ export default function InputConfirmPassword({
       </label>
       <input
         className="input-for-label"
-        type="password"
+        type={passwordIsShown ? "text" : "password"}
         required={required}
         id={inputId}
         name={inputName}
         placeholder={inputPlaceholder}
-        minLength={minLength}
-        maxLength={maxLength}
-        pattern={pattern}
         title={title}
         value={value}
         onChange={onChange}

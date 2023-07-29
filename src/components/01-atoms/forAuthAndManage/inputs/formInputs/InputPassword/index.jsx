@@ -14,10 +14,7 @@ export default function InputPassword({
   showClicked,
   required = true,
   inputName = "",
-  // inputPlaceholder = "",
-  // minLength = "",
-  // maxLength = "",
-  // pattern = "",
+  inputPlaceholder = "",
   title = "",
   guidesIsShown,
   passwordIsShown,
@@ -52,10 +49,7 @@ export default function InputPassword({
         required={required}
         id={inputId}
         name={inputName}
-        // placeholder={inputPlaceholder}
-        // minLength={minLength}
-        // maxLength={maxLength}
-        // pattern={pattern}
+        placeholder={inputPlaceholder}
         title={title}
         value={value}
         onChange={onChange}
