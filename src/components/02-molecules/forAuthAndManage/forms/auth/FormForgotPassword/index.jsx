@@ -32,7 +32,7 @@ export default function FormForgotPassword({
         <div className="error-container email d-flex-row">
           <ModalDefaultText
             content={emailErrors}
-            color="main"
+            color="contrast"
             bgColor="accent"
           />
         </div>

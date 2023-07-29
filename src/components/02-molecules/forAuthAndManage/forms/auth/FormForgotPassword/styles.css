@@ -2,7 +2,7 @@
 FORM FORGOT PASSWORD
 ==============================================*/
 .form.forgot-password {
-  padding: 10rem 0;
+  padding: 15rem 0;
 }
 
 .form.forgot-password .error-container {
@@ -10,5 +10,5 @@ FORM FORGOT PASSWORD
 }
 
 .form.forgot-password .input-submit {
-  margin-top: 3rem;
+  margin-top: 5rem;
 }
