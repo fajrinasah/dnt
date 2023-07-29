@@ -14,6 +14,7 @@ import "./App.css";
 
 /* PAGES */
 import { PageLogin } from "./components/05-pages/forAuthAndManage/PageLogin";
+import { PageForgotPassword } from "./components/05-pages/forAuthAndManage/PageForgotPassword";
 import { GeneralTest } from "./components/04-templates/forAuthAndManage/GeneralTest";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/login" element={<PageLogin />} />
+          <Route path="/forgot-password" element={<PageForgotPassword />} />
           <Route path="/test" element={<GeneralTest />} />
         </Routes>
       </main>
