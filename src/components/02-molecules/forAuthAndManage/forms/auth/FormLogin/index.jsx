@@ -11,8 +11,11 @@ export default function FormLogin({
   isSubmitting = () => {},
   helpClicked = () => {},
   showClicked = () => {},
+  touched,
+  errors,
   dataValue,
   passwordValue,
+  passwordIsShown,
 }) {
   return (
     <form onSubmit={onSubmit} className="form login d-flex-col">
@@ -28,6 +31,12 @@ export default function FormLogin({
         onBlur={handleBlur}
         onChange={handleChange}
       />
+
+      {/* {touched.data && errors.data && (
+        // show toast
+        
+      )} */}
+
       <InputPassword
         flexDirection="column"
         color="accent"
@@ -37,10 +46,16 @@ export default function FormLogin({
         helpClicked={helpClicked}
         showClicked={showClicked}
         required={true}
+        passwordIsShown={passwordIsShown}
         value={passwordValue}
         onBlur={handleBlur}
         onChange={handleChange}
       />
+
+      {/* {touched.password && errors.password && (
+        // show toast
+      )} */}
+
       <div className="input-submit-container d-flex-row">
         <InputSubmit value="Login" disabled={isSubmitting} width="auto" />
       </div>

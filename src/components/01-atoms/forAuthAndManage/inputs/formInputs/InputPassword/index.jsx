@@ -19,6 +19,7 @@ export default function InputPassword({
   maxLength = "",
   pattern = "",
   title = "",
+  passwordIsShown,
   value,
   onChange,
   onBlur,
@@ -46,7 +47,7 @@ export default function InputPassword({
       </div>
       <input
         className="input-for-label"
-        type="password"
+        type={passwordIsShown ? "text" : "password"}
         required={required}
         id={inputId}
         name={inputName}
