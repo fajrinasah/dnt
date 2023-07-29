@@ -1,5 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Navigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 import api from "../../../utils/api.instance";
@@ -110,8 +109,6 @@ export const forgotPassword = createAsyncThunk(
     try {
       // payload: {email, context}
       const { data } = await api.post("/auth/request-otp", payload);
-
-      <Navigate to="/" replace />;
 
       toastSuccess(data?.message);
 
