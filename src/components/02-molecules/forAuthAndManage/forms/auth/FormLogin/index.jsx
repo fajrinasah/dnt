@@ -40,7 +40,7 @@ export default function FormLogin({
         <div className="error-container data d-flex-row">
           <ModalDefaultText
             content={dataErrors}
-            color="main"
+            color="contrast"
             bgColor="accent"
           />
         </div>
@@ -66,7 +66,7 @@ export default function FormLogin({
         <div className="error-container password d-flex-row">
           <ModalDefaultText
             content={passwordErrors}
-            color="main"
+            color="contrast"
             bgColor="accent"
           />
         </div>
