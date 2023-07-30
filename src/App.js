@@ -18,6 +18,7 @@ import PageForgotPassword from "./components/05-pages/forAuthAndManage/PageForgo
 import PageTokenVerification from "./components/05-pages/forAuthAndManage/PageTokenVerification";
 import PageResetPassword from "./components/05-pages/forAuthAndManage/PageResetPassword";
 import { GeneralTest } from "./components/04-templates/forAuthAndManage/GeneralTest";
+import TempHome from "./components/04-templates/forAuthAndManage/TempHome";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function App() {
       <header></header>
       <main>
         <Routes>
+          <Route path="/temp/" element={<TempHome />} />
           <Route path="/auth/login" element={<PageLogin />} />
           <Route
             path="/auth/forgot-password"

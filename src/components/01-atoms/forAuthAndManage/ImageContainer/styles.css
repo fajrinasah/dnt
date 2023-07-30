@@ -2,19 +2,19 @@
 PRODUCT IMAGE PREVIEW
 =================================================*/
 
-.product-image-preview {
+.image-container {
   padding: 2rem;
   place-content: center;
   place-items: center;
 
-  background-color: var(--main);
+  background-color: transparent;
 }
 
-.product-image-preview img {
+.image-container img {
   object-fit: cover;
   box-shadow: -3px 3px 4px 0px grey;
 }
-.product-image-preview.rectangle img {
+.image-container.rectangle img {
   /* max-width: 100%;
   max-height: 90%; */
   width: 400px;
@@ -23,7 +23,7 @@ PRODUCT IMAGE PREVIEW
   border-radius: 3px;
 }
 
-.product-image-preview.circle img {
+.image-container.circle img {
   width: 200px;
   height: 200px;
 
