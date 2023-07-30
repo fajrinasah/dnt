@@ -15,10 +15,10 @@ import { hash, encrypt } from "../../../../../src/helpers";
 
 import TitlePage from "../../../01-atoms/forAuthAndManage/texts/titles/TitlePage";
 import FormLogin from "../../../02-molecules/forAuthAndManage/forms/auth/FormLogin";
-import "../../../02-molecules/forAuthAndManage/forms/auth/FormLogin/styles.css";
+
 import "./styles.css";
 
-export function PageLogin() {
+export default function PageLogin() {
   const dispatch = useDispatch();
 
   /*---------------Show Password Guides Toggle-------------*/
@@ -99,50 +99,14 @@ export function PageLogin() {
             guidesIsShown={guidesIsShown}
             passwordIsShown={passwordIsShown}
           />
-
-          // <form onSubmit={handleSubmit} className="form login d-flex-col">
-          //   <InputText
-          //     flexDirection="col"
-          //     color="accent"
-          //     inputId="data"
-          //     labelText="Username/email"
-          //     // required={false}
-          //     inputName="data"
-          //     inputPlaceholder="enter your username or email here"
-          //     value={values.data}
-          //     onBlur={handleBlur}
-          //     onChange={handleChange}
-          //   />
-
-          //   {touched.data && errors.data && toastError(errors.data)}
-
-          //   <InputPassword
-          //     flexDirection="column"
-          //     color="accent"
-          //     inputId="password"
-          //     inputName="password"
-          //     labelText="Password"
-          //     helpClicked={helpClicked}
-          //     showClicked={togglePassword}
-          //     // required={false}
-          //     guidesIsShown={guidesIsShown}
-          //     passwordIsShown={passwordIsShown}
-          //     value={values.password}
-          //     onBlur={handleBlur}
-          //     onChange={handleChange}
-          //   />
-
-          //   {touched.password && errors.password && toastError(errors.password)}
-
-          //   <div className="input-submit-container d-flex-row">
-          //     <InputSubmit value="Login" disabled={isSubmitting} width="auto" />
-          //   </div>
-          // </form>
         )}
       </Formik>
 
       <div className="nav-to-reset-password-page d-flex-row">
-        <Link to="/forgot-password" className="link-to-reset-password-page">
+        <Link
+          to="/auth/forgot-password"
+          className="link-to-reset-password-page"
+        >
           Forgot password?
         </Link>
       </div>

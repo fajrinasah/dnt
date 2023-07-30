@@ -1,0 +1,14 @@
+/*=============================================
+FORM FORGOT PASSWORD
+==============================================*/
+.form.forgot-password {
+  padding: 15rem 0;
+}
+
+.form.forgot-password .error-container {
+  width: 65rem;
+}
+
+.form.forgot-password .input-submit {
+  margin-top: 5rem;
+}

@@ -9,10 +9,6 @@ PAGE LOGIN
   padding: 4rem 0;
 }
 
-/* .page.login .nav-to-reset-password-page {
-  padding-top: 5rem;
-} */
-
 .page.login .nav-to-reset-password-page .link-to-reset-password-page {
   text-decoration: none;
   color: inherit;

@@ -13,7 +13,10 @@ import { keepLogin } from "../src/store/slices/auth/thunks";
 import "./App.css";
 
 /* PAGES */
-import { PageLogin } from "./components/05-pages/forAuthAndManage/PageLogin";
+import PageLogin from "./components/05-pages/forAuthAndManage/PageLogin";
+import PageForgotPassword from "./components/05-pages/forAuthAndManage/PageForgotPassword";
+import PageTokenVerification from "./components/05-pages/forAuthAndManage/PageTokenVerification";
+import PageResetPassword from "./components/05-pages/forAuthAndManage/PageResetPassword";
 import { GeneralTest } from "./components/04-templates/forAuthAndManage/GeneralTest";
 
 function App() {
@@ -27,7 +30,19 @@ function App() {
       <header></header>
       <main>
         <Routes>
-          <Route path="/login" element={<PageLogin />} />
+          <Route path="/auth/login" element={<PageLogin />} />
+          <Route
+            path="/auth/forgot-password"
+            element={<PageForgotPassword />}
+          />
+          <Route
+            path="/auth/verify/:uuidWithContext"
+            element={<PageTokenVerification />}
+          />
+          <Route
+            path="/auth/reset-password/:uuidWithContext"
+            element={<PageResetPassword />}
+          />
           <Route path="/test" element={<GeneralTest />} />
         </Routes>
       </main>

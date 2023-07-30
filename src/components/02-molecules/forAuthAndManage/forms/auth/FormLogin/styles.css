@@ -13,6 +13,6 @@ FORM LOGIN
   margin-top: 10rem;
 }
 
-.form.login .error-container.password .modal-default {
+.form.login .error-container.password .modal-default-text {
   margin: 0;
 }

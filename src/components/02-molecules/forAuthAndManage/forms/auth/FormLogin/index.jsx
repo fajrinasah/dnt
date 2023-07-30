@@ -1,5 +1,3 @@
-import { toastError } from "../../../customToasts";
-
 import InputText from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputText";
 import InputPassword from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputPassword";
 import InputSubmit from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputSubmit";
@@ -42,7 +40,7 @@ export default function FormLogin({
         <div className="error-container data d-flex-row">
           <ModalDefaultText
             content={dataErrors}
-            color="main"
+            color="contrast"
             bgColor="accent"
           />
         </div>
@@ -68,7 +66,7 @@ export default function FormLogin({
         <div className="error-container password d-flex-row">
           <ModalDefaultText
             content={passwordErrors}
-            color="main"
+            color="contrast"
             bgColor="accent"
           />
         </div>
