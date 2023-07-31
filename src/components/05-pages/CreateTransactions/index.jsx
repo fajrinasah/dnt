@@ -2,6 +2,7 @@
 // IMPORT FROM DEPENDENCIES
 /*-------------------------------------------------*/
 import { IoClose } from "react-icons/io5";
+import { BsSortAlphaDown, BsSortAlphaDownAlt } from "react-icons/bs";
 import { useEffect, useState } from "react";
 
 /*-------------------------------------------------*/
@@ -164,7 +165,9 @@ export function CreateTransactions() {
     dispatch(getAllProducts({ 
       page: currentPage ? currentPage : 1,
       sort: sort ? "ASC" : "DESC",
-      category: category ? category : ""
+      category: category ? category : "",
+      sortBy: sortBy ? sortBy : "namesort",
+      name: searchQuery ? searchQuery : ""
     }));
     dispatch(getAllCategories())
   }, [dispatch]);
@@ -257,13 +260,28 @@ export function CreateTransactions() {
     setCartItems([]);
   };
 
+  const handleSort = (type) => {
+    console.log(type);
+    setSort(type);
+    dispatch(
+      getAllProducts({
+        page: currentPage ? currentPage : 1,
+        sort: type ? "ASC" : "DESC",
+        category: category ? category : "",
+        sortBy: sortBy ? sortBy : "namesort",
+        name: searchQuery
+      })
+    );
+  }
+
   const onChangePagination = (type) => {
     dispatch(
       getAllProducts({
         page: type === "prev" ? currentPage - 1 : currentPage + 1,
         sort: sort ? "ASC" : "DESC",
         category: category ? category : "",
-        sortBy: sortBy
+        sortBy: sortBy ? sortBy : "namesort",
+        name: searchQuery ? searchQuery : ""
       })
     );
   };
@@ -277,7 +295,8 @@ export function CreateTransactions() {
         page: currentPage ? currentPage : 1,
         sort: sort ? "ASC" : "DESC",
         category: cat,
-        sortBy: sortBy
+        sortBy: sortBy ? sortBy : "namesort",
+        name: searchQuery ? searchQuery : ""
       })
     );
   }
@@ -291,7 +310,8 @@ export function CreateTransactions() {
         page: currentPage ? currentPage : 1,
         sort: sort ? "ASC" : "DESC",
         category: category,
-        sortBy: val
+        sortBy: val,
+        name: searchQuery ? searchQuery : ""
       })
     );
   }
@@ -312,6 +332,15 @@ export function CreateTransactions() {
               <div className="flex justify-between">
                 <div></div>
                 <div>
+                {sort ? 
+                (
+                  <BsSortAlphaDown onClick={() => handleSort(false)}></BsSortAlphaDown>
+                )
+                :
+                (
+                  <BsSortAlphaDownAlt onClick={() => handleSort(true)}></BsSortAlphaDownAlt>
+                )
+                }
                 <Select onChange={onChangeSortBy} value={sortBy ? sortBy : ""}>
                   <option value="">Select Sort By</option>
                   <option value="namesort">Name</option>
