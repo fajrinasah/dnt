@@ -5,7 +5,7 @@
 /*-------------------------------------------------*/
 // IMPORT FROM PROJECT'S FILES
 /*-------------------------------------------------*/
-import CardProduct from "../../../03-organisms/CardProduct";
+import CardProduct from "../../../03-organisms/CreateTransactions/CardProduct";
 import "./styles.css";
 
 export default function ProductList({ products, addToCart }) {
