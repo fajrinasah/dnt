@@ -1,16 +1,19 @@
 import InputEmail from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputEmail";
 import InputSubmit from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputSubmit";
 import ButtonStandard from "../../../../../01-atoms/forAuthAndManage/buttons/ButtonStandard";
+import ModalDefaultText from "../../../../../01-atoms/forAuthAndManage/texts/ModalDefaultText";
 
 import "./styles.css";
 
 export default function FormEditEmailCashier({
   isReadOnly = true,
-  currentEmail = "currentemail@example.com",
+  currentEmail = "",
   onSubmit = () => {},
   handleBlur = () => {},
   handleChange = () => {},
   isSubmitting = () => {},
+  emailTouched,
+  emailErrors,
   emailValue,
   changeHandler = () => {},
   cancelHandler = () => {},
@@ -30,6 +33,16 @@ export default function FormEditEmailCashier({
         onChange={handleChange}
         readOnly={isReadOnly}
       />
+
+      {isReadOnly === false && emailTouched && emailErrors && (
+        <div className="error-container edit-cashier-email d-flex-row">
+          <ModalDefaultText
+            content={emailErrors}
+            color="contrast"
+            bgColor="main"
+          />
+        </div>
+      )}
 
       {isReadOnly === true && (
         <div className="button-change-container">

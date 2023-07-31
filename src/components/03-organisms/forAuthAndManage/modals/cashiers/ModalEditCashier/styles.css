@@ -1,3 +1,31 @@
 /* ===============================================
-COMPONENT'S NAME
+MODAL EDIT CASHIER'S EMAIL
 =================================================*/
+
+.modal.edit-cashier {
+  margin: 0 calc((100% - 55%) / 2);
+  max-width: 55%;
+}
+
+.modal.edit-cashier .image-container {
+  margin: 2rem 0;
+}
+
+.modal.edit-cashier .joined-date {
+  margin-bottom: 3rem;
+}
+
+.modal.edit-cashier .joined-date p {
+  margin-right: 1rem;
+}
+
+.modal.edit-cashier #input-cashier-username,
+.modal.edit-cashier #input-cashier-status {
+  margin: 2rem 0;
+}
+
+.modal.edit-cashier .buttons-container {
+  width: 60rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}

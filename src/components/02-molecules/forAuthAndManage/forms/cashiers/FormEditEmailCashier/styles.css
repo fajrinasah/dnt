@@ -30,3 +30,14 @@ FORM EDIT EMAIL OF A CASHIER
   margin: 0;
   margin-left: 2rem;
 }
+
+.form.edit-email-cashier .error-container.edit-cashier-email {
+  width: 60rem;
+  padding: 1rem;
+}
+
+.form.edit-email-cashier
+  .error-container.edit-cashier-email
+  .modal-default-text {
+  width: 100%;
+}
