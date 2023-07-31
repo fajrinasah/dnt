@@ -14,5 +14,6 @@ INPUT FILE CUSTOM
   cursor: pointer;
 
   font-family: "B612", sans-serif;
+  font-size: 1.6rem;
   color: var(--contrast);
 }

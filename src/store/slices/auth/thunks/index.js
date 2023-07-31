@@ -96,7 +96,9 @@ export const keepLogin = createAsyncThunk(
       return data;
     } catch (error) {
       toastError(
-        error.response
+        error.name === "AxiosError"
+          ? error?.message
+          : error.response
           ? error.response.data?.message + ". Please login."
           : error
       );
@@ -164,12 +166,9 @@ export const changePhotoProfile = createAsyncThunk(
       // see postman for more details
       const { data } = await api.patch("/profiles/photo-profile", payload);
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
-      return data;
+      return data?.photoUrl;
     } catch (error) {
       toastError(error.response ? error.response.data?.message : error);
       return rejectWithValue(

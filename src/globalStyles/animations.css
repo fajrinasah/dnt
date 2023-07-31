@@ -17,6 +17,7 @@ button:disabled,
 .button-standard:disabled,
 a:disabled {
   opacity: 0.6;
+  transform: none;
 }
 
 a:hover {
