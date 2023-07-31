@@ -18,10 +18,7 @@ export const addCashier = createAsyncThunk(
       // payload: {email, username}
       const { data } = await api.post("/cashier/", payload);
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
       return null;
     } catch (error) {
@@ -43,10 +40,7 @@ export const editEmailCashier = createAsyncThunk(
       // payload: {email, username}
       const { data } = await api.patch("/cashier/edit/email", payload);
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
       return null;
     } catch (error) {
@@ -68,10 +62,7 @@ export const inactivateCashier = createAsyncThunk(
       // payload: username --> req.params
       const { data } = await api.delete(`/cashier/${payload}`);
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
       return null;
     } catch (error) {
@@ -93,10 +84,6 @@ export const getCashier = createAsyncThunk(
       // payload: username --> req.params
       const { data } = await api.get(`/cashier/${payload}`);
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-      });
-
       return data;
     } catch (error) {
       toastError(error.response ? error.response.data?.message : error);
@@ -117,10 +104,6 @@ export const getAllCashiers = createAsyncThunk(
       // payload: req queries (if any)
       // available queries: page, status, username, timesort, namesort (see postman for more details)
       const { data } = await api.get(`/cashiers/${payload}`);
-
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-      });
 
       return data;
     } catch (error) {
