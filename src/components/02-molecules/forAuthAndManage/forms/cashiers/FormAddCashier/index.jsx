@@ -36,7 +36,7 @@ export default function FormAddCashier({
       />
 
       {usernameTouched && usernameErrors && (
-        <div className="error-container username d-flex-row">
+        <div className="error-container add-cashier-username d-flex-row">
           <ModalDefaultText
             content={usernameErrors}
             color="contrast"
@@ -66,7 +66,7 @@ export default function FormAddCashier({
       />
 
       {emailTouched && emailErrors && (
-        <div className="error-container email d-flex-row">
+        <div className="error-container add-cashier-email d-flex-row">
           <ModalDefaultText
             content={emailErrors}
             color="contrast"
