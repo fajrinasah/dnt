@@ -1,6 +1,10 @@
 /* ===============================================
 FORM ADD CASHIER
 =================================================*/
+.form.add-cashier {
+  padding: 5rem 0;
+}
+
 .form.add-cashier .disclaimer {
   padding-top: 2rem;
   padding-bottom: 4rem;
@@ -22,4 +26,21 @@ FORM ADD CASHIER
 .form.add-cashier .input-submit-container .input-submit {
   margin: 0;
   margin-left: 2rem;
+}
+
+.form.add-cashier .error-container {
+  width: 60rem;
+  padding: 1rem;
+}
+
+.form.add-cashier .error-container .modal-default-text {
+  width: 100%;
+}
+
+.form.add-cashier .input-submit-container .button-standard {
+  margin: 0;
+}
+
+.form.add-cashier .input-submit-container .input-submit {
+  margin-bottom: 2rem;
 }
