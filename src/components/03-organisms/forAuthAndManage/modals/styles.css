@@ -8,6 +8,8 @@ MODAL GENERAL STYLES
 
   background-color: var(--accent);
   border-radius: 20px;
+
+  box-shadow: 2px 1px 10px 0px grey;
 }
 
 .modal .form {

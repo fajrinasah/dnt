@@ -1,9 +1,9 @@
 /* ===============================================
 FORM ADD CASHIER
 =================================================*/
-.form.add-cashier {
+/* .form.add-cashier {
   padding: 5rem 0;
-}
+} */
 
 .form.add-cashier .disclaimer {
   padding-top: 2rem;
@@ -28,8 +28,8 @@ FORM ADD CASHIER
   margin-left: 2rem;
 }
 
-.form.add-cashier .error-container .add-cashier-email,
-.form.add-cashier .error-container .add-cashier-username {
+.form.add-cashier .error-container.add-cashier-email,
+.form.add-cashier .error-container.add-cashier-username {
   width: 60rem;
   padding: 1rem;
 }

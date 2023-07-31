@@ -5,6 +5,10 @@ MODAL EDIT CASHIER'S EMAIL
 .modal.edit-cashier {
   margin: 0 calc((100% - 55%) / 2);
   max-width: 55%;
+
+  position: absolute;
+  top: 55rem;
+  right: 0;
 }
 
 .modal.edit-cashier .image-container {

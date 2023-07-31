@@ -1,18 +1,21 @@
 import InputToolbarSelect from "../../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSelect";
 import InputToolbarSearch from "../../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSearch";
 import InputToolbarSort from "../../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSort";
-import InputSubmit from "../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputSubmit";
 
 import "./styles.css";
+import ButtonStandard from "../../../../01-atoms/forAuthAndManage/buttons/ButtonStandard";
 
 export default function ManageCashiersProductsToolbars({
   type = "", // "cashiers" or "products"
-  sortingOptions = [{ id: 0, name: "" }],
+  sortingOptions = [{ id: 0, name: "", selected: false }],
   refSortingOption,
-  refSortingMethod,
-  filterOptions = [{ id: 0, name: "" }],
+  filterOptions = [{ id: 0, name: "", selected: false }],
   refFilterOption,
   refSearch,
+  onSubmit = () => {},
+  onReset = () => {},
+  setCurrentSortingMethod = () => {},
+  currentSortingMethod,
 }) {
   return (
     <form className="form toolbars cashiers products d-flex-row">
@@ -26,7 +29,8 @@ export default function ManageCashiersProductsToolbars({
           label="Sort"
           options={sortingOptions}
           refSortingOption={refSortingOption}
-          refSortingMethod={refSortingMethod}
+          setCurrentSortingMethod={setCurrentSortingMethod}
+          currentSortingMethod={currentSortingMethod}
         />
       </fieldset>
 
@@ -57,7 +61,22 @@ export default function ManageCashiersProductsToolbars({
           refSearch={refSearch}
         />
       </fieldset>
-      <InputSubmit value="Show results" story="ghost-main" width="auto" />
+
+      <ButtonStandard
+        story="ghost-main"
+        width="auto"
+        content="Show results"
+        bold=""
+        onClick={onSubmit}
+      />
+
+      <ButtonStandard
+        story="flat"
+        width="auto"
+        content="Reset"
+        bold=""
+        onClick={onReset}
+      />
     </form>
   );
 }
