@@ -189,9 +189,7 @@ export const getAllProducts = createAsyncThunk(
 
       const { data } = await api.get(`/products/?${PARAMS}`);
       
-      // toast.promise(data, {
-      //   loading: toastBlank("Loading..."),
-      // });
+      // toastSuccess(data?.message)
 
       return data;
     } catch (error) {
