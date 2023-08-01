@@ -3,7 +3,6 @@ FORM ADD PRODUCT
 =================================================*/
 .form.add-product {
   margin-top: 2rem;
-  border: 1px solid aqua;
 }
 
 .form.add-product .add-product-image-container {
