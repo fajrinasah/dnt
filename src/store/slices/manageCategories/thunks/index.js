@@ -18,10 +18,7 @@ export const addCategory = createAsyncThunk(
       // payload: {name}
       const { data } = await api.post("/category/", payload);
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
       return null;
     } catch (error) {
@@ -46,10 +43,7 @@ export const editCategory = createAsyncThunk(
         payload?.body
       );
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
       return null;
     } catch (error) {
@@ -71,10 +65,7 @@ export const deleteCategory = createAsyncThunk(
       // payload: categoryId --> req.params
       const { data } = await api.delete(`/category/${payload}`);
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
       return null;
     } catch (error) {
@@ -97,11 +88,6 @@ export const getAllCategories = createAsyncThunk(
       // available queries: name, timesort, namesort (see postman for more details)
       const { data } = await api.get(`/categories/${payload}`);
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
-
       return data;
     } catch (error) {
       toastError(error.response ? error.response.data?.message : error);
@@ -121,11 +107,6 @@ export const getProductCategories = createAsyncThunk(
     try {
       // payload: productId --> req.params
       const { data } = await api.get(`/categories/product/${payload}`);
-
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
 
       return data;
     } catch (error) {
