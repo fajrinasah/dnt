@@ -3,11 +3,9 @@ import CryptoJS from "crypto-js";
 /*-----------------------------------------------------*/
 // ENCRYPT & DECRYPT
 /*-----------------------------------------------------*/
-// const secretKey = process.env.ENCRYPTION_SECRET_KEY;
-// const secretKey = "5586b81b689fce1fcda534872051d97f";
 
 export function encrypt(plainText) {
-  // const secretKey = process.env.ENCRYPTION_SECRET_KEY;
+  // const secretKey = process.env.REACT_APP_ENCRYPTION_SECRET_KEY;
   const secretKey = "5586b81b689fce1fcda534872051d97f";
 
   // console.log(secretKey);

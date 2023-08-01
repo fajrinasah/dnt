@@ -3,14 +3,15 @@ import "./styles.css";
 export default function InputToolbarSort({
   forId = "",
   label = "Choose an option",
-  options = [{ id: 0, name: "" }],
+  options = [{ id: 0, name: "", selected: false }],
   refSortingOption,
-  refSortingMethod,
+  setCurrentSortingMethod = () => {},
+  currentSortingMethod,
 }) {
   const RenderOptions = () =>
     options.map((option) => {
       return (
-        <option key={option.id} value={option.id}>
+        <option key={option.id} value={option.id} selected={option.selected}>
           {option.name}
         </option>
       );
@@ -38,9 +39,9 @@ export default function InputToolbarSort({
             type="radio"
             name="sortingMethod"
             id="sortAsc"
-            checked
-            ref={refSortingMethod}
+            checked={currentSortingMethod === "ASC"}
             value="ASC"
+            onChange={() => setCurrentSortingMethod("ASC")}
           />
         </div>
         <div className="radio-container d-flex-row">
@@ -49,8 +50,9 @@ export default function InputToolbarSort({
             type="radio"
             name="sortingMethod"
             id="sortDesc"
-            ref={refSortingMethod}
+            checked={currentSortingMethod === "DESC"}
             value="DESC"
+            onChange={() => setCurrentSortingMethod("DESC")}
           />
         </div>
       </div>

@@ -7,7 +7,7 @@ export default function ButtonStandard({
   content,
   onClick,
   id,
-  disabled,
+  disabled = false,
 }) {
   return (
     <button

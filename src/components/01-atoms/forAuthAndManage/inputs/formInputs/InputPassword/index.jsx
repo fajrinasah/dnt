@@ -24,11 +24,11 @@ export default function InputPassword({
 }) {
   const passwordGuides = [
     <ul>
-      <li>Password must be 6-20 characters</li>
-      <li>Password must contain at least 1 letter</li>
-      <li>Password must contain at least 1 uppercase letter</li>
-      <li>Password must contain at least 1 symbol</li>
-      <li>Symbols that can be used are @$!%*?&</li>
+      <li key="guide-1">Password must be 6-20 characters</li>
+      <li key="guide-2">Password must contain at least 1 letter</li>
+      <li key="guide-3">Password must contain at least 1 uppercase letter</li>
+      <li key="guide-4">Password must contain at least 1 symbol</li>
+      <li key="guide-5">Symbols that can be used are @$!%*?&</li>
     </ul>,
   ];
 

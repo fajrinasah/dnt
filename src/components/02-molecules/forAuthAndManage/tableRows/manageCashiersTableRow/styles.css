@@ -4,7 +4,7 @@ CASHIERS TABLE ROW
 tr.cashiers-table {
   cursor: pointer;
 
-  width: 70%;
+  /* width: 70%; */
   margin-bottom: 2rem;
 
   border-radius: 3px;
@@ -34,7 +34,7 @@ tr.cashiers-table td.username {
 
 tr.cashiers-table td.email {
   flex-grow: 2;
-  flex-basis: 40%;
+  flex-basis: 50%;
 }
 
 tr.cashiers-table td.with-border {

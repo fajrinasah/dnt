@@ -95,13 +95,13 @@ export const keepLogin = createAsyncThunk(
 
       return data;
     } catch (error) {
-      toastError(
-        error.name === "AxiosError"
-          ? error?.message
-          : error.response
-          ? error.response.data?.message + ". Please login."
-          : error
-      );
+      // toastError(
+      //   error.name === "AxiosError"
+      //     ? error?.message
+      //     : error.response
+      //     ? error.response.data?.message + ". Please login."
+      //     : error
+      // );
       return rejectWithValue(
         error.response
           ? error.response.data?.message + ". Please login."

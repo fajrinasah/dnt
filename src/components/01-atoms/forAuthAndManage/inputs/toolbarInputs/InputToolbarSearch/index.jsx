@@ -20,8 +20,6 @@ export default function InputToolbarSearch({
       <input
         className="input-for-label"
         type="search"
-        // required={required}
-        // autoCapitalize={autoCapitalize}
         id={inputId}
         name={inputName}
         placeholder={inputPlaceholder}

@@ -19,6 +19,7 @@ import PageTokenVerification from "./components/05-pages/forAuthAndManage/PageTo
 import PageResetPassword from "./components/05-pages/forAuthAndManage/PageResetPassword";
 import { GeneralTest } from "./components/04-templates/forAuthAndManage/GeneralTest";
 import TempHome from "./components/04-templates/forAuthAndManage/TempHome";
+import PageManageCashiers from "./components/05-pages/forAuthAndManage/PageManageCashiers";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
             element={<PageResetPassword />}
           />
           <Route path="/test" element={<GeneralTest />} />
+          <Route path="/cashiers" element={<PageManageCashiers />} />
         </Routes>
       </main>
       <footer></footer>

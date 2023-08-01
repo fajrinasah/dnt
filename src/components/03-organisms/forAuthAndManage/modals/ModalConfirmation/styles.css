@@ -1,0 +1,24 @@
+/* ===============================================
+MODAL CONFIRMATION
+=================================================*/
+
+.modal.confirmation {
+  width: 90%;
+  margin: 2rem;
+  background-color: var(--main);
+  border-radius: 10px;
+  border: 2px solid var(--accent);
+  box-shadow: 2px 1px 10px 0px grey;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal.confirmation h4,
+.modal.confirmation p {
+  text-align: center;
+  padding: 1rem;
+}
+
+.modal.confirmation .buttons-container {
+  justify-content: space-evenly;
+  margin-top: 1rem;
+}

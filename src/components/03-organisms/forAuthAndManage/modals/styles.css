@@ -1,0 +1,21 @@
+/* ===============================================
+MODAL GENERAL STYLES
+=================================================*/
+
+.modal {
+  padding: 3rem 2rem 2rem 2rem;
+  z-index: 3;
+
+  background-color: var(--accent);
+  border-radius: 20px;
+
+  box-shadow: 2px 1px 10px 0px grey;
+}
+
+.modal .form {
+  width: 100%;
+}
+
+.modal .button-standard {
+  margin-top: 1rem;
+}

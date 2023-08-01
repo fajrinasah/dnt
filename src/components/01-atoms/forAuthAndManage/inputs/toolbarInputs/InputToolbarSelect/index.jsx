@@ -3,13 +3,13 @@ import "./styles.css";
 export default function InputToolbarSelect({
   forId = "",
   label = "Choose an option",
-  options = [{ id: 0, name: "" }],
+  options = [{ id: 0, name: "", selected: false }],
   refFilterOption,
 }) {
   const RenderOptions = () =>
     options.map((option) => {
       return (
-        <option key={option.id} value={option.id}>
+        <option key={option.id} value={option.id} selected={option.selected}>
           {option.name}
         </option>
       );

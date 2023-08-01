@@ -9,6 +9,7 @@ import ButtonStandard from "../../../../01-atoms/forAuthAndManage/buttons/Button
 import { toastError } from "../../../../02-molecules/forAuthAndManage/customToasts";
 import { changePhotoProfile } from "../../../../../store/slices/auth/thunks";
 
+import "../styles.css";
 import "./styles.css";
 
 export default function ModalChangePhotoProfile({ closeModal = () => {} }) {
@@ -128,7 +129,7 @@ export default function ModalChangePhotoProfile({ closeModal = () => {} }) {
   // }
 
   return (
-    <div className="modal-background">
+    <div className="modal-background change-photo-profile">
       <section className="modal change-photo-profile d-flex-col">
         <TitleSection
           size="medium"
