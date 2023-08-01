@@ -44,6 +44,15 @@ export default function ModalAddProduct({ closeModal = () => {} }) {
   const descriptionRef = useRef();
   const priceRef = useRef();
 
+  /*=====================DISABLE SAVE=============================*/
+  const disableSave = !(
+    image &&
+    nameRef.current?.value &&
+    selectedCategories &&
+    descriptionRef.current?.value &&
+    priceRef.current?.value
+  );
+
   /*=====================CHANGE PHOTO=============================*/
   const changeImageHandler = (e) => {
     const selectedImage = e.target.files[0];
@@ -124,7 +133,8 @@ export default function ModalAddProduct({ closeModal = () => {} }) {
         invalidCategories &&
         invalidDescription &&
         invalidImage &&
-        invalidName & invalidPrice
+        invalidName &&
+        invalidPrice
       )
     ) {
       setAllValid(true);
@@ -220,7 +230,7 @@ export default function ModalAddProduct({ closeModal = () => {} }) {
           categoriesArr={categoriesArr}
           submitHandler={submitHandler}
           changeImageHandler={changeImageHandler}
-          disableSave={!allValid}
+          disableSave={disableSave}
           selectCategoriesHandler={selectCategoriesHandler}
           //   categoriesRef={categoriesRef}
           nameRef={nameRef}
