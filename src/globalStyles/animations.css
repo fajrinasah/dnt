@@ -1,6 +1,28 @@
 /*===============================================
 ANIMATIONS
 ===============================================*/
+button:hover,
+.button-standard:hover {
+  transform: scale(0.97);
+  box-shadow: -1px 1px 2px 0px grey;
+}
+
+button:active,
+.button-standard:active,
+a:active {
+  transform: scale(0.94);
+}
+
+button:disabled,
+.button-standard:disabled,
+a:disabled {
+  opacity: 0.6;
+  transform: none;
+}
+
+a:hover {
+  transform: scale(0.97);
+}
 
 /*-----------------------------------
 WHEN CLICKED, IT GETS DOWN A LITTLE BIT

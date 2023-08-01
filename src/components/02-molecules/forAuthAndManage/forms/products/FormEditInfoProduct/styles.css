@@ -1,0 +1,11 @@
+/* ===============================================
+FORM EDIT INFO PRODUCT
+=================================================*/
+.form.edit-info-product .input-submit-container {
+  min-width: 60rem;
+  padding: 1rem;
+}
+
+.form.edit-info-product .input-submit-container .input-submit {
+  margin: 0;
+}

@@ -1,0 +1,12 @@
+/* ===============================================
+MODAL CHANGE PHOTO PROFILE
+=================================================*/
+
+.modal.change-photo-profile {
+  margin: 0 calc((100% - 35%) / 2);
+  max-width: 35%;
+}
+
+.modal.change-photo-profile .image-container {
+  padding: 3rem;
+}

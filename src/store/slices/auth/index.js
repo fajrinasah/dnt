@@ -102,7 +102,7 @@ const authSlice = createSlice({
 
     builder.addCase(changePhotoProfile.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.user.photo_profile = action?.payload?.photoUrl;
+      state.user.photo_profile = action.payload;
     });
 
     /*===================================================*/

@@ -1,3 +1,24 @@
 /* ===============================================
-COMPONENT'S NAME
+PAGE MANAGE CASHIERS
 =================================================*/
+.page.manage.cashiers {
+  padding-bottom: 5rem;
+}
+
+.page.manage.cashiers .title-section {
+  margin: 3rem 0 5rem 0;
+}
+
+.page.manage.cashiers .form.toolbars.cashiers {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.page.manage.cashiers .modal.add-cashier {
+  margin-top: 3rem;
+}
+
+.table-container.cashiers {
+  padding-top: 5rem;
+}

@@ -1,8 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Navigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import api from "../../../utils/api.instance";
 import {
+  toastBlank,
   toastError,
   toastSuccess,
 } from "../../../../../src/components/02-molecules/forAuthAndManage/customToasts";
@@ -14,8 +15,11 @@ export const verifyOtpToken = createAsyncThunk(
   "auth/verifyOtpToken",
   async (payload, { rejectWithValue }) => {
     try {
-      // payload: uuidWithContext --> req.params
-      const { data } = await api.post(`/auth/verify-otp/${payload}`);
+      // payload: {uuidWithContext, body: {token: ""}}
+      const { data } = await api.post(
+        `/auth/verify-otp/${payload?.uuidWithContext}`,
+        payload?.body
+      );
 
       toastSuccess(data?.message);
 
@@ -68,13 +72,11 @@ export const login = createAsyncThunk(
       const token = headers?.authorization.split(" ")[1];
 
       // set token in local storage
-      localStorage.setItem(token);
-
-      toastSuccess("Welcome back!");
+      localStorage.setItem("token", token);
 
       return data;
     } catch (error) {
-      toastError(error.response ? error.response.data?.message.err : error);
+      toastError(error.response ? error.response.data?.message : error);
       return rejectWithValue(
         error.response ? error.response.data?.message : error
       );
@@ -93,9 +95,17 @@ export const keepLogin = createAsyncThunk(
 
       return data;
     } catch (error) {
-      toastError(error.response ? error.response.data?.message.err : error);
+      // toastError(
+      //   error.name === "AxiosError"
+      //     ? error?.message
+      //     : error.response
+      //     ? error.response.data?.message + ". Please login."
+      //     : error
+      // );
       return rejectWithValue(
-        error.response ? error.response.data?.message : error
+        error.response
+          ? error.response.data?.message + ". Please login."
+          : error
       );
     }
   }
@@ -110,8 +120,6 @@ export const forgotPassword = createAsyncThunk(
     try {
       // payload: {email, context}
       const { data } = await api.post("/auth/request-otp", payload);
-
-      <Navigate to="/" replace />;
 
       toastSuccess(data?.message);
 
@@ -158,12 +166,9 @@ export const changePhotoProfile = createAsyncThunk(
       // see postman for more details
       const { data } = await api.patch("/profiles/photo-profile", payload);
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
-      return data;
+      return data?.photoUrl;
     } catch (error) {
       toastError(error.response ? error.response.data?.message : error);
       return rejectWithValue(

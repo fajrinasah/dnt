@@ -1,3 +1,82 @@
 /* ===============================================
-COMPONENT'S NAME
+CASHIERS TABLE ROW
 =================================================*/
+tr.cashiers-table {
+  cursor: pointer;
+
+  /* width: 70%; */
+  margin-bottom: 2rem;
+
+  border-radius: 3px;
+  border: 1px solid var(--accent);
+
+  transition: all 0.3s ease-in-out;
+}
+
+tr.cashiers-table.headrow {
+  padding: 1.5rem 0;
+  font-weight: bold;
+}
+
+tr.cashiers-table td {
+  padding: 1.5rem 3rem;
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+
+/*---------------------TD----------------------*/
+
+tr.cashiers-table td.username {
+  flex-grow: 2;
+  flex-basis: 30%;
+}
+
+tr.cashiers-table td.email {
+  flex-grow: 2;
+  flex-basis: 50%;
+}
+
+tr.cashiers-table td.with-border {
+  border-right: 1px solid var(--accent);
+}
+
+tr.cashiers-table img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+/*--------------------COLORS--------------------------*/
+tr.cashiers-table.bodyrow-light {
+  background-color: transparent;
+}
+
+tr.cashiers-table.bodyrow-dark {
+  background-color: rgba(201, 173, 167, 0.3);
+}
+
+tr.cashiers-table.headrow {
+  background-color: var(--accent);
+}
+
+tr.cashiers-table.headrow td.with-border {
+  border-right-color: var(--contrast);
+}
+
+tr.cashiers-table.bodyrow-light:hover,
+tr.cashiers-table.bodyrow-light:active,
+tr.cashiers-table.bodyrow-dark:hover,
+tr.cashiers-table.bodyrow-dark:active {
+  background-color: var(--contrast);
+  color: var(--main);
+}
+
+tr.cashiers-table.bodyrow-light:hover td.with-border,
+tr.cashiers-table.bodyrow-light:active td.with-border,
+tr.cashiers-table.bodyrow-dark:hover td.with-border,
+tr.cashiers-table.bodyrow-dark:active td.with-border {
+  border-right-color: var(--main);
+}

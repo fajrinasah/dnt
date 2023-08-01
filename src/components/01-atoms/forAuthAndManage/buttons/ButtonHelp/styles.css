@@ -1,0 +1,30 @@
+/* ===============================================
+BUTTON HELP
+=================================================*/
+.button-help {
+  background-color: transparent;
+  border: 1px solid var(--contrast);
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  width: max-content;
+
+  margin: 1rem;
+
+  font-size: 1.6rem;
+}
+
+.question-icon {
+  color: var(--contrast);
+}
+
+.help-detail {
+  display: none;
+  padding: 0.5rem 1rem 1rem 0.5rem;
+  color: var(--contrast);
+}
+
+.button-help:hover .help-detail {
+  display: inline;
+}

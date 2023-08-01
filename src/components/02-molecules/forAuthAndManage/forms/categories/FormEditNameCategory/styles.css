@@ -1,0 +1,12 @@
+/* ===============================================
+FORM EDIT NAME OF A CATEGORY
+=================================================*/
+
+.form.edit-name-category .input-submit-container {
+  min-width: 60rem;
+  padding: 1rem;
+}
+
+.form.edit-name-category .input-submit-container .input-submit {
+  margin: 0;
+}

@@ -1,0 +1,29 @@
+/*=====================================
+INPUT TOOLBAR TEXT (FOR SEARCH)
+====================================*/
+/* .input-toolbar-text {
+  background-color: transparent;
+  padding: 0 1rem;
+  margin-left: 1.5rem;
+  border: 1px solid var(--contrast);
+  color: var(--contrast);
+} */
+
+.input-toolbar-search label {
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.input-toolbar-search .input-for-label {
+  cursor: pointer;
+
+  background-color: transparent;
+  color: var(--contrast);
+  padding: 0.5rem;
+  font-size: 1.6rem;
+
+  border: none;
+  border: 1px solid var(--main);
+}

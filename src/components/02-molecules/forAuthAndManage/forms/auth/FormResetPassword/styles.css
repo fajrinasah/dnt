@@ -1,0 +1,28 @@
+/*=============================================
+FORM RESET PASSWORD
+==============================================*/
+
+.form.reset-password .input-confirm-password {
+  margin-top: 10rem;
+}
+
+.form.reset-password .input-submit-container {
+  margin-top: 8rem;
+}
+
+.form.reset-password .error-container.password {
+  margin-top: 9rem;
+}
+
+.form.reset-password .error-container.confirm-password {
+  margin-top: 3rem;
+}
+
+.form.reset-password .error-container.password .modal-default-text,
+.form.reset-password .error-container.confirm-password .modal-default-text {
+  width: 60rem;
+}
+
+.form.reset-password input#password.input-for-label {
+  min-width: 60rem;
+}
