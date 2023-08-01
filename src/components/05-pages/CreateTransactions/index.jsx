@@ -1,7 +1,7 @@
 /*-------------------------------------------------*/
 // IMPORT FROM DEPENDENCIES
 /*-------------------------------------------------*/
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoSearch } from "react-icons/io5";
 import { BsSortAlphaDown, BsSortAlphaDownAlt } from "react-icons/bs";
 import { useEffect, useState } from "react";
 
@@ -18,6 +18,7 @@ import { Button, Modal, Select } from "flowbite-react";
 import { getAllProducts } from "../../../store/slices/manageProducts/thunks";
 import { getAllCategories } from "../../../store/slices/manageCategories/thunks";
 import CardProductSkeleton from "../../03-organisms/CreateTransactions/CardProductSkeleton";
+import { toastError, toastSuccess } from "../../02-molecules/forAuthAndManage/customToasts";
 
 // const products = [
 //   {
@@ -142,7 +143,7 @@ import CardProductSkeleton from "../../03-organisms/CreateTransactions/CardProdu
 //   },
 // ];
 
-export function CreateTransactions() {
+export default function CreateTransactions() {
   const [sort, setSort] = useState(true);
   const [category, setCategory] = useState("");
   const [sortBy, setSortBy] = useState("");
@@ -150,28 +151,31 @@ export function CreateTransactions() {
   const [cartItems, setCartItems] = useState([]);
   const [openModal, setOpenModal] = useState(false);
 
-  const { products, categories, currentPage, totalPages } = useSelector((state) => {
-    return {
-      products: state.products.productsList.products,
-      currentPage: parseInt(state.products.productsList.page),
-      totalPages: parseInt(state.products.productsList.total_pages),
-      categories: state.categories.categoriesList,
+  const { products, categories, currentPage, totalPages } = useSelector(
+    (state) => {
+      return {
+        products: state.products.productsList.products,
+        currentPage: parseInt(state.products.productsList.page),
+        totalPages: parseInt(state.products.productsList.total_pages),
+        categories: state.categories.categoriesList,
+      };
     }
-  })
+  );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProducts({ 
-      page: currentPage ? currentPage : 1,
-      sort: sort ? "ASC" : "DESC",
-      category: category ? category : "",
-      sortBy: sortBy ? sortBy : "namesort",
-      name: searchQuery ? searchQuery : ""
-    }));
-    dispatch(getAllCategories())
+    dispatch(
+      getAllProducts({
+        page: currentPage ? currentPage : 1,
+        sort: sort ? "ASC" : "DESC",
+        category: category ? category : "",
+        sortBy: sortBy ? sortBy : "namesort",
+        name: searchQuery ? searchQuery : "",
+      })
+    );
+    dispatch(getAllCategories());
   }, [dispatch]);
-  
 
   const addToCart = (product) => {
     // Check if the product is already in the cart
@@ -239,18 +243,23 @@ export function CreateTransactions() {
     setCartItems([]);
   };
 
-  const handleSearch = (query) => {
+  const onSearch = (query) => {
     setSearchQuery(query);
+  };
+
+  const handleSearch = () => {
     dispatch(
       getAllProducts({
         page: currentPage ? currentPage : 1,
         sort: sort ? "ASC" : "DESC",
         category: category ? category : "",
         sortBy: sortBy,
-        name: query
+        name: searchQuery,
       })
     );
-  };
+
+    if(products.length <= 0) toastError('No Product Found');
+  }
 
   const toggleSlidingAnimation = () => {
     return cartItems.length > 0 ? "block" : "hidden";
@@ -269,10 +278,10 @@ export function CreateTransactions() {
         sort: type ? "ASC" : "DESC",
         category: category ? category : "",
         sortBy: sortBy ? sortBy : "namesort",
-        name: searchQuery
+        name: searchQuery,
       })
     );
-  }
+  };
 
   const onChangePagination = (type) => {
     dispatch(
@@ -281,13 +290,13 @@ export function CreateTransactions() {
         sort: sort ? "ASC" : "DESC",
         category: category ? category : "",
         sortBy: sortBy ? sortBy : "namesort",
-        name: searchQuery ? searchQuery : ""
+        name: searchQuery ? searchQuery : "",
       })
     );
   };
 
   const onChangeCategory = (event) => {
-    console.log(event.target.value)
+    console.log(event.target.value);
     const cat = event.target.value;
     setCategory(cat);
     dispatch(
@@ -296,13 +305,13 @@ export function CreateTransactions() {
         sort: sort ? "ASC" : "DESC",
         category: cat,
         sortBy: sortBy ? sortBy : "namesort",
-        name: searchQuery ? searchQuery : ""
+        name: searchQuery ? searchQuery : "",
       })
     );
-  }
+  };
 
   const onChangeSortBy = (event) => {
-    console.log(event.target.value)
+    console.log(event.target.value);
     const val = event.target.value;
     setSortBy(val);
     dispatch(
@@ -311,10 +320,10 @@ export function CreateTransactions() {
         sort: sort ? "ASC" : "DESC",
         category: category,
         sortBy: val,
-        name: searchQuery ? searchQuery : ""
+        name: searchQuery ? searchQuery : "",
       })
     );
-  }
+  };
 
   return (
     <>
@@ -325,36 +334,47 @@ export function CreateTransactions() {
               cartItems.length > 0 ? "w-[75%]" : "w-full"
             } p-5 space-y-10`}
           >
-            <div className="flex p-5 bg-dnt-accent rounded-lg">
-              <Search onSearch={handleSearch}></Search>
-            </div>
-            <div>
-              <div className="flex justify-between">
-                <div></div>
-                <div>
-                {sort ? 
-                (
-                  <BsSortAlphaDown onClick={() => handleSort(false)}></BsSortAlphaDown>
-                )
-                :
-                (
-                  <BsSortAlphaDownAlt onClick={() => handleSort(true)}></BsSortAlphaDownAlt>
-                )
-                }
-                <Select onChange={onChangeSortBy} value={sortBy ? sortBy : ""}>
+            <div className="flex justify-between space-x-5 p-8 bg-dnt-accent rounded-lg">
+              <Search onSearch={onSearch} handleSearch={handleSearch}></Search>
+              
+              <div className="flex space-x-5">
+                {sort ? (
+                  <button className="flex justify-center items-center p-2 text-2xl border border-slate-50" onClick={() => handleSort(false)}>
+                    <BsSortAlphaDown></BsSortAlphaDown>
+                    ASC
+                  </button>
+                ) : (
+                  <button className="flex justify-center items-center p-2 text-2xl border border-slate-50" onClick={() => handleSort(true)}>
+                    <BsSortAlphaDownAlt></BsSortAlphaDownAlt>
+                    DESC
+                  </button>
+                )}
+                <select
+                  className="bg-transparent text-2xl border-y border-y-slate-50 border-x-0 outline-none focus:outline-none"
+                  onChange={onChangeSortBy}
+                  value={sortBy ? sortBy : ""}
+                >
                   <option value="">Select Sort By</option>
                   <option value="namesort">Name</option>
                   <option value="pricesort">Price</option>
                   <option value="timesort">Time</option>
-                </Select>
-                  <Select onChange={onChangeCategory} value={category ? category : ""}>
-                    <option value="">All Category</option>
-                    {categories && categories.map((category) => (
-                      <option key={"cat" + category.id} value={category.id}>{category.name}</option>
+                </select>
+                <select
+                  className="bg-transparent text-2xl border-y border-y-slate-50 border-x-0 outline-none focus:outline-none"
+                  onChange={onChangeCategory}
+                  value={category ? category : ""}
+                >
+                  <option value="">All Category</option>
+                  {categories &&
+                    categories.map((category) => (
+                      <option key={"cat" + category.id} value={category.id}>
+                        {category.name}
+                      </option>
                     ))}
-                  </Select>
-                </div>
+                </select>
               </div>
+            </div>
+            <div>
               <div className="grid grid-cols-2 lg:grid-cols-4 justify-center items-center gap-5">
                 {products ? (
                   <ProductList products={products} addToCart={addToCart} />
@@ -364,13 +384,29 @@ export function CreateTransactions() {
               </div>
             </div>
             <div className="p-5">
-              <hr className="bg-dnt-accent"/>
+              <hr className="bg-dnt-accent" />
             </div>
             <div className="flex justify-center items-center p-2 space-x-10">
-              <button onClick={() => onChangePagination('prev')} disabled={currentPage <= 1} className={`w-44 text-dnt-accent text-3xl border border-dnt-accent rounded-lg py-3 transition-all ease-in duration-100 ${currentPage <= 1 ? "cursor-not-allowed" : "hover:bg-dnt-accent hover:text-orange-950"}`}>
+              <button
+                onClick={() => onChangePagination("prev")}
+                disabled={currentPage <= 1}
+                className={`w-44 text-dnt-accent text-3xl border border-dnt-accent rounded-lg py-3 transition-all ease-in duration-100 ${
+                  currentPage <= 1
+                    ? "cursor-not-allowed"
+                    : "hover:bg-dnt-accent hover:text-orange-950"
+                }`}
+              >
                 Previous
               </button>
-              <button onClick={() => onChangePagination('next')} disabled={currentPage >= totalPages} className={`w-44 text-dnt-accent text-3xl border border-dnt-accent rounded-lg py-3 transition-all ease-in duration-100 ${currentPage >= totalPages ? "cursor-not-allowed" : "hover:bg-dnt-accent hover:text-orange-950"}`}>
+              <button
+                onClick={() => onChangePagination("next")}
+                disabled={currentPage >= totalPages}
+                className={`w-44 text-dnt-accent text-3xl border border-dnt-accent rounded-lg py-3 transition-all ease-in duration-100 ${
+                  currentPage >= totalPages
+                    ? "cursor-not-allowed"
+                    : "hover:bg-dnt-accent hover:text-orange-950"
+                }`}
+              >
                 Next
               </button>
             </div>
@@ -384,10 +420,11 @@ export function CreateTransactions() {
 
             <div className="h-[75vh] overflow-y-auto overflow-x-hidden p-2">
               {cartItems.map((item) => (
-                <div key={"ct" + item.id} className="py-2 border-b border-dnt-main">
-                  <div
-                    className="grid grid-cols-12 gap-3 mb-3"
-                  >
+                <div
+                  key={"ct" + item.id}
+                  className="py-2 border-b border-dnt-main"
+                >
+                  <div className="grid grid-cols-12 gap-3 mb-3">
                     <div className="col-span-10">
                       <div className="flex space-x-5 bg-dnt-main rounded-lg p-4 2xl:p-5 mb-5">
                         <div className="w-20 h-20 2xl:w-28 2xl:h-28 bg-white rounded-lg overflow-hidden">

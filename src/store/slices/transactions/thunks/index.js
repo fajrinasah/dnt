@@ -1,6 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import api from "../../../utils/api.instance";
+import { toast } from "react-hot-toast";
+import { toastError, toastSuccess } from "../../../../components/02-molecules/forAuthAndManage/customToasts";
 
 
 /* ==================================================================== */
@@ -13,12 +15,14 @@ export const createTransactions = createAsyncThunk(
       // payload:(products)
       const { data } = await api.post(`/transaction`, payload);
 
-      console.log(data)
+      toastSuccess(data?.message);
 
       return data;
     } catch (error) {
-      console.log(error.response ? error.response.data : error);
-      return rejectWithValue(error.response ? error.response.data : error);
+      toastError(error.response ? error.response.data?.message : error);
+      return rejectWithValue(
+        error.response ? error.response.data?.message : error
+      );
     }
   }
 );

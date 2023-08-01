@@ -95,12 +95,12 @@ export const getAllCategories = createAsyncThunk(
     try {
       // payload: req queries (if any)
       // available queries: name, timesort, namesort (see postman for more details)
-      const { data } = await api.get(`/categories/?${payload ? payload : ''}`);      
+      const { data } = await api.get(`/categories/`, payload);      
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      // toast.promise(data, {
+      //   loading: toastBlank("Loading..."),
+      //   success: toastSuccess(data?.message),
+      // });
 
       return data;
     } catch (error) {

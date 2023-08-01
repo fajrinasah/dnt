@@ -189,14 +189,16 @@ export const getAllProducts = createAsyncThunk(
 
       const { data } = await api.get(`/products/?${PARAMS}`);
       
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-      });
+      // toast.promise(data, {
+      //   loading: toastBlank("Loading..."),
+      // });
 
       return data;
     } catch (error) {
-      toastError(error.response ? error.response.data : error);
-      return rejectWithValue(error.response ? error.response.data : error);
+      toastError(error.response ? error.response.data?.message : error);
+      return rejectWithValue(
+        error.response ? error.response.data?.message : error
+      );
     }
   }
 );
