@@ -1,13 +1,25 @@
 /* ===============================================
 FORM ADD PRODUCT
 =================================================*/
-.form.add-product .input-file {
-  width: 80%;
+.form.add-product {
+  margin-top: 2rem;
+  border: 1px solid aqua;
+}
+
+.form.add-product .add-product-image-container {
+  width: 60rem;
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+
+.form.add-product .input-file-custom-container {
+  margin: 0;
 }
 
 .form.add-product .input-submit-container {
   min-width: 60rem;
   padding: 1rem;
+  margin: 3rem 0;
   justify-content: space-between;
 }
 
@@ -19,4 +31,43 @@ FORM ADD PRODUCT
 .form.add-product .input-submit-container .input-submit {
   margin: 0;
   margin-left: 2rem;
+}
+
+/*--------------------DETAILS & SUMMARIES-----------------*/
+.form.add-product details.guides-dropdown {
+  width: 100%;
+  padding: 1rem;
+}
+
+.form.add-product details.guides-dropdown details {
+  padding: 1rem;
+  max-width: 60rem;
+}
+
+.form.add-product details.guides-dropdown summary {
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid var(--main);
+}
+
+.form.add-product details.guides-dropdown details p,
+.form.add-product details.guides-dropdown details ul {
+  padding: 1rem 1rem 1rem 2rem;
+  line-height: 1.5;
+
+  background-color: var(--main);
+  border-radius: 0 0 3px 3px;
+  box-shadow: -1px 1px 2px 0px grey;
+}
+
+.form.add-product details.guides-dropdown details li {
+  margin: 1rem 1rem 1rem 2rem;
+}
+
+.form.add-product details.guides-dropdown .text-button {
+  padding: 0 0.3rem;
+  color: var(--main);
+  background-color: var(--contrast);
+  border-radius: 3px;
+  box-shadow: -1px 1px 2px 0px grey;
 }

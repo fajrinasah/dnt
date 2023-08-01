@@ -66,6 +66,7 @@ import ManageCategoriesToolbars from "../../../02-molecules/forAuthAndManage/too
 import TableCashiers from "../../../03-organisms/forAuthAndManage/tables/TableCashiers";
 import TableCategories from "../../../03-organisms/forAuthAndManage/tables/TableCategories";
 import TableProducts from "../../../03-organisms/forAuthAndManage/tables/TableProducts";
+import { useRef } from "react";
 
 export function GeneralTest() {
   const categories = [
@@ -338,7 +339,13 @@ export function GeneralTest() {
         <br />
       </div> */}
 
-      <div className="test-organisms">
+      <div className="d-flex-row">
+        <div className="card">
+          <FormAddProduct />
+        </div>
+      </div>
+
+      {/* <div className="test-organisms">
         <TableCashiers cashiersArr={cashiersData} />
         <br />
         <br />
@@ -351,7 +358,7 @@ export function GeneralTest() {
         <br />
         <br />
         <br />
-      </div>
+      </div> */}
     </div>
   );
 }

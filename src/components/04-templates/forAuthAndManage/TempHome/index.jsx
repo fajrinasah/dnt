@@ -1,8 +1,14 @@
+/*=================================================================*/
+// THIS IS A TEMPORARY PAGE TO CHECK A FEATURE
+// will be deleted later
+/*=================================================================*/
+
 import { useState } from "react";
 
 import ModalChangePhotoProfile from "../../../03-organisms/forAuthAndManage/modals/ModalChangePhotoProfile";
 import ModalAddCashier from "../../../03-organisms/forAuthAndManage/modals/cashiers/ModalAddCashier";
 import ModalEditCashier from "../../../03-organisms/forAuthAndManage/modals/cashiers/ModalEditCashier";
+import ModalAddProduct from "../../../03-organisms/forAuthAndManage/modals/products/ModalAddProduct";
 
 export default function TempHome() {
   const [isModalOpened, setIsModalOpened] = useState(false);
@@ -20,7 +26,7 @@ export default function TempHome() {
       <button onClick={openModal}>open modal</button>
       {/* {isModalOpened && <ModalChangePhotoProfile closeModal={closeModal} />} */}
       {/* {isModalOpened && <ModalAddCashier closeModal={closeModal} />} */}
-      {isModalOpened && (
+      {/* {isModalOpened && (
         <ModalEditCashier
           closeModal={closeModal}
           cashierPhoto={null}
@@ -29,7 +35,9 @@ export default function TempHome() {
           cashierCurrentEmail="vani.kani@allfreemail.net"
           cashierStatus="2"
         />
-      )}
+      )} */}
+
+      {isModalOpened && <ModalAddProduct closeModal={closeModal} />}
     </div>
   );
 }
