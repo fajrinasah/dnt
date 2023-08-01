@@ -32,7 +32,9 @@ function App() {
       <header></header>
       <main>
         <Routes>
-          <Route path="/temp/" element={<TempHome />} />
+          <Route path="/test" element={<GeneralTest />} />
+          <Route path="/temp" element={<TempHome />} />
+
           <Route path="/auth/login" element={<PageLogin />} />
           <Route
             path="/auth/forgot-password"
@@ -46,7 +48,7 @@ function App() {
             path="/auth/reset-password/:uuidWithContext"
             element={<PageResetPassword />}
           />
-          <Route path="/test" element={<GeneralTest />} />
+
           <Route path="/cashiers" element={<PageManageCashiers />} />
         </Routes>
       </main>
