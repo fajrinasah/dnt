@@ -84,7 +84,7 @@ export const getAllCategories = createAsyncThunk(
     try {
       // payload: req queries (if any)
       // available queries: name, timesort, namesort (see postman for more details)
-      const { data } = await api.get(`/categories/`, payload);      
+      const { data } = await api.get(`/categories/${payload}`);
 
       return data;
     } catch (error) {
