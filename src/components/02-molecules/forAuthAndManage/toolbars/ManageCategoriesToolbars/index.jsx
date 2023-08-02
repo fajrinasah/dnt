@@ -1,24 +1,28 @@
 import InputToolbarSearch from "../../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSearch";
 import InputToolbarSort from "../../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSort";
-import InputSubmit from "../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputSubmit";
+import ButtonStandard from "../../../../01-atoms/forAuthAndManage/buttons/ButtonStandard";
 
 import "./styles.css";
 
 export default function ManageCategoriesToolbars({
-  sortingOptions = [{ id: 0, name: "" }],
+  sortingOptions = [{ id: 0, name: "", selected: false }],
   refSortingOption,
-  refSortingMethod,
   refSearch,
+  setCurrentSortingMethod = () => {},
+  currentSortingMethod,
+  onSubmit = () => {},
+  onReset = () => {},
 }) {
   return (
     <form className="form toolbars categories d-flex-row">
       <fieldset className="sort d-flex-row">
         <InputToolbarSort
-          forId="categoriesSortingOptions"
+          forId="categories-sorting-options"
           label="Sort"
           options={sortingOptions}
           refSortingOption={refSortingOption}
-          refSortingMethod={refSortingMethod}
+          setCurrentSortingMethod={setCurrentSortingMethod}
+          currentSortingMethod={currentSortingMethod}
         />
       </fieldset>
 
@@ -30,7 +34,23 @@ export default function ManageCategoriesToolbars({
           refSearch={refSearch}
         />
       </fieldset>
-      <InputSubmit value="Show results" story="ghost-main" width="auto" />
+      <div className="buttons-container">
+        <ButtonStandard
+          story="ghost-main"
+          width="auto"
+          content="Show"
+          bold=""
+          onClick={onSubmit}
+        />
+
+        <ButtonStandard
+          story="flat"
+          width="auto"
+          content="Reset"
+          bold=""
+          onClick={onReset}
+        />
+      </div>
     </form>
   );
 }

@@ -1,3 +1,24 @@
 /* ===============================================
-COMPONENT'S NAME
+PAGE MANAGE CATEGORIES
 =================================================*/
+.page.manage.categories {
+}
+
+.page.manage.categories .title-section {
+  margin: 3rem 0 5rem 0;
+}
+
+.page.manage.categories .form.toolbars.categories {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.page.manage.categories .modal.add-category {
+  margin-top: 3rem;
+}
+
+.page.manage.categories .table-container.categories {
+  margin: 5rem 0;
+  width: 80%;
+}

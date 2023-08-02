@@ -1,5 +1,6 @@
 import InputText from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputText";
 import InputSubmit from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputSubmit";
+import ModalDefaultText from "../../../../../01-atoms/forAuthAndManage/texts/ModalDefaultText";
 
 import "./styles.css";
 
@@ -7,7 +8,9 @@ export default function FormEditNameCategory({
   onSubmit = () => {},
   handleBlur = () => {},
   handleChange = () => {},
-  isSubmitting = () => {},
+  disableSubmit,
+  nameTouched,
+  nameErrors,
   nameValue,
 }) {
   return (
@@ -25,10 +28,20 @@ export default function FormEditNameCategory({
         onChange={handleChange}
       />
 
+      {nameTouched && nameErrors && (
+        <div className="error-container edit-name-category d-flex-row">
+          <ModalDefaultText
+            content={nameErrors}
+            color="contrast"
+            bgColor="main"
+          />
+        </div>
+      )}
+
       <div className="input-submit-container d-flex-row">
         <InputSubmit
           value="Save"
-          disabled={isSubmitting}
+          disabled={disableSubmit}
           story="ghost-main"
           width="full"
         />

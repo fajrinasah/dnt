@@ -1,6 +1,7 @@
 import InputText from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputText";
 import InputSubmit from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputSubmit";
 import ButtonStandard from "../../../../../01-atoms/forAuthAndManage/buttons/ButtonStandard";
+import ModalDefaultText from "../../../../../01-atoms/forAuthAndManage/texts/ModalDefaultText";
 
 import "./styles.css";
 
@@ -8,7 +9,9 @@ export default function FormAddCategory({
   onSubmit = () => {},
   handleBlur = () => {},
   handleChange = () => {},
-  isSubmitting = () => {},
+  disableSubmit,
+  nameTouched,
+  nameErrors,
   nameValue,
   cancelHandler = () => {},
 }) {
@@ -27,20 +30,30 @@ export default function FormAddCategory({
         onChange={handleChange}
       />
 
-      <div className="input-submit-container d-flex-row">
+      {nameTouched && nameErrors && (
+        <div className="error-container add-category-name d-flex-row">
+          <ModalDefaultText
+            content={nameErrors}
+            color="contrast"
+            bgColor="main"
+          />
+        </div>
+      )}
+
+      <div className="input-submit-container d-flex-col">
+        <InputSubmit
+          value="Save"
+          disabled={disableSubmit}
+          story="raised-main"
+          width="full"
+        />
+
         <ButtonStandard
           story="flat"
           bold=""
           width="full"
           content="Cancel"
           onClick={cancelHandler}
-        />
-
-        <InputSubmit
-          value="Save"
-          disabled={isSubmitting}
-          story="raised-main"
-          width="full"
         />
       </div>
     </form>

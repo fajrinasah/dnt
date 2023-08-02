@@ -131,6 +131,7 @@ export default function PageManageCashiers() {
     setCurrentSortingMethod("ASC");
     setCurrentFilter("");
     setCurrentSearch("");
+    setCurrentQuery(`?timesort=ASC`);
   };
 
   /*===============DATA ARRAYS================*/

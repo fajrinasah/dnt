@@ -3,17 +3,23 @@ FORM ADD CATEGORY
 =================================================*/
 
 .form.add-category .input-submit-container {
-  min-width: 60rem;
-  padding: 1rem;
+  width: 60rem;
+  padding: 2rem;
   justify-content: space-between;
 }
 
-.form.add-category .input-submit-container .button-standard {
+.form.add-category .input-submit-container {
   margin: 0;
-  margin-right: 2rem;
+  width: 60rem;
+  padding: 1rem;
+  margin-top: 2rem;
 }
 
-.form.add-category .input-submit-container .input-submit {
-  margin: 0;
-  margin-left: 2rem;
+.form.add-category .error-container.add-category-name {
+  width: 60rem;
+  padding: 1rem;
+}
+
+.form.add-category .error-container .modal-default-text {
+  width: 100%;
 }

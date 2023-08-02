@@ -7,3 +7,4 @@ export * from "./hooks/useGetUuidWithContext";
 
 export * from "./queries/cashiers";
 export * from "./queries/products";
+export * from "./queries/categories";
