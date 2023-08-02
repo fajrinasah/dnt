@@ -18,7 +18,7 @@ export default function ManageCashiersProductsToolbars({
   currentSortingMethod,
 }) {
   return (
-    <form className="form toolbars cashiers products d-flex-row">
+    <form className="form toolbars cashiers d-flex-row">
       <fieldset className="sort d-flex-row">
         <InputToolbarSort
           forId={
@@ -65,7 +65,7 @@ export default function ManageCashiersProductsToolbars({
       <ButtonStandard
         story="ghost-main"
         width="auto"
-        content="Show results"
+        content="Show"
         bold=""
         onClick={onSubmit}
       />
