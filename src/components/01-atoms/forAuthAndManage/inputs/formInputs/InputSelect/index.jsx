@@ -5,7 +5,6 @@ export default function InputSelect({
   color = "accent",
   inputId,
   labelText,
-  placeholderOption = "",
   ref,
   multiple = false,
   value,
@@ -39,9 +38,6 @@ export default function InputSelect({
         onChange={onChange}
         onBlur={onBlur}
       >
-        <option className="placeholder-option" value="">
-          {placeholderOption}
-        </option>
         <RenderOptions />
       </select>
     </div>
