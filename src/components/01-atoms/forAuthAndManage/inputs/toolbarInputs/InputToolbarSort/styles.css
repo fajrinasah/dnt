@@ -2,8 +2,6 @@
 INPUT TOOLBAR SORT
 ===============================================*/
 .label-for-select {
-  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
-
   font-weight: bold;
   font-size: 1.6rem;
 }
@@ -13,7 +11,7 @@ INPUT TOOLBAR SORT
 
   background-color: transparent;
   color: var(--contrast);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
   font-size: 1.6rem;
 
   border: none;
@@ -22,7 +20,7 @@ INPUT TOOLBAR SORT
 }
 
 .input-toolbar-sort .radios-container {
-  padding: 0 2rem;
+  padding-right: 0.5rem;
 }
 
 .input-toolbar-sort .radio-container label {
@@ -36,5 +34,5 @@ INPUT TOOLBAR SORT
   width: 2rem;
   height: 2rem;
   accent-color: var(--accent);
-  margin: 0 0.5rem;
+  margin-left: 0.5rem;
 }

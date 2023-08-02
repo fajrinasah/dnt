@@ -7,5 +7,17 @@ FORM EDIT INFO PRODUCT
 }
 
 .form.edit-info-product .input-submit-container .input-submit {
+  margin: 2rem 0;
+}
+
+.form.edit-info-product .current-categories,
+.form.edit-info-product .change-categories {
+  width: 60rem;
+  padding: 1rem;
+}
+
+.form.edit-info-product .current-categories .button-standard,
+.form.edit-info-product .change-categories .button-standard {
   margin: 0;
+  margin-top: 1rem;
 }

@@ -1,0 +1,41 @@
+/* ===============================================
+GUIDES FOR SELECT MULTIPLE OPTIONS
+=================================================*/
+
+details.guides-dropdown {
+  width: 100%;
+  padding: 1rem;
+}
+
+details.guides-dropdown details {
+  padding: 1rem;
+  max-width: 60rem;
+}
+
+details.guides-dropdown summary {
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid var(--main);
+}
+
+details.guides-dropdown details p,
+details.guides-dropdown details ul {
+  padding: 1rem 1rem 1rem 2rem;
+  line-height: 1.5;
+
+  background-color: var(--main);
+  border-radius: 0 0 3px 3px;
+  box-shadow: -1px 1px 2px 0px grey;
+}
+
+details.guides-dropdown details li {
+  margin: 1rem 1rem 1rem 2rem;
+}
+
+details.guides-dropdown .text-button {
+  padding: 0 0.3rem;
+  color: var(--main);
+  background-color: var(--contrast);
+  border-radius: 3px;
+  box-shadow: -1px 1px 2px 0px grey;
+}

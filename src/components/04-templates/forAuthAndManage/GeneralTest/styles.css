@@ -28,3 +28,8 @@
 .test-organisms {
   width: 100vw;
 }
+
+.card {
+  width: 60%;
+  background-color: var(--accent);
+}

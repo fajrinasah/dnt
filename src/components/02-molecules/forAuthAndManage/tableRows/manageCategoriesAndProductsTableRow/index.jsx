@@ -1,3 +1,5 @@
+import Moment from "react-moment";
+
 import "./styles.css";
 
 export default function ManageCategoriesAndProductsTableRow({
@@ -22,8 +24,12 @@ export default function ManageCategoriesAndProductsTableRow({
       <tr className={`cnp-table ${type} d-flex-row`} onClick={onClick}>
         <td className="number">{numberValue}.</td>
         <td className="name with-border">{nameValue}</td>
-        <td className="date with-border">{createdAt}</td>
-        <td className="date">{updatedAt}</td>
+        <td className="date with-border">
+          <Moment format="MMMM Do YYYY">{createdAt}</Moment>
+        </td>
+        <td className="date">
+          <Moment format="MMMM Do YYYY">{updatedAt}</Moment>
+        </td>
       </tr>
     );
   }

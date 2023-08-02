@@ -20,7 +20,10 @@ import PageResetPassword from "./components/05-pages/forAuthAndManage/PageResetP
 import { GeneralTest } from "./components/04-templates/forAuthAndManage/GeneralTest";
 import TempHome from "./components/04-templates/forAuthAndManage/TempHome";
 import PageManageCashiers from "./components/05-pages/forAuthAndManage/PageManageCashiers";
+import PageManageProducts from "./components/05-pages/forAuthAndManage/PageManageProducts";
+
 import CreateTransactions from "./components/05-pages/CreateTransactions";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -33,7 +36,9 @@ function App() {
       <header></header>
       <main>
         <Routes>
-          <Route path="/temp/" element={<TempHome />} />
+          <Route path="/test" element={<GeneralTest />} />
+          <Route path="/temp" element={<TempHome />} />
+
           <Route path="/auth/login" element={<PageLogin />} />
           <Route
             path="/auth/forgot-password"
@@ -47,9 +52,12 @@ function App() {
             path="/auth/reset-password/:uuidWithContext"
             element={<PageResetPassword />}
           />
-          <Route path="/test" element={<GeneralTest />} />
-          <Route path="/cashiers" element={<PageManageCashiers />} />
+
+          <Route path="/manage/cashiers" element={<PageManageCashiers />} />
+          <Route path="/manage/products" element={<PageManageProducts />} />
+
           <Route path="/create-transactions" element={<CreateTransactions />}></Route>
+
         </Routes>
       </main>
       <footer></footer>

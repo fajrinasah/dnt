@@ -1,0 +1,41 @@
+/* ===============================================
+MODAL EDIT PRODUCT
+=================================================*/
+.modal.edit-product {
+  margin: 0 calc((100% - 55%) / 2);
+  max-width: 55%;
+
+  position: absolute;
+  top: 55rem;
+  right: 0;
+}
+
+.modal.edit-product .image-container {
+  margin-top: 3rem;
+}
+
+.modal.edit-product .form.edit-image-product {
+  width: 60rem;
+  padding: 1rem;
+}
+
+.modal.edit-product .form.edit-info-product {
+  padding: 3rem 0;
+  margin: 3rem 0;
+  border-top: 1px solid var(--main);
+  border-bottom: 1px solid var(--main);
+}
+
+#close-edit-product-modal {
+  width: 60rem;
+  margin: 3rem 0;
+}
+
+.modal.edit-product .status {
+  max-width: 60rem;
+}
+
+.modal.edit-product .button-container {
+  max-width: 60rem;
+  padding: 1rem;
+}

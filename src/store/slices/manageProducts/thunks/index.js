@@ -1,9 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-hot-toast";
 
 import api from "../../../utils/api.instance";
 import {
-  toastBlank,
   toastError,
   toastSuccess,
 } from "../../../../../src/components/02-molecules/forAuthAndManage/customToasts";
@@ -19,10 +17,7 @@ export const addProduct = createAsyncThunk(
       // see postman for more details
       const { data } = await api.post("/product/", payload);
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
       return null;
     } catch (error) {
@@ -43,11 +38,6 @@ export const getProduct = createAsyncThunk(
     try {
       // payload: productId --> req.params
       const { data } = await api.get(`/product/${payload}`);
-
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
 
       return data;
     } catch (error) {
@@ -73,10 +63,7 @@ export const editProductImage = createAsyncThunk(
         payload?.body
       );
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
       return null;
     } catch (error) {
@@ -102,10 +89,7 @@ export const editProductInfo = createAsyncThunk(
         payload?.body
       );
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
       return null;
     } catch (error) {
@@ -131,10 +115,7 @@ export const editProductStatus = createAsyncThunk(
         payload?.body
       );
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      toastSuccess(data?.message);
 
       return null;
     } catch (error) {
@@ -153,6 +134,9 @@ export const deleteProductCategories = createAsyncThunk(
   "products/deleteProductCategories",
   async (payload, { rejectWithValue }) => {
     try {
+      console.log(`/product/${payload?.productId}/categories`);
+      console.log("payload?.body ===> ", payload?.body);
+
       // payload: {productId, body: {categoryIdArr}}
       // see postman for more details
       const { data } = await api.delete(
@@ -160,10 +144,7 @@ export const deleteProductCategories = createAsyncThunk(
         payload?.body
       );
 
-      toast.promise(data, {
-        loading: toastBlank("Loading..."),
-        success: toastSuccess(data?.message),
-      });
+      // toastSuccess(data?.message);
 
       return null;
     } catch (error) {
@@ -183,14 +164,13 @@ export const getAllProducts = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       // payload: req queries (if any)
-      const { page, sort, name, category, sortBy } = payload;
-
-      const PARAMS = `page=${page}${sortBy ? ("&" + sortBy + "=" + sort) : "" }${name ? ("&name=" + name) : ""}${category ? ("&category=" + category) : ""}`;
-
-      const { data } = await api.get(`/products/?${PARAMS}`);
+      const { data } = await api.get(`/products/${payload}`);
       
-      // toastSuccess(data?.message)
-
+      // not fit with the controller in api that i already made, so i'll just commented it out for now:
+      // const { page, sort, name, category, sortBy } = payload;
+      // const PARAMS = `page=${page}${sortBy ? ("&" + sortBy + "=" + sort) : "" }${name ? ("&name=" + name) : ""}${category ? ("&category=" + category) : ""}`;
+      // const { data } = await api.get(`/products/?${PARAMS}`);
+      
       return data;
     } catch (error) {
       toastError(error.response ? error.response.data?.message : error);

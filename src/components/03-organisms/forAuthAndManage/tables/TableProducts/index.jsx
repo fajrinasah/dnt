@@ -3,7 +3,7 @@ import "../styles.css";
 
 export default function TableProducts({
   productsArr = [],
-  productOnClick = (id = 0) => {},
+  openEditProductModal = (id) => {},
 }) {
   const RenderProductRows = () => {
     const results = [];
@@ -12,23 +12,25 @@ export default function TableProducts({
       if (i === 0 || i % 2 === 0) {
         results.push(
           <ManageCategoriesAndProductsTableRow
+            key={i}
             type="bodyrow-light"
             numberValue={i + 1}
             nameValue={productsArr[i].name}
             createdAt={productsArr[i].created_at}
             updatedAt={productsArr[i].updated_at}
-            onClick={() => productOnClick(productsArr[i].id)}
+            onClick={() => openEditProductModal(productsArr[i].id)}
           />
         );
       } else {
         results.push(
           <ManageCategoriesAndProductsTableRow
+            key={i}
             type="bodyrow-dark"
             numberValue={i + 1}
             nameValue={productsArr[i].name}
             createdAt={productsArr[i].created_at}
             updatedAt={productsArr[i].updated_at}
-            onClick={() => productOnClick(productsArr[i].name)}
+            onClick={() => openEditProductModal(productsArr[i].name)}
           />
         );
       }

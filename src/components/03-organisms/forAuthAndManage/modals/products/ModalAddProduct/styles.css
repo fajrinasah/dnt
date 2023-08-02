@@ -1,0 +1,11 @@
+/* ===============================================
+MODAL ADD PRODUCT
+=================================================*/
+.modal.add-product {
+  margin: 0 calc((100% - 55%) / 2);
+  max-width: 55%;
+}
+
+.modal.add-product .image-container {
+  margin-top: 3rem;
+}

@@ -1,16 +1,17 @@
 import InputToolbarSelect from "../../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSelect";
 import InputToolbarSearch from "../../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSearch";
 import InputToolbarSort from "../../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSort";
-
-import "./styles.css";
 import ButtonStandard from "../../../../01-atoms/forAuthAndManage/buttons/ButtonStandard";
 
-export default function ManageCashiersProductsToolbars({
-  type = "", // "cashiers" or "products"
+import "./styles.css";
+
+export default function ManageProductsToolbars({
   sortingOptions = [{ id: 0, name: "", selected: false }],
   refSortingOption,
-  filterOptions = [{ id: 0, name: "", selected: false }],
-  refFilterOption,
+  filterStatusOptions = [{ id: 0, name: "", selected: false }],
+  filterCategoryOptions = [{ id: 0, name: "", selected: false }],
+  refFilterStatusOption,
+  refFilterCategoryOption,
   refSearch,
   onSubmit = () => {},
   onReset = () => {},
@@ -18,14 +19,10 @@ export default function ManageCashiersProductsToolbars({
   currentSortingMethod,
 }) {
   return (
-    <form className="form toolbars cashiers d-flex-row">
+    <form className="form toolbars products d-flex-row">
       <fieldset className="sort d-flex-row">
         <InputToolbarSort
-          forId={
-            type === "cashiers"
-              ? "cashiersSortingOptions"
-              : "productsSortingOptions"
-          }
+          forId="productsSortingOptions"
           label="Sort"
           options={sortingOptions}
           refSortingOption={refSortingOption}
@@ -34,30 +31,27 @@ export default function ManageCashiersProductsToolbars({
         />
       </fieldset>
 
-      <fieldset className="filter">
+      <fieldset className="filter d-flex-row">
         <InputToolbarSelect
-          forId={
-            type === "cashiers"
-              ? "cashiersFilterStatus"
-              : "productsFilterStatus"
-          }
-          label="Filter"
-          options={filterOptions}
-          refFilterOption={refFilterOption}
+          forId="productsFilterStatus"
+          label="Status"
+          options={filterStatusOptions}
+          refFilterOption={refFilterStatusOption}
+        />
+
+        <InputToolbarSelect
+          forId="productsFilterCategory"
+          label="Category"
+          options={filterCategoryOptions}
+          refFilterOption={refFilterCategoryOption}
         />
       </fieldset>
 
       <fieldset className="search">
         <InputToolbarSearch
-          inputId={
-            type === "cashiers" ? "searchCashierName" : "searchProductName"
-          }
-          inputName={
-            type === "cashiers" ? "searchCashierName" : "searchProductName"
-          }
-          inputPlaceholder={
-            type === "cashiers" ? "cashier's name" : "product's name"
-          }
+          inputId="searchProductName"
+          inputName="searchProductName"
+          inputPlaceholder="product's name"
           refSearch={refSearch}
         />
       </fieldset>
