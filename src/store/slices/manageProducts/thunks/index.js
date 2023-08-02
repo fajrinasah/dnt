@@ -134,6 +134,9 @@ export const deleteProductCategories = createAsyncThunk(
   "products/deleteProductCategories",
   async (payload, { rejectWithValue }) => {
     try {
+      console.log(`/product/${payload?.productId}/categories`);
+      console.log("payload?.body ===> ", payload?.body);
+
       // payload: {productId, body: {categoryIdArr}}
       // see postman for more details
       const { data } = await api.delete(
@@ -141,7 +144,7 @@ export const deleteProductCategories = createAsyncThunk(
         payload?.body
       );
 
-      toastSuccess(data?.message);
+      // toastSuccess(data?.message);
 
       return null;
     } catch (error) {
