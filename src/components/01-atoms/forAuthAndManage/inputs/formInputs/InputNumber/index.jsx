@@ -19,7 +19,7 @@ export default function InputNumber({
 }) {
   return (
     <div className={`label-and-input d-flex-${flexDirection} ${color}`}>
-      <label for={inputId} className="label-for-input">
+      <label htmlFor={inputId} className="label-for-input">
         {labelText}
       </label>
       <input
