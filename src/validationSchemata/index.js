@@ -5,3 +5,4 @@ export * from "./resetPasswordValidationSchema";
 export * from "./otpTokenValidationSchema";
 
 export * from "./addCashierValidationSchema";
+export * from "./categoryValidationSchema";
