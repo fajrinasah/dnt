@@ -22,6 +22,9 @@ import TempHome from "./components/04-templates/forAuthAndManage/TempHome";
 import PageManageCashiers from "./components/05-pages/forAuthAndManage/PageManageCashiers";
 import PageManageProducts from "./components/05-pages/forAuthAndManage/PageManageProducts";
 
+import CreateTransactions from "./components/05-pages/CreateTransactions";
+
+
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -52,6 +55,9 @@ function App() {
 
           <Route path="/manage/cashiers" element={<PageManageCashiers />} />
           <Route path="/manage/products" element={<PageManageProducts />} />
+
+          <Route path="/create-transactions" element={<CreateTransactions />}></Route>
+
         </Routes>
       </main>
       <footer></footer>
