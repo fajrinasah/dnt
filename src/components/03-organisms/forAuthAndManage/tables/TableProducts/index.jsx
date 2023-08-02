@@ -30,7 +30,7 @@ export default function TableProducts({
             nameValue={productsArr[i].name}
             createdAt={productsArr[i].created_at}
             updatedAt={productsArr[i].updated_at}
-            onClick={() => openEditProductModal(productsArr[i].name)}
+            onClick={() => openEditProductModal(productsArr[i].id)}
           />
         );
       }

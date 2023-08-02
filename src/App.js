@@ -21,9 +21,9 @@ import { GeneralTest } from "./components/04-templates/forAuthAndManage/GeneralT
 import TempHome from "./components/04-templates/forAuthAndManage/TempHome";
 import PageManageCashiers from "./components/05-pages/forAuthAndManage/PageManageCashiers";
 import PageManageProducts from "./components/05-pages/forAuthAndManage/PageManageProducts";
+import PageManageCategories from "./components/05-pages/forAuthAndManage/PageManageCategories";
 
 import CreateTransactions from "./components/05-pages/CreateTransactions";
-
 
 function App() {
   const dispatch = useDispatch();
@@ -55,9 +55,12 @@ function App() {
 
           <Route path="/manage/cashiers" element={<PageManageCashiers />} />
           <Route path="/manage/products" element={<PageManageProducts />} />
+          <Route path="/manage/categories" element={<PageManageCategories />} />
 
-          <Route path="/create-transactions" element={<CreateTransactions />}></Route>
-
+          <Route
+            path="/create-transactions"
+            element={<CreateTransactions />}
+          ></Route>
         </Routes>
       </main>
       <footer></footer>

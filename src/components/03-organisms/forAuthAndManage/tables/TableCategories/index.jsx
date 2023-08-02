@@ -3,7 +3,7 @@ import "../styles.css";
 
 export default function TableCategories({
   categoriesArr = [],
-  categoryOnClick = (id = 0) => {},
+  openEditNameCategoryModal = ({ id, name }) => {},
 }) {
   const RenderCategoryRows = () => {
     const results = [];
@@ -12,23 +12,35 @@ export default function TableCategories({
       if (i === 0 || i % 2 === 0) {
         results.push(
           <ManageCategoriesAndProductsTableRow
+            key={i}
             type="bodyrow-light"
             numberValue={i + 1}
             nameValue={categoriesArr[i].name}
             createdAt={categoriesArr[i].created_at}
             updatedAt={categoriesArr[i].updated_at}
-            onClick={() => categoryOnClick(categoriesArr[i].name)}
+            onClick={() =>
+              openEditNameCategoryModal({
+                id: categoriesArr[i].id,
+                name: categoriesArr[i].name,
+              })
+            }
           />
         );
       } else {
         results.push(
           <ManageCategoriesAndProductsTableRow
+            key={i}
             type="bodyrow-dark"
             numberValue={i + 1}
             nameValue={categoriesArr[i].name}
             createdAt={categoriesArr[i].created_at}
             updatedAt={categoriesArr[i].updated_at}
-            onClick={() => categoryOnClick(categoriesArr[i].id)}
+            onClick={() =>
+              openEditNameCategoryModal({
+                id: categoriesArr[i].id,
+                name: categoriesArr[i].name,
+              })
+            }
           />
         );
       }

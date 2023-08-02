@@ -1,0 +1,17 @@
+/* ===============================================
+MODAL EDIT NAME OF A CATEGORY
+=================================================*/
+.modal.edit-category {
+  margin: 0 calc((100% - 55%) / 2);
+  max-width: 55%;
+
+  position: absolute;
+  top: 55rem;
+  right: 0;
+}
+
+.modal.edit-category .buttons-container {
+  width: 100%;
+  padding: 1rem;
+  margin: 3rem 0;
+}

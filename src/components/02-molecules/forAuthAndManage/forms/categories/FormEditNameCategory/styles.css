@@ -9,4 +9,14 @@ FORM EDIT NAME OF A CATEGORY
 
 .form.edit-name-category .input-submit-container .input-submit {
   margin: 0;
+  margin-top: 2rem;
+}
+
+.form.edit-name-category .error-container.edit-name-category {
+  width: 60rem;
+  padding: 1rem;
+}
+
+.form.edit-name-category .error-container .modal-default-text {
+  width: 100%;
 }
