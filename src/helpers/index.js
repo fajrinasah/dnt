@@ -6,3 +6,4 @@ export * from "./hooks/useGetContext";
 export * from "./hooks/useGetUuidWithContext";
 
 export * from "./queries/cashiers";
+export * from "./queries/products";
