@@ -5,7 +5,7 @@ import InputTextArea from "../../../../../01-atoms/forAuthAndManage/inputs/formI
 import InputNumber from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputNumber";
 import InputSubmit from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputSubmit";
 import ButtonStandard from "../../../../../01-atoms/forAuthAndManage/buttons/ButtonStandard";
-import ModalDefaultText from "../../../../../01-atoms/forAuthAndManage/texts/ModalDefaultText";
+// import ModalDefaultText from "../../../../../01-atoms/forAuthAndManage/texts/ModalDefaultText";
 import GuidesSelectMultiple from "../../../../../01-atoms/forAuthAndManage/texts/GuidesSelectMultiple";
 
 import "./styles.css";
@@ -16,47 +16,47 @@ export default function FormEditInfoProduct({
   currentDescription,
   currentPrice,
   currentCategories,
-  setSelectedCategories = () => {},
+  // setSelectedCategories = () => {},
   categoriesArr = [],
+  changeCategories,
+  setChangeCategories = () => {},
   submitHandler = () => {},
   // uploadImageHandler = () => {},
   disableSave = () => {},
-  selectCategoriesHandler = () => {},
-  // categoriesRef,
-  nameRef,
-  descriptionRef,
-  priceRef,
-  // invalidImage,
-  // invalidImageInfo,
-  invalidName,
-  // invalidNameInfo,
-  invalidCategories,
-  // invalidCategoriesInfo,
-  invalidDescription,
-  // invalidDescriptionInfo,
-  invalidPrice,
-  // invalidPriceInfo,
+  // selectCategoriesHandler = () => {},
+  // // categoriesRef,
+  // nameRef,
+  // descriptionRef,
+  // priceRef,
+  // // invalidImage,
+  // // invalidImageInfo,
+  // invalidName,
+  // // invalidNameInfo,
+  // invalidCategories,
+  // // invalidCategoriesInfo,
+  // invalidDescription,
+  // // invalidDescriptionInfo,
+  // invalidPrice,
+  // // invalidPriceInfo,
 
   cancelHandler = () => {},
 }) {
-  const [changeCategories, setChangeCategories] = useState(false);
-
   const changeCategoriesHandler = () => {
     setChangeCategories(true);
   };
 
   const cancelChangeCategoriesHandler = () => {
     setChangeCategories(false);
-    setSelectedCategories([]);
+    // setSelectedCategories([]);
   };
 
-  const invalidNameInfo =
-    "Product's name is required and its length must be between 3 to 45 characters.";
-  const invalidCategoriesInfo =
-    "Product's category/categories data is required.";
-  const invalidDescriptionInfo =
-    "Product's description is required and its length must be between 10 to 255 characters.";
-  const invalidPriceInfo = "Product's price is required.";
+  // const invalidNameInfo =
+  //   "Product's name is required and its length must be between 3 to 45 characters.";
+  // const invalidCategoriesInfo =
+  //   "Product's category/categories data is required.";
+  // const invalidDescriptionInfo =
+  //   "Product's description is required and its length must be between 10 to 255 characters.";
+  // const invalidPriceInfo = "Product's price is required.";
 
   return (
     <form
@@ -72,9 +72,9 @@ export default function FormEditInfoProduct({
               readOnly={true}
               flexDirection="row"
               color="main"
-              inputId="currentCategories"
+              inputId="current-categories"
               labelText="Categories"
-              inputName="currentCategories"
+              inputName="current-categories"
               defaultValue={currentCategories}
             />
 
@@ -93,12 +93,12 @@ export default function FormEditInfoProduct({
             <InputSelect
               flexDirection="row"
               color="main"
-              inputId="categories"
+              inputId="edit-product-categories"
               labelText="Categories"
               optionsArray={categoriesArr}
               multiple={true}
-              placeholderOption="select one or more categories"
-              onChange={selectCategoriesHandler}
+              // placeholderOption="select one or more categories"
+              // onChange={selectCategoriesHandler}
             />
 
             <ButtonStandard
@@ -110,7 +110,7 @@ export default function FormEditInfoProduct({
             />
           </div>
         )}
-
+        {/* 
         {invalidCategories && (
           <div className="error-container add-product-categories d-flex-row">
             <ModalDefaultText
@@ -119,23 +119,23 @@ export default function FormEditInfoProduct({
               bgColor="main"
             />
           </div>
-        )}
+        )} */}
       </div>
 
       <InputText
         flexDirection="row"
         color="main"
-        inputId="name"
+        inputId="edit-product-name"
         labelText="Name"
         required={true}
-        inputName="name"
+        inputName="edit-product-name"
         autoCapitalize="words"
-        inputPlaceholder="enter new product's name here"
-        ref={nameRef}
+        // inputPlaceholder="enter product's name here"
+        // ref={nameRef}
         defaultValue={currentName}
       />
 
-      {invalidName && (
+      {/* {invalidName && (
         <div className="error-container add-product-name d-flex-row">
           <ModalDefaultText
             content={invalidNameInfo}
@@ -143,22 +143,22 @@ export default function FormEditInfoProduct({
             bgColor="main"
           />
         </div>
-      )}
+      )} */}
 
       <InputTextArea
         flexDirection="row"
         color="main"
-        inputId="description"
+        inputId="edit-product-description"
         labelText="Description"
         required={true}
-        inputName="description"
+        inputName="edit-product-description"
         maxLength="255"
-        inputPlaceholder="enter new product's description here"
-        ref={descriptionRef}
+        // inputPlaceholder="enter new product's description here"
+        // ref={descriptionRef}
         defaultValue={currentDescription}
       />
 
-      {invalidDescription && (
+      {/* {invalidDescription && (
         <div className="error-container add-product-description d-flex-row">
           <ModalDefaultText
             content={invalidDescriptionInfo}
@@ -166,21 +166,21 @@ export default function FormEditInfoProduct({
             bgColor="main"
           />
         </div>
-      )}
+      )} */}
 
       <InputNumber
         flexDirection="row"
         color="main"
-        inputId="price"
+        inputId="edit-product-price"
         labelText="Price"
         required={true}
-        inputName="price"
-        inputPlaceholder="enter new product's price here"
-        ref={priceRef}
+        inputName="edit-product-price"
+        // inputPlaceholder="enter new product's price here"
+        // ref={priceRef}
         defaultValue={currentPrice}
       />
 
-      {invalidPrice && (
+      {/* {invalidPrice && (
         <div className="error-container add-product-price d-flex-row">
           <ModalDefaultText
             content={invalidPriceInfo}
@@ -188,7 +188,7 @@ export default function FormEditInfoProduct({
             bgColor="main"
           />
         </div>
-      )}
+      )} */}
 
       <div className="input-submit-container d-flex-col">
         <InputSubmit

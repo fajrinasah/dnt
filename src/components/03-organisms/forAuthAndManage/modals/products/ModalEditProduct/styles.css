@@ -4,6 +4,10 @@ MODAL EDIT PRODUCT
 .modal.edit-product {
   margin: 0 calc((100% - 55%) / 2);
   max-width: 55%;
+
+  position: absolute;
+  top: 55rem;
+  right: 0;
 }
 
 .modal.edit-product .image-container {
@@ -22,8 +26,16 @@ MODAL EDIT PRODUCT
   border-bottom: 1px solid var(--main);
 }
 
-#close-edit-product-modal,
-#edit-product-status {
+#close-edit-product-modal {
   width: 60rem;
   margin: 3rem 0;
+}
+
+.modal.edit-product .status {
+  max-width: 60rem;
+}
+
+.modal.edit-product .button-container {
+  max-width: 60rem;
+  padding: 1rem;
 }

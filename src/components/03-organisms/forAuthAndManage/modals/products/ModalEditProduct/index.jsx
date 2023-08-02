@@ -1,33 +1,36 @@
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
 import { useState, useEffect, useRef } from "react";
+import $ from "jquery";
 
 import {
   editProductImage,
   editProductInfo,
+  editProductStatus,
+  deleteProductCategories,
 } from "../../../../../../store/slices/manageProducts/thunks";
 import { toastError } from "../../../../../02-molecules/forAuthAndManage/customToasts";
 
 import TitleSection from "../../../../../01-atoms/forAuthAndManage/texts/titles/TitleSection";
 import ImageContainer from "../../../../../01-atoms/forAuthAndManage/ImageContainer";
 import ButtonStandard from "../../../../../01-atoms/forAuthAndManage/buttons/ButtonStandard";
-
-import "../../styles.css";
-import "./styles.css";
 import FormEditImageProduct from "../../../../../02-molecules/forAuthAndManage/forms/products/FormEditImageProduct";
 import FormEditInfoProduct from "../../../../../02-molecules/forAuthAndManage/forms/products/FormEditInfoProduct";
 import InputText from "../../../../../01-atoms/forAuthAndManage/inputs/formInputs/InputText";
+import ModalConfirmation from "../../ModalConfirmation";
+
+import "../../styles.css";
+import "./styles.css";
 
 export default function ModalEditProduct({
   closeModal = () => {},
-  openConfirmationModal = () => {},
   productId,
   currentImage = "",
   currentName = "",
   currentCategories = [],
   currentDescription = "",
   currentPrice = 0,
-  currentStatus = 2,
+  currentStatus = 1,
 }) {
   const dispatch = useDispatch();
 
@@ -42,22 +45,18 @@ export default function ModalEditProduct({
   const [isImageUploaded, setIsImageUploaded] = useState(false);
   const [imgData, setImgData] = useState(null);
 
-  // for multi-select
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [changeCategories, setChangeCategories] = useState(false);
 
-  // data validation for each field in edit product's info
-  const [invalidName, setInvalidName] = useState(false);
-  const [invalidCategories, setInvalidCategories] = useState(false);
-  const [invalidDescription, setInvalidDescription] = useState(false);
-  const [invalidPrice, setInvalidPrice] = useState(false);
+  // modal confirmation for edit product's status
+  const [modalConfirmation, setModalConfirmation] = useState(false);
 
-  const [allValid, setAllValid] = useState(false);
+  const showModalConfirmation = () => {
+    setModalConfirmation(true);
+  };
 
-  /*=====================REFS=============================*/
-  //   const categoriesRef = useRef();
-  const nameRef = useRef();
-  const descriptionRef = useRef();
-  const priceRef = useRef();
+  const closeModalConfirmation = () => {
+    setModalConfirmation(false);
+  };
 
   /*================================================================*/
   // DATA
@@ -75,9 +74,14 @@ export default function ModalEditProduct({
   /*=====================CURRENT CATEGORIES=============================*/
   const temp = [];
   currentCategories.map((category) => {
-    temp.push(category);
+    temp.push(category.name);
   });
   const currentCategoriesString = temp.join(", ");
+
+  const currentCategoriesIdArr = [];
+  currentCategories.map((category) => {
+    currentCategoriesIdArr.push(category.id);
+  });
 
   /*================================================================*/
   //CHANGE PRODUCT'S IMAGE
@@ -133,7 +137,7 @@ export default function ModalEditProduct({
         e.target.value = null;
         console.log("selected image is invalid");
         toastError(
-          "Please upload a valid photo (.jpg, .jpeg, .png, .gif) with maximum size 1MB"
+          "Please upload a valid image (.jpg, .jpeg, .png, .gif) with maximum size 1MB"
         );
       }
     }
@@ -146,9 +150,10 @@ export default function ModalEditProduct({
       formData.append("file", image);
       console.log("dispatching editProductImage");
 
-      dispatch(editProductImage(formData)).then(() => {
+      dispatch(editProductImage({ productId, body: formData })).then(() => {
         setImage(null);
         setIsImageUploaded(false);
+        window.location.reload();
       });
 
       console.log("DISPATCHED: change product's image request");
@@ -158,109 +163,129 @@ export default function ModalEditProduct({
   /*================================================================*/
   //CHANGE PRODUCT'S INFO
   /*================================================================*/
+  const disableSaveChangeInfo = false;
 
-  /*=====================SELECT CATEGORIES=============================*/
-  const selectCategoriesHandler = (e) => {
-    // get selected options
-    const options = e.target.options;
+  /*-----------------------DATA VALIDATION------------------------*/
+  const dataValidation = (categoryIdArr, name, description, price) => {
+    if (!name || name.length < 3 || name.length > 45) {
+      toastError(
+        "Product's name is required and its length must be between 3 to 45 characters."
+      );
+    }
 
-    // convert to array and filter unselected options
-    const selectedOptions = Array.from(options).filter(
-      (option) => option.selected
-    );
+    if (categoryIdArr.length === 0) {
+      toastError("Product's category/categories data is required.");
+    }
 
-    // map the selected options to their values
-    const selectedValues = selectedOptions.map((option) => option.value);
+    if (!description || description.length < 10 || description.length > 255) {
+      toastError(
+        "Product's description is required and its length must be between 10 to 255 characters."
+      );
+    }
 
-    // update the state with the new values
-    setSelectedCategories(selectedValues);
+    if (!price) {
+      toastError("Product's price is required.");
+    }
+
+    return true;
   };
 
   /*=====================SUBMIT=============================*/
   const submitChangeInfoHandler = (e) => {
     e.preventDefault();
 
-    /*-----------------------DATA VALIDATION------------------------*/
-    if (
-      !nameRef.current?.value ||
-      nameRef.current?.value.length < 3 ||
-      nameRef.current?.value.length > 45
-    ) {
-      setInvalidName(true);
+    let categoryIdArr = [];
+    const name = $("#edit-product-name").val();
+    const description = $("#edit-product-description").val();
+    const price = parseInt($("#edit-product-price").val());
+
+    if (changeCategories) {
+      const selectedValues = $("#edit-product-categories").val();
+      selectedValues.map((categoryId) => {
+        categoryIdArr.push(parseInt(categoryId));
+      });
+    } else {
+      categoryIdArr = currentCategoriesIdArr;
     }
 
-    if (!selectedCategories.current?.value) {
-      setInvalidCategories(true);
-    }
+    const dataValid = dataValidation(categoryIdArr, name, description, price);
+    console.log("dataValid: ", dataValid);
 
-    if (
-      !descriptionRef.current?.value ||
-      descriptionRef.current?.value.length < 10 ||
-      descriptionRef.current?.value.length > 255
-    ) {
-      setInvalidDescription(true);
-    }
+    if (dataValid) {
+      let data = {
+        categoryIdArr:
+          categoryIdArr === currentCategoriesIdArr ? [] : categoryIdArr,
+        name: name === currentName ? "" : name,
+        description: description === currentDescription ? "" : description,
+        price: price === currentPrice ? 0 : price,
+      };
 
-    if (!priceRef.current?.value) {
-      setInvalidPrice(true);
-    }
+      if (
+        categoryIdArr === currentCategoriesIdArr &&
+        name === currentName &&
+        description === currentDescription &&
+        price === currentPrice
+      ) {
+        toastError("No changes to be made");
+      }
 
-    if (
-      !(invalidCategories && invalidDescription && invalidName && invalidPrice)
-    ) {
-      setAllValid(true);
+      if (categoryIdArr !== currentCategoriesIdArr) {
+        // combine old categories and the new ones
+        const unfilteredCategories = categoryIdArr.concat(
+          currentCategoriesIdArr
+        );
+
+        // filter different categories to get what category/categories will be deleted
+        const categoriesToDelete = unfilteredCategories.filter(function (obj) {
+          return categoryIdArr.indexOf(obj) == -1;
+        });
+
+        // console.log({
+        //   productId,
+        //   body: { categoryIdArr: categoriesToDelete },
+        // });
+        if (categoriesToDelete.length !== 0) {
+          dispatch(
+            deleteProductCategories({
+              productId,
+              body: { categoryIdArr: categoriesToDelete },
+            })
+          ).then(() => {
+            dispatch(editProductInfo({ productId, body: data })).then(() => {
+              console.log("DISPATCHED: edit product info request");
+              console.log({ productId, body: data });
+
+              closeModal();
+            });
+          });
+        } else {
+          dispatch(editProductInfo({ productId, body: data })).then(() => {
+            console.log("DISPATCHED: edit product info request");
+            console.log({ productId, body: data });
+            closeModal();
+          });
+        }
+        // console.log(data);
+      }
     }
   };
 
   /*=====================CANCEL=============================*/
   const cancelEditInfoHandler = () => {
-    setSelectedCategories([]);
-    setInvalidName(false);
-    setInvalidCategories(false);
-    setInvalidDescription(false);
-    setInvalidPrice(false);
-
-    setAllValid(false);
+    closeModal();
   };
-
-  /*=====================USE EFFECT TO DISPATCH=============================*/
-  useEffect(() => {
-    if (allValid) {
-      dispatch(
-        editProductInfo({
-          productId,
-          body: {
-            name: nameRef.current?.value,
-            description: descriptionRef.current?.value,
-            price: priceRef.current?.value,
-            categoryIdArr: selectedCategories,
-          },
-        })
-      ).then(() => {
-        console.log("DISPATCHED: edit product info");
-
-        setSelectedCategories([]);
-        setInvalidName(false);
-        setInvalidCategories(false);
-        setInvalidDescription(false);
-        setInvalidPrice(false);
-
-        setAllValid(false);
-      });
-    }
-  }, [allValid]);
 
   /*================================================================*/
   //CHANGE PRODUCT'S STATUS
   /*================================================================*/
-  //   const editStatusHandler = () => {
-  //     const newStatus = currentStatus == 1 ? 2 : 1;
-  //     dispatch(
-  //       editProductStatus({ productId, body: { product_status_id: newStatus } })
-  //     ).then(() => {
-  //       window.location.reload();
-  //     });
-  //   };
+  const editStatusHandler = () => {
+    const newStatus = currentStatus == 1 ? 2 : 1;
+    dispatch(
+      editProductStatus({ productId, body: { product_status_id: newStatus } })
+    ).then(() => {
+      closeModal();
+    });
+  };
 
   return (
     <div className="modal-background edit-product">
@@ -288,18 +313,11 @@ export default function ModalEditProduct({
             currentDescription={currentDescription}
             currentPrice={currentPrice}
             currentCategories={currentCategoriesString}
-            setSelectedCategories={setSelectedCategories}
             categoriesArr={categoriesArr}
+            changeCategories={changeCategories}
+            setChangeCategories={setChangeCategories}
             submitHandler={submitChangeInfoHandler}
-            disableSave={allValid}
-            selectCategoriesHandler={selectCategoriesHandler}
-            nameRef={nameRef}
-            descriptionRef={descriptionRef}
-            priceRef={priceRef}
-            invalidName={invalidName}
-            invalidCategories={invalidCategories}
-            invalidDescription={invalidDescription}
-            invalidPrice={invalidPrice}
+            disableSave={disableSaveChangeInfo}
             cancelHandler={cancelEditInfoHandler}
           />
         </div>
@@ -308,32 +326,52 @@ export default function ModalEditProduct({
           <InputText
             flexDirection="row"
             color="main"
-            inputId="currentProductStatus"
+            inputId="current-product-status"
             labelText="Status"
-            inputName="currentProductStatus"
-            defaultValue={currentStatus == 1 ? "Available" : "Unavailable"}
+            inputName="current-product-status"
+            defaultValue={currentStatus === 1 ? "Available" : "Unavailable"}
             readOnly={true}
           />
-          <ButtonStandard
-            id="edit-product-status"
-            story="raised-warning"
-            content={
-              currentStatus == 1 ? "Set to unavailable" : "Set to available"
-            }
-            bold=""
-            width="full"
-            onClick={openConfirmationModal}
-          />
+          <div className="button-container">
+            <ButtonStandard
+              id="edit-product-status"
+              story="raised-warning"
+              content={
+                currentStatus === 1 ? "Set to unavailable" : "Set to available"
+              }
+              bold=""
+              width="full"
+              onClick={showModalConfirmation}
+            />
+          </div>
+
+          {modalConfirmation && (
+            <ModalConfirmation
+              type="warning"
+              confirmationContent={
+                "set product's status to " +
+                (currentStatus === 1 ? "unavailable" : "available")
+              }
+              confirmationDetails="You can change it back again later"
+              actionName={
+                "Set to " + (currentStatus === 1 ? "unavailable" : "available")
+              }
+              cancelHandler={closeModalConfirmation}
+              confirmHandler={editStatusHandler}
+            />
+          )}
         </div>
 
-        <ButtonStandard
-          id="close-edit-product-modal"
-          story="flat"
-          content="Back"
-          bold=""
-          width="full"
-          onClick={closeModal}
-        />
+        <div className="button-container">
+          <ButtonStandard
+            id="close-edit-product-modal"
+            story="flat"
+            content="Back"
+            bold=""
+            width="full"
+            onClick={closeModal}
+          />
+        </div>
       </section>
     </div>
   );

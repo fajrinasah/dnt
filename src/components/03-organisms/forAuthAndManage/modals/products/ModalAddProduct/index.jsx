@@ -1,13 +1,14 @@
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import $ from "jquery";
 
 import { addProduct } from "../../../../../../store/slices/manageProducts/thunks";
 
 import TitleSection from "../../../../../01-atoms/forAuthAndManage/texts/titles/TitleSection";
 import ImageContainer from "../../../../../01-atoms/forAuthAndManage/ImageContainer";
-
 import FormAddProduct from "../../../../../02-molecules/forAuthAndManage/forms/products/FormAddProduct";
+import { toastError } from "../../../../../02-molecules/forAuthAndManage/customToasts";
 
 import "../../styles.css";
 import "./styles.css";
@@ -23,35 +24,35 @@ export default function ModalAddProduct({ closeModal = () => {} }) {
   /*=====================LOCAL STATE=============================*/
   // for image
   const [image, setImage] = useState(null);
-  //   const [isImageUploaded, setIsImageUploaded] = useState(false);
   const [imgData, setImgData] = useState(null);
 
-  // for multi-select
-  const [selectedCategories, setSelectedCategories] = useState([]);
-
-  // data validation for each field
-  const [invalidImage, setInvalidImage] = useState(false);
-  const [invalidName, setInvalidName] = useState(false);
-  const [invalidCategories, setInvalidCategories] = useState(false);
-  const [invalidDescription, setInvalidDescription] = useState(false);
-  const [invalidPrice, setInvalidPrice] = useState(false);
-
-  const [allValid, setAllValid] = useState(false);
-
-  /*=====================REFS=============================*/
-  //   const categoriesRef = useRef();
-  const nameRef = useRef();
-  const descriptionRef = useRef();
-  const priceRef = useRef();
-
   /*=====================DISABLE SAVE=============================*/
-  const disableSave = !(
-    image &&
-    nameRef.current?.value &&
-    selectedCategories &&
-    descriptionRef.current?.value &&
-    priceRef.current?.value
-  );
+  const disableSave = false;
+
+  /*-----------------------DATA VALIDATION------------------------*/
+  const dataValidation = (categoryIdArr, name, description, price) => {
+    if (!name || name.length < 3 || name.length > 45) {
+      toastError(
+        "Product's name is required and its length must be between 3 to 45 characters."
+      );
+    }
+
+    if (categoryIdArr.length === 0) {
+      toastError("Product's category/categories data is required.");
+    }
+
+    if (!description || description.length < 10 || description.length > 255) {
+      toastError(
+        "Product's description is required and its length must be between 10 to 255 characters."
+      );
+    }
+
+    if (!price) {
+      toastError("Product's price is required.");
+    }
+
+    return true;
+  };
 
   /*=====================CHANGE PHOTO=============================*/
   const changeImageHandler = (e) => {
@@ -90,7 +91,9 @@ export default function ModalAddProduct({ closeModal = () => {} }) {
         setImage(null);
         e.target.value = null;
         console.log("selected image is invalid");
-        setInvalidImage(true);
+        toastError(
+          "Product's image is required. Please upload a valid image (.jpg, .jpeg, .png, .gif) with maximum size 1MB."
+        );
       }
     }
   };
@@ -99,98 +102,28 @@ export default function ModalAddProduct({ closeModal = () => {} }) {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    // // for image
-    // setIsImageUploaded(true);
-    // console.log("selected image was uploaded");
+    const selectedValues = $("#categories").val();
+    const categoryIdArr = [];
+    selectedValues.map((categoryId) => {
+      categoryIdArr.push(parseInt(categoryId));
+    });
 
-    /*-----------------------DATA VALIDATION------------------------*/
-    if (
-      !nameRef.current?.value ||
-      nameRef.current?.value.length < 3 ||
-      nameRef.current?.value.length > 45
-    ) {
-      setInvalidName(true);
-    }
+    const name = $("#product-name").val();
+    const description = $("#description").val();
+    const price = $("#price").val();
 
-    if (!selectedCategories.current?.value) {
-      setInvalidCategories(true);
-    }
+    const dataValid = dataValidation(categoryIdArr, name, description, price);
+    console.log("dataValid: ", dataValid);
 
-    if (
-      !descriptionRef.current?.value ||
-      descriptionRef.current?.value.length < 10 ||
-      descriptionRef.current?.value.length > 255
-    ) {
-      setInvalidDescription(true);
-    }
-
-    if (!priceRef.current?.value) {
-      setInvalidPrice(true);
-    }
-
-    if (
-      !(
-        invalidCategories &&
-        invalidDescription &&
-        invalidImage &&
-        invalidName &&
-        invalidPrice
-      )
-    ) {
-      setAllValid(true);
-    }
-  };
-
-  /*=====================CANCEL=============================*/
-  const cancelHandler = () => {
-    setImage(null);
-    setImgData(null);
-    setSelectedCategories([]);
-
-    setInvalidImage(false);
-    setInvalidName(false);
-    setInvalidCategories(false);
-    setInvalidDescription(false);
-    setInvalidPrice(false);
-
-    setAllValid(false);
-
-    closeModal();
-  };
-
-  /*=====================IMAGE SOURCE CONTROLLER=============================*/
-
-  const imgSource =
-    image && imgData
-      ? imgData
-      : "https://res.cloudinary.com/dpdgmr3xw/image/upload/v1690858516/products/default.png";
-
-  /*=====================INTERACTIVE FUNCTIONS=============================*/
-  const selectCategoriesHandler = (e) => {
-    // get selected options
-    const options = e.target.options;
-
-    // convert to array and filter unselected options
-    const selectedOptions = Array.from(options).filter(
-      (option) => option.selected
-    );
-
-    // map the selected options to their values
-    const selectedValues = selectedOptions.map((option) => option.value);
-
-    // update the state with the new values
-    setSelectedCategories(selectedValues);
-  };
-
-  /*=====================USE EFFECT TO DISPATCH=============================*/
-  useEffect(() => {
-    if (allValid) {
+    if (image && dataValid) {
       const data = {
-        name: nameRef.current?.value,
-        description: descriptionRef.current?.value,
-        price: priceRef.current?.value,
-        categoryIdArr: [selectedCategories],
+        name,
+        description,
+        price,
+        categoryIdArr,
       };
+
+      console.log("data: ", data);
 
       const formData = new FormData();
       formData.append("data", JSON.stringify(data));
@@ -202,18 +135,25 @@ export default function ModalAddProduct({ closeModal = () => {} }) {
 
         setImage(null);
         setImgData(null);
-        setSelectedCategories([]);
-
-        setInvalidImage(false);
-        setInvalidName(false);
-        setInvalidCategories(false);
-        setInvalidDescription(false);
-        setInvalidPrice(false);
-
-        setAllValid(false);
+        closeModal();
       });
     }
-  }, [allValid]);
+  };
+
+  /*=====================CANCEL=============================*/
+  const cancelHandler = () => {
+    setImage(null);
+    setImgData(null);
+
+    closeModal();
+  };
+
+  /*=====================IMAGE SOURCE CONTROLLER=============================*/
+
+  const imgSource =
+    image && imgData
+      ? imgData
+      : "https://res.cloudinary.com/dpdgmr3xw/image/upload/v1690858516/products/default.png";
 
   return (
     <div className="modal-background add-product">
@@ -231,21 +171,6 @@ export default function ModalAddProduct({ closeModal = () => {} }) {
           submitHandler={submitHandler}
           changeImageHandler={changeImageHandler}
           disableSave={disableSave}
-          selectCategoriesHandler={selectCategoriesHandler}
-          //   categoriesRef={categoriesRef}
-          nameRef={nameRef}
-          descriptionRef={descriptionRef}
-          priceRef={priceRef}
-          invalidImage={invalidImage}
-          //   invalidImageInfo={invalidImageInfo}
-          invalidName={invalidName}
-          //   invalidNameInfo={invalidNameInfo}
-          invalidCategories={invalidCategories}
-          //   invalidCategoriesInfo={invalidCategoriesInfo}
-          invalidDescription={invalidDescription}
-          //   invalidDescriptionInfo={invalidDescriptionInfo}
-          invalidPrice={invalidPrice}
-          //   invalidPriceInfo={invalidPriceInfo}
           cancelHandler={cancelHandler}
         />
       </section>

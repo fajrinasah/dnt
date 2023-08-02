@@ -20,6 +20,7 @@ import PageResetPassword from "./components/05-pages/forAuthAndManage/PageResetP
 import { GeneralTest } from "./components/04-templates/forAuthAndManage/GeneralTest";
 import TempHome from "./components/04-templates/forAuthAndManage/TempHome";
 import PageManageCashiers from "./components/05-pages/forAuthAndManage/PageManageCashiers";
+import PageManageProducts from "./components/05-pages/forAuthAndManage/PageManageProducts";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,7 +50,8 @@ function App() {
             element={<PageResetPassword />}
           />
 
-          <Route path="/cashiers" element={<PageManageCashiers />} />
+          <Route path="/manage/cashiers" element={<PageManageCashiers />} />
+          <Route path="/manage/products" element={<PageManageProducts />} />
         </Routes>
       </main>
       <footer></footer>

@@ -1,3 +1,29 @@
 /* ===============================================
-COMPONENT'S NAME
+PAGE MANAGE PRODUCTS
 =================================================*/
+.page.manage.products {
+  padding-bottom: 5rem;
+}
+
+.page.manage.products .title-section {
+  margin: 3rem 0 5rem 0;
+}
+
+.page.manage.products .form.toolbars.products {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  margin-bottom: 5rem;
+}
+
+.page.manage.products .modal-add-product-container {
+  width: 100%;
+}
+
+.page.manage.products .modal-add-product-container .modal {
+  margin-top: 3rem;
+}
+
+.table-container.products {
+  width: 80%;
+}
