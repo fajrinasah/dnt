@@ -1,0 +1,39 @@
+/* ===============================================
+TOOLBARS GENERAL STYLES
+=================================================*/
+.form.toolbars {
+  flex-wrap: wrap;
+
+  width: 95%;
+  padding: 1rem 2rem;
+
+  background-color: var(--accent);
+  border-radius: 5px;
+}
+
+.form.toolbars .fieldsets-container {
+  flex-wrap: wrap;
+}
+
+.form.toolbars fieldset {
+  border: none;
+  margin: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.form.toolbars .sort,
+.form.toolbars .search {
+  padding: 1rem;
+}
+
+.form.toolbars .filter .input-toolbar-select {
+  padding: 1rem;
+}
+
+.form.toolbars .buttons-container {
+  padding: 0 1rem;
+  margin: 0.5rem 0;
+}
+
+.form.toolbars .button-standard {
+  padding: 0.3rem 1.5rem;
+}

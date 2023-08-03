@@ -50,7 +50,7 @@ export default function PageManageCategories() {
   /*===============INTERACTIVE FUNCTIONS================*/
   const openAddCategoryModal = () => {
     setModalAddCategory(true);
-    document.querySelector(".modal-add-category-container").scrollIntoView({
+    document.querySelector(".modal-area.add-category").scrollIntoView({
       behavior: "smooth",
     });
   };
@@ -64,12 +64,13 @@ export default function PageManageCategories() {
   };
 
   const openEditNameCategoryModal = ({ id, name }) => {
+    setModalAddCategory(false);
+
     setCurrentCategoryId(id);
     setCurrentCategoryName(name);
-
     setModalEditCategory(true);
 
-    document.querySelector(".table-container.categories").scrollIntoView({
+    document.querySelector(".headrow").scrollIntoView({
       behavior: "smooth",
     });
   };
@@ -129,7 +130,7 @@ export default function PageManageCategories() {
         onClick={openAddCategoryModal}
         id="add-category"
       />
-      <div className="modal-add-category-container">
+      <div className="modal-area add-category">
         {modalAddCategory && (
           <ModalAddCategory closeModal={closeAddCategoryModal} />
         )}

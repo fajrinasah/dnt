@@ -2,37 +2,42 @@
 INPUT TOOLBAR SORT
 ===============================================*/
 .label-for-select {
-  font-weight: bold;
-  font-size: 1.6rem;
+  font-weight: bold !important;
+  font-size: 1.6rem !important;
 }
 
 .input-toolbar-sort select {
-  cursor: pointer;
+  cursor: pointer !important;
 
-  background-color: transparent;
-  color: var(--contrast);
-  padding: 0.5rem 0;
-  font-size: 1.6rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: transparent !important;
+  color: var(--contrast) !important;
+  font-size: 1.6rem !important;
 
   border: none;
-  border-top: 1px solid var(--main);
-  border-bottom: 1px solid var(--main);
+  border-top: 1px solid var(--main) !important;
+  border-bottom: 1px solid var(--main) !important;
 }
 
 .input-toolbar-sort .radios-container {
-  padding-right: 0.5rem;
+  padding-right: 0.5rem !important;
 }
 
 .input-toolbar-sort .radio-container label {
-  font-size: 1.6rem;
-  margin-left: 1rem;
-  padding: 1rem 0;
-  text-align: center;
+  font-size: 1.6rem !important;
+  margin-left: 1rem !important;
+  text-align: center !important;
 }
 
-.input-toolbar-sort input[type="radio"] {
-  width: 2rem;
-  height: 2rem;
-  accent-color: var(--accent);
-  margin-left: 0.5rem;
+.input-toolbar-sort input[type="radio"]#sortAsc,
+.input-toolbar-sort input[type="radio"]#sortDesc {
+  cursor: pointer;
+
+  width: 2rem !important;
+  height: 2rem !important;
+  margin-left: 0.5rem !important;
+
+  border-color: var(--main) !important;
+  background-color: var(--accent) !important;
 }

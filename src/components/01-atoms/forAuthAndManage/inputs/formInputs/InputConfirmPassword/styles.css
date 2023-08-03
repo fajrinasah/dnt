@@ -1,19 +1,19 @@
 /*-----------------PASSWORD-------------------*/
 .input-confirm-password {
-  display: grid;
-  grid-template: 1fr 1fr / 25rem 1fr;
-  grid-template-areas: "label show" "input input";
+  display: grid !important;
+  grid-template: 1fr 1fr / 25rem 1fr !important;
+  grid-template-areas: "label show" "input input" !important;
 }
 
 .input-confirm-password .label-for-input {
-  grid-area: label;
+  grid-area: label !important;
 }
 
 .input-confirm-password .input-for-label {
-  grid-area: input;
+  grid-area: input !important;
 }
 
 .input-confirm-password .checkbox-show-password {
-  grid-area: show;
-  justify-self: end;
+  grid-area: show !important;
+  justify-self: end !important;
 }

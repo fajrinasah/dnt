@@ -258,8 +258,7 @@ export default function PageManageProducts() {
 
       <ManageCashiersProductsPagination
         totalPage={total_pages}
-        disabledPrevious={disabledPrevious}
-        disabledNext={disabledNext}
+        page={page}
         onChangePagination={onChangePagination}
       />
     </div>
