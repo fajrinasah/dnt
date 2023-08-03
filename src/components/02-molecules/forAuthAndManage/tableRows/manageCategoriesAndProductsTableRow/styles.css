@@ -4,7 +4,6 @@ CATEGORIES AND PRODUCTS (CNP) TABLE ROW
 tr.cnp-table {
   cursor: pointer;
 
-  /* width: 70%; */
   padding: 1.5rem 0;
   margin-bottom: 2rem;
 
@@ -26,15 +25,16 @@ tr.cnp-table td {
 }
 
 /*---------------------TD----------------------*/
+tr.cnp-table td.number {
+  width: 10%;
+}
 
 tr.cnp-table td.name {
-  /* flex-grow: 3; */
-  flex-basis: 40%;
+  width: 40%;
 }
 
 tr.cnp-table td.date {
-  /* flex-grow: 2; */
-  flex-basis: 25%;
+  width: 25%;
 }
 
 tr.cnp-table td.with-border {

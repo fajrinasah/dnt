@@ -2,21 +2,21 @@
 INPUT SELECT
 ===============================================*/
 .label-for-select {
-  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem !important;
 
-  font-weight: bold;
-  font-size: 1.6rem;
+  font-weight: bold !important;
+  font-size: 1.6rem !important;
 }
 
 .input-toolbar-select select {
-  cursor: pointer;
+  cursor: pointer !important;
 
-  background-color: transparent;
-  color: var(--contrast);
-  padding: 0.5rem;
-  font-size: 1.6rem;
+  background-color: transparent !important;
+  color: var(--contrast) !important;
+  padding: 1rem !important;
+  font-size: 1.6rem !important;
 
   border: none;
-  border-top: 1px solid var(--main);
-  border-bottom: 1px solid var(--main);
+  border-top: 1px solid var(--main) !important;
+  border-bottom: 1px solid var(--main) !important;
 }

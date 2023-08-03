@@ -49,6 +49,7 @@ body {
   font-size: 1.8rem;
   letter-spacing: 0.1rem;
   background-color: var(--main);
+  color: var(--contrast);
 }
 
 /* use this class to give more details about something that has visual information only */

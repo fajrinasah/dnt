@@ -1,31 +1,31 @@
 /*-----------------PASSWORD-------------------*/
 .input-password {
-  height: 45px;
-  display: grid;
-  grid-template: 1fr 1fr / 25rem 1fr 1fr;
-  grid-template-areas: "label help show" "input input input";
+  height: 45px !important;
+  display: grid !important;
+  grid-template: 1fr 1fr / 25rem 1fr 1fr !important;
+  grid-template-areas: "label help show" "input input input" !important;
 
-  padding: 3rem 1rem;
+  padding: 3rem 1rem !important;
 }
 
 .input-password .label-for-input {
-  grid-area: label;
+  grid-area: label !important;
 }
 
 .input-password .button-help {
-  grid-area: help;
+  grid-area: help !important;
 }
 
 .input-password .input-for-label {
-  grid-area: input;
+  grid-area: input !important;
 }
 
 .input-password .checkbox-show-password {
-  grid-area: show;
-  justify-self: end;
+  grid-area: show !important;
+  justify-self: end !important;
 }
 
 .input-password .guides-container {
-  position: relative;
-  z-index: 2;
+  position: relative !important;
+  z-index: 2 !important;
 }

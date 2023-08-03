@@ -3,31 +3,31 @@ CHECKBOX SHOW PASSWORD
 ===============================================*/
 
 .checkbox-custom {
-  margin: 1rem 0;
-  align-items: center;
+  margin: 1rem 0 !important;
+  align-items: center !important;
 }
 
 .checkbox-custom label {
-  padding-left: 0.5rem;
+  padding-left: 0.5rem !important;
 }
 
 .checkbox-custom input {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  transition: box-shadow 0.2s;
-  background: var(--main);
-  cursor: pointer;
-  border: 3px solid var(--accent);
-  -webkit-appearance: none;
-  appearance: none;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  border-radius: 50% !important;
+  transition: box-shadow 0.2s !important;
+  background: var(--main) !important;
+  cursor: pointer !important;
+  border: 3px solid var(--accent) !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
 }
 
 .checkbox-custom input:checked {
-  box-shadow: inset 0 0 0 20px var(--accent);
+  box-shadow: inset 0 0 0 20px var(--accent) !important;
 }
 
 /*------------For group of checkboxes---------*/
 .checkbox-login {
-  justify-content: space-evenly;
+  justify-content: space-evenly !important;
 }

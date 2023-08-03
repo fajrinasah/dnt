@@ -2,29 +2,36 @@
 BUTTON HELP
 =================================================*/
 .button-help {
-  background-color: transparent;
-  border: 1px solid var(--contrast);
-  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
 
-  cursor: pointer;
+  background-color: transparent !important;
+  border: 1px solid var(--contrast) !important;
+  border-radius: 25px !important;
 
-  width: max-content;
+  cursor: pointer !important;
 
-  margin: 1rem;
+  width: max-content !important;
 
-  font-size: 1.6rem;
+  margin: 1rem !important;
+  padding: 0.1rem !important;
+
+  font-size: 1.6rem !important;
 }
 
 .question-icon {
-  color: var(--contrast);
+  color: var(--contrast) !important;
+  font-size: 2.5rem;
 }
 
 .help-detail {
-  display: none;
-  padding: 0.5rem 1rem 1rem 0.5rem;
-  color: var(--contrast);
+  display: none !important;
+  padding: 0 1rem !important;
+  color: var(--contrast) !important;
 }
 
 .button-help:hover .help-detail {
-  display: inline;
+  display: inline !important;
 }

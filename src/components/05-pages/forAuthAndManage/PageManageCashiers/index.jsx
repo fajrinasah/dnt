@@ -81,10 +81,18 @@ export default function PageManageCashiers() {
   /*===============INTERACTIVE FUNCTIONS================*/
   const openAddCashierModal = () => {
     setModalAddCashier(true);
+
+    document.querySelector(".modal-area.add-cashier").scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   const closeAddCashierModal = () => {
     setModalAddCashier(false);
+
+    document.querySelector(".page.manage.cashiers").scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   const openEditCashierModal = ({
@@ -167,7 +175,11 @@ export default function PageManageCashiers() {
         onClick={openAddCashierModal}
         id="add-cashier"
       />
-      {modalAddCashier && <ModalAddCashier closeModal={closeAddCashierModal} />}
+      <div className="modal-area add-cashier">
+        {modalAddCashier && (
+          <ModalAddCashier closeModal={closeAddCashierModal} />
+        )}
+      </div>
 
       <TitleSection content="List of Cashiers" size="medium" border="accent" />
       <ManageCashiersProductsToolbars

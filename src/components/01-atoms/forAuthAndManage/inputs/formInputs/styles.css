@@ -4,111 +4,110 @@ INPUT OTHER TYPES & TEXTAREA
 ========================================================*/
 .label-and-input,
 .label-and-textarea {
-  display: flex;
-  min-width: 60rem;
+  display: flex !important;
+  min-width: 60rem !important;
 }
 
 /*------------LABEL----------------*/
 .label-for-input,
 .label-for-textarea {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
 
-  width: 24rem;
-  padding: 1rem 2rem;
+  width: 24rem !important;
+  padding: 1rem 2rem !important;
 
-  color: var(--contrast);
+  color: var(--contrast) !important;
 }
 
 .label-and-input.accent .label-for-input,
 .label-and-textarea.accent .label-for-textarea {
-  align-self: stretch;
+  align-self: stretch !important;
 
-  background-color: var(--accent);
-  border: 2px solid var(--accent);
+  background-color: var(--accent) !important;
+  border: 2px solid var(--accent) !important;
 }
 
 .label-and-input.main .label-for-input,
 .label-and-textarea.main .label-for-textarea {
-  align-self: stretch;
+  align-self: stretch !important;
 
-  background-color: var(--accent);
-  border: 2px solid var(--main);
+  background-color: var(--accent) !important;
+  border: 2px solid var(--main) !important;
 }
 
 .label-and-input.d-flex-col .label-for-input,
 .label-and-input.d-flex-col .label-for-textarea {
-  border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0 !important;
 }
 
 .label-and-input.d-flex-row .label-for-input,
 .label-and-input.d-flex-row .label-for-textarea {
-  border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px !important;
 }
 
 /*------------INPUT----------------*/
 
 .input-for-label,
 .textarea-for-label {
-  padding: 1rem;
+  padding: 1.2rem !important;
 
-  font-family: "B612", sans-serif;
-  font-size: 1.8rem;
-
-  color: var(--contrast);
+  font-family: "B612", sans-serif !important;
+  font-size: 1.8rem !important;
+  line-height: 1.5;
 }
 
 .label-and-input.accent .input-for-label,
 .label-and-textarea.accent .textarea-for-label {
-  background-color: transparent;
-  border: 2px solid var(--accent);
+  background-color: transparent !important;
+  border: 2px solid var(--accent) !important;
 }
 
 .label-and-input.main .input-for-label,
 .label-and-textarea.main .textarea-for-label {
-  background-color: var(--main);
-  border: 2px solid var(--main);
+  background-color: var(--main) !important;
+  border: 2px solid var(--main) !important;
 }
 
 .label-and-input.d-flex-col .input-for-label,
 .label-and-input.d-flex-col .textarea-for-label {
-  border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px !important;
 }
 
 .label-and-input.d-flex-row .input-for-label,
 .label-and-input.d-flex-row .textarea-for-label {
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0 !important;
 }
 
 .label-and-input.d-flex-row,
 .label-and-textarea.d-flex-row {
-  padding: 1rem;
+  padding: 1rem !important;
 }
 
 .label-and-input.d-flex-col,
 .label-and-textarea.d-flex-col {
-  padding: 3rem 1rem;
+  padding: 3rem 1rem !important;
 }
 
 .label-and-input.d-flex-row .input-for-label,
 .label-and-textarea.d-flex-row .textarea-for-label {
-  width: calc(100% - 24rem);
+  width: calc(100% - 24rem) !important;
 }
 
 .label-and-input.d-flex-col .input-for-label,
 .label-and-textarea.d-flex-col .textarea-for-label {
-  width: 100%;
+  width: 100% !important;
 }
 
 /*------------TEXTAREA----------------*/
 
 .textarea-for-label {
   resize: none;
-  height: 150px;
+  height: 150px !important;
 }
 
 /*------------------INPUT BUTTON----------------*/
 .input-button .input-for-label {
-  place-content: center;
-  place-items: center;
+  place-content: center !important;
+  place-items: center !important;
 }

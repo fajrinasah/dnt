@@ -1,29 +1,23 @@
 /*=====================================
 INPUT TOOLBAR TEXT (FOR SEARCH)
 ====================================*/
-/* .input-toolbar-text {
-  background-color: transparent;
-  padding: 0 1rem;
-  margin-left: 1.5rem;
-  border: 1px solid var(--contrast);
-  color: var(--contrast);
-} */
 
 .input-toolbar-search label {
-  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem !important;
 
-  font-weight: bold;
-  font-size: 1.6rem;
+  font-weight: bold !important;
+  font-size: 1.6rem !important;
 }
 
 .input-toolbar-search .input-for-label {
-  cursor: pointer;
+  cursor: pointer !important;
+  width: 20rem !important;
 
-  background-color: transparent;
-  color: var(--contrast);
-  padding: 0.5rem;
-  font-size: 1.6rem;
+  background-color: transparent !important;
+  color: var(--contrast) !important;
+  padding: 0.5rem !important;
+  font-size: 1.6rem !important;
 
-  border: none;
-  border: 1px solid var(--main);
+  border: none !important;
+  border: 1px solid var(--main) !important;
 }

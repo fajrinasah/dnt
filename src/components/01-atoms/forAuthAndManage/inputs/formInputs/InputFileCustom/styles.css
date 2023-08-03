@@ -2,18 +2,18 @@
 INPUT FILE CUSTOM
 ===============================================*/
 .input-file-custom-container {
-  width: 100%;
-  place-content: center;
+  width: 100% !important;
+  place-content: center !important;
 }
 
 .input-file-custom input[type="file"] {
-  display: none;
+  display: none !important;
 }
 
 .input-file-custom {
-  cursor: pointer;
+  cursor: pointer !important;
 
-  font-family: "B612", sans-serif;
-  font-size: 1.6rem;
-  color: var(--contrast);
+  font-family: "B612", sans-serif !important;
+  font-size: 1.6rem !important;
+  color: var(--contrast) !important;
 }
