@@ -18,7 +18,10 @@ import { Button, Modal, Select } from "flowbite-react";
 import { getAllProducts } from "../../../store/slices/manageProducts/thunks";
 import { getAllCategories } from "../../../store/slices/manageCategories/thunks";
 import CardProductSkeleton from "../../03-organisms/CreateTransactions/CardProductSkeleton";
-import { toastError, toastSuccess } from "../../02-molecules/forAuthAndManage/customToasts";
+import {
+  toastError,
+  toastSuccess,
+} from "../../02-molecules/forAuthAndManage/customToasts";
 
 // const products = [
 //   {
@@ -144,7 +147,8 @@ import { toastError, toastSuccess } from "../../02-molecules/forAuthAndManage/cu
 // ];
 
 export default function CreateTransactions() {
-  const [sort, setSort] = useState(true);
+  const [query, setQuery] = useState("?page=1");
+  const [sort, setSort] = useState("ASC");
   const [category, setCategory] = useState("");
   const [sortBy, setSortBy] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -165,17 +169,10 @@ export default function CreateTransactions() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(
-      getAllProducts({
-        page: currentPage ? currentPage : 1,
-        sort: sort ? "ASC" : "DESC",
-        category: category ? category : "",
-        sortBy: sortBy ? sortBy : "namesort",
-        name: searchQuery ? searchQuery : "",
-      })
-    );
-    dispatch(getAllCategories());
-  }, [dispatch]);
+    dispatch(getAllProducts(query));
+    dispatch(getAllCategories(""));
+    console.log("Triggered effect: " + query)
+  }, [dispatch, query]);
 
   const addToCart = (product) => {
     // Check if the product is already in the cart
@@ -248,18 +245,12 @@ export default function CreateTransactions() {
   };
 
   const handleSearch = () => {
-    dispatch(
-      getAllProducts({
-        page: currentPage ? currentPage : 1,
-        sort: sort ? "ASC" : "DESC",
-        category: category ? category : "",
-        sortBy: sortBy,
-        name: searchQuery,
-      })
+    setQuery(
+      `?page=${currentPage}${sortBy ? "&" + sortBy + "=" + sort : ""}${
+        searchQuery ? "&name=" + searchQuery : ""
+      }${category ? "&category=" + category : ""}`
     );
-
-    if(products.length <= 0) toastError('No Product Found');
-  }
+  };
 
   const toggleSlidingAnimation = () => {
     return cartItems.length > 0 ? "block" : "hidden";
@@ -270,58 +261,40 @@ export default function CreateTransactions() {
   };
 
   const handleSort = (type) => {
-    console.log(type);
     setSort(type);
-    dispatch(
-      getAllProducts({
-        page: currentPage ? currentPage : 1,
-        sort: type ? "ASC" : "DESC",
-        category: category ? category : "",
-        sortBy: sortBy ? sortBy : "namesort",
-        name: searchQuery,
-      })
+    console.log(type, sort)
+    setQuery(
+      `?page=${currentPage}${sortBy ? "&" + sortBy + "=" + type : ""}
+      ${searchQuery ? "&name=" + searchQuery : ""}
+      ${category ? "&category=" + category : ""}`
     );
   };
 
   const onChangePagination = (type) => {
-    dispatch(
-      getAllProducts({
-        page: type === "prev" ? currentPage - 1 : currentPage + 1,
-        sort: sort ? "ASC" : "DESC",
-        category: category ? category : "",
-        sortBy: sortBy ? sortBy : "namesort",
-        name: searchQuery ? searchQuery : "",
-      })
+    setQuery(
+      `?page=${type === "prev" ? currentPage - 1 : currentPage + 1}${sortBy ? "&" + sortBy + "=" + sort : ""}${
+        searchQuery ? "&name=" + searchQuery : ""
+      }${category ? "&category=" + category : ""}`
     );
   };
 
   const onChangeCategory = (event) => {
-    console.log(event.target.value);
     const cat = event.target.value;
     setCategory(cat);
-    dispatch(
-      getAllProducts({
-        page: currentPage ? currentPage : 1,
-        sort: sort ? "ASC" : "DESC",
-        category: cat,
-        sortBy: sortBy ? sortBy : "namesort",
-        name: searchQuery ? searchQuery : "",
-      })
+    setQuery(
+      `?page=${currentPage}${sortBy ? "&" + sortBy + "=" + sort : ""}${
+        searchQuery ? "&name=" + searchQuery : ""
+      }${cat ? "&category=" + cat : ""}`
     );
   };
 
   const onChangeSortBy = (event) => {
-    console.log(event.target.value);
     const val = event.target.value;
     setSortBy(val);
-    dispatch(
-      getAllProducts({
-        page: currentPage ? currentPage : 1,
-        sort: sort ? "ASC" : "DESC",
-        category: category,
-        sortBy: val,
-        name: searchQuery ? searchQuery : "",
-      })
+    setQuery(
+      `?page=${currentPage}${val ? "&" + val + "=" + sort : ""}${
+        searchQuery ? "&name=" + searchQuery : ""
+      }${category ? "&category=" + category : ""}`
     );
   };
 
@@ -336,15 +309,21 @@ export default function CreateTransactions() {
           >
             <div className="flex justify-between space-x-5 p-8 bg-dnt-accent rounded-lg">
               <Search onSearch={onSearch} handleSearch={handleSearch}></Search>
-              
+
               <div className="flex space-x-5">
-                {sort ? (
-                  <button className="flex justify-center items-center p-2 text-2xl border border-slate-50" onClick={() => handleSort(false)}>
+                {sort === "ASC" ? (
+                  <button
+                    className="flex justify-center items-center p-2 text-2xl border border-slate-50"
+                    onClick={() => handleSort("DESC")}
+                  >
                     <BsSortAlphaDown></BsSortAlphaDown>
                     ASC
                   </button>
                 ) : (
-                  <button className="flex justify-center items-center p-2 text-2xl border border-slate-50" onClick={() => handleSort(true)}>
+                  <button
+                    className="flex justify-center items-center p-2 text-2xl border border-slate-50"
+                    onClick={() => handleSort("ASC")}
+                  >
                     <BsSortAlphaDownAlt></BsSortAlphaDownAlt>
                     DESC
                   </button>

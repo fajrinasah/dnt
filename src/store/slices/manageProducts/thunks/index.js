@@ -166,11 +166,6 @@ export const getAllProducts = createAsyncThunk(
       // payload: req queries (if any)
       const { data } = await api.get(`/products/${payload}`);
       
-      // not fit with the controller in api that i already made, so i'll just commented it out for now:
-      // const { page, sort, name, category, sortBy } = payload;
-      // const PARAMS = `page=${page}${sortBy ? ("&" + sortBy + "=" + sort) : "" }${name ? ("&name=" + name) : ""}${category ? ("&category=" + category) : ""}`;
-      // const { data } = await api.get(`/products/?${PARAMS}`);
-      
       return data;
     } catch (error) {
       toastError(error.response ? error.response.data?.message : error);
