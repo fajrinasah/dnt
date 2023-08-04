@@ -41,19 +41,12 @@ export default function PageLogin() {
     return state.auth?.user;
   });
 
-  // if (username && role_id === 1) return <Navigate to="/manage/products" replace />;
-
-  // if (username) {
-  //   role_id === 1 ? (
-  //     <Navigate to="/manage/products" replace />
-  //   ) : (
-  //     <Navigate to="/create-transactions" replace />
-  //   );
-  // }
   if (username) {
     if (role_id === 1) {
+      // for admin
       return <Navigate to="/manage/products" replace />;
     } else {
+      // for cashier
       return <Navigate to="/create-transactions" replace />;
     }
   }

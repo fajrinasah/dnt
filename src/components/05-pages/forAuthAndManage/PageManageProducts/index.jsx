@@ -19,7 +19,6 @@ import ModalAddProduct from "../../../03-organisms/forAuthAndManage/modals/produ
 import ModalEditProduct from "../../../03-organisms/forAuthAndManage/modals/products/ModalEditProduct";
 
 import "./styles.css";
-import { toastBlank } from "../../../02-molecules/forAuthAndManage/customToasts";
 
 export default function PageManageProducts() {
   const dispatch = useDispatch();

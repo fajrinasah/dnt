@@ -15,8 +15,6 @@ PRODUCT IMAGE PREVIEW
   box-shadow: -3px 3px 4px 0px grey;
 }
 .image-container.rectangle img {
-  /* max-width: 100%;
-  max-height: 90%; */
   width: 400px;
   height: 300px;
 

@@ -1,9 +1,9 @@
 import InputToolbarSelect from "../../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSelect";
 import InputToolbarSearch from "../../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSearch";
 import InputToolbarSort from "../../../../01-atoms/forAuthAndManage/inputs/toolbarInputs/InputToolbarSort";
+import ButtonStandard from "../../../../01-atoms/forAuthAndManage/buttons/ButtonStandard";
 
 import "../styles.css";
-import ButtonStandard from "../../../../01-atoms/forAuthAndManage/buttons/ButtonStandard";
 
 export default function ManageCashiersProductsToolbars({
   type = "", // "cashiers" or "products"

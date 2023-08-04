@@ -1,4 +1,5 @@
 import ManageCashiersTableRow from "../../../../02-molecules/forAuthAndManage/tableRows/ManageCashiersTableRow";
+
 import "../styles.css";
 
 export default function TableCashiers({

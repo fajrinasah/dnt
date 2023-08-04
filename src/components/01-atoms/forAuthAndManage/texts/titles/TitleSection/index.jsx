@@ -7,8 +7,6 @@ export default function TitleSection({
 }) {
   return (
     <div className={`title-section ${size} border-${border}`}>
-      {/* <div className="decor-circle"></div>
-      <div className="decor-triangle-right"></div> */}
       <h3>
         <span className="not-bold">{content}</span>
       </h3>

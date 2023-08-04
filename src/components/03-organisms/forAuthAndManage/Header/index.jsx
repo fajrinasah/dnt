@@ -1,5 +1,4 @@
 import logo from "./logo-light.png";
-// import profileIcon from "./profile.png";
 import ButtonStandard from "../../../01-atoms/forAuthAndManage/buttons/ButtonStandard";
 import Nav from "../../../02-molecules/forAuthAndManage/Nav";
 

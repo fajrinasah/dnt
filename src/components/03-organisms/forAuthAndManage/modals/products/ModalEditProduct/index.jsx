@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import $ from "jquery";
 
 import {
@@ -240,10 +240,6 @@ export default function ModalEditProduct({
           return categoryIdArr.indexOf(obj) == -1;
         });
 
-        // console.log({
-        //   productId,
-        //   body: { categoryIdArr: categoriesToDelete },
-        // });
         if (categoriesToDelete.length !== 0) {
           dispatch(
             deleteProductCategories({
@@ -265,7 +261,6 @@ export default function ModalEditProduct({
             closeModal();
           });
         }
-        // console.log(data);
       }
     }
   };

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import Moment from "react-moment";
+import { useState } from "react";
 
 import { emailValidationSchema } from "../../../../../../validationSchemata";
 import {
@@ -17,7 +18,6 @@ import ModalConfirmation from "../../ModalConfirmation";
 
 import "../../styles.css";
 import "./styles.css";
-import { useState } from "react";
 
 export default function ModalEditCashier({
   closeModal = () => {},
