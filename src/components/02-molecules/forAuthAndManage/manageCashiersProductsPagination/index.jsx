@@ -1,8 +1,9 @@
 import "./styles.css";
 
 export default function ManageCashiersProductsPagination({
-  totalPage = 0,
-  page = 1,
+  totalPage,
+  disabledPrevious,
+  disabledNext,
   onChangePagination = (page = "1") => {},
 }) {
   const pagesArray = [];
@@ -29,7 +30,7 @@ export default function ManageCashiersProductsPagination({
     <div className="pagination d-flex-row">
       <button
         className="previous"
-        disabled={page === 1}
+        disabled={disabledPrevious}
         onClick={() => onChangePagination(`previous`)}
       >
         Previous
@@ -41,7 +42,7 @@ export default function ManageCashiersProductsPagination({
 
       <button
         className="next"
-        disabled={page >= totalPage}
+        disabled={disabledNext}
         onClick={() => onChangePagination(`next`)}
       >
         Next

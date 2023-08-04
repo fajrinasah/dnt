@@ -82,6 +82,8 @@ export default function PageManageProducts() {
   }, []);
 
   /*===============PAGINATION CONFIGURATIONS================*/
+  const disabledPrevious = !page || page === "1";
+  const disabledNext = page == total_pages;
 
   const onChangePagination = (page) => {
     if (page === "previous") {
@@ -254,7 +256,8 @@ export default function PageManageProducts() {
 
       <ManageCashiersProductsPagination
         totalPage={total_pages}
-        page={page}
+        disabledNext={disabledNext}
+        disabledPrevious={disabledPrevious}
         onChangePagination={onChangePagination}
       />
     </div>
