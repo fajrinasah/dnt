@@ -6,6 +6,7 @@ import Nav from "../../../02-molecules/forAuthAndManage/Nav";
 import "./styles.css";
 
 export default function Header({
+  username = "",
   roleId = 1,
   userPhoto = "",
   toggleReportsDropdown = () => {},
@@ -29,31 +30,33 @@ export default function Header({
         />
       )}
 
-      <div className="profile-container">
-        <button id="show-profile-menu" onClick={toggleProfileMenu}>
-          <span className="sr-only">Show Profile Menu</span>
-          {userPhoto && <img src={userPhoto} alt="" />}
-        </button>
-        {profileMenu && (
-          <div className="buttons-container d-flex-col">
-            <ButtonStandard
-              story="ghost-main"
-              bold=""
-              width="full"
-              content="Change Photo"
-              onClick={toggleChangePhotoModal}
-            />
+      {username && (
+        <div className="profile-container">
+          <button id="show-profile-menu" onClick={toggleProfileMenu}>
+            <span className="sr-only">Show Profile Menu</span>
+            {userPhoto && <img src={userPhoto} alt="" />}
+          </button>
+          {profileMenu && (
+            <div className="buttons-container d-flex-col">
+              <ButtonStandard
+                story="ghost-main"
+                bold=""
+                width="full"
+                content="Change Photo"
+                onClick={toggleChangePhotoModal}
+              />
 
-            <ButtonStandard
-              story="ghost-main"
-              bold=""
-              width="full"
-              content="Logout"
-              onClick={logoutHandler}
-            />
-          </div>
-        )}
-      </div>
+              <ButtonStandard
+                story="ghost-main"
+                bold=""
+                width="full"
+                content="Logout"
+                onClick={logoutHandler}
+              />
+            </div>
+          )}
+        </div>
+      )}
     </header>
   );
 }

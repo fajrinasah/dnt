@@ -32,7 +32,7 @@ export default function Nav({
         />
       </li>
 
-      <li className="navlink-li">
+      <li className="navlink-li reports">
         <div className="navlink-container reports">
           <div className="navlink d-flex-col">
             <button
