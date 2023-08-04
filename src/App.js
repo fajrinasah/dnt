@@ -68,6 +68,7 @@ function App() {
   };
 
   const logoutHandler = () => {
+    showProfileMenu(false);
     dispatch(logout());
     return <Navigate to="/auth/login" replace />;
   };
