@@ -3,16 +3,19 @@
 /*-------------------------------------------------*/
 import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 /*-------------------------------------------------*/
 // IMPORT FROM PROJECT'S FILES
 /*-------------------------------------------------*/
-import { keepLogin } from "../src/store/slices/auth/thunks";
+import { keepLogin, logout } from "../src/store/slices/auth/thunks";
 
 import "./App.css";
 
-/* PAGES */
+import Header from "./components/03-organisms/forAuthAndManage/Header";
+import ModalChangePhotoProfile from "./components/03-organisms/forAuthAndManage/modals/ModalChangePhotoProfile";
+
+// PAGES
 import PageLogin from "./components/05-pages/forAuthAndManage/PageLogin";
 import PageForgotPassword from "./components/05-pages/forAuthAndManage/PageForgotPassword";
 import PageTokenVerification from "./components/05-pages/forAuthAndManage/PageTokenVerification";
@@ -30,13 +33,52 @@ import SalesAggregates from "./components/05-pages/Reports/SalesAggregates";
 
 function App() {
   const dispatch = useDispatch();
+
+  const [profileMenu, showProfileMenu] = useState(false);
+  const [reportsDropdown, showReportsDropdown] = useState(false);
+  const [changePhotoModal, showChangePhotoModal] = useState(false);
+
+  const { photo_profile, role_id } = useSelector((state) => {
+    return state.auth?.user;
+  });
+
   useEffect(() => {
     dispatch(keepLogin());
   }, [dispatch]);
 
+  const toggleReportsDropdown = () => {
+    showReportsDropdown(!reportsDropdown);
+  };
+
+  const toggleChangePhotoModal = () => {
+    showChangePhotoModal(!changePhotoModal);
+  };
+
+  const closeChangePhotoModal = () => {
+    showChangePhotoModal(false);
+  };
+
+  const toggleProfileMenu = () => {
+    showProfileMenu(!profileMenu);
+  };
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
+
   return (
     <div className="App">
-      <header></header>
+      <Header
+        roleId={role_id}
+        userPhoto={photo_profile}
+        toggleReportsDropdown={toggleReportsDropdown}
+        reportsDropdown={reportsDropdown}
+        profileMenu={profileMenu}
+        toggleProfileMenu={toggleProfileMenu}
+        toggleChangePhotoModal={toggleChangePhotoModal}
+        logoutHandler={logoutHandler}
+      />
+
       <main>
         <Routes>
           <Route path="/test" element={<GeneralTest />} />
@@ -59,15 +101,28 @@ function App() {
           <Route path="/manage/cashiers" element={<PageManageCashiers />} />
           <Route path="/manage/products" element={<PageManageProducts />} />
           <Route path="/manage/categories" element={<PageManageCategories />} />
-          <Route path="/manage/reports/sales-reports" element={<SalesReports />} />
-          <Route path="/manage/reports/product-sold" element={<ProductSold />} />
-          <Route path="/manage/reports/sales-aggregates" element={<SalesAggregates />} />
+          <Route
+            path="/manage/reports/sales-reports"
+            element={<SalesReports />}
+          />
+          <Route
+            path="/manage/reports/product-sold"
+            element={<ProductSold />}
+          />
+          <Route
+            path="/manage/reports/sales-aggregates"
+            element={<SalesAggregates />}
+          />
 
           <Route
             path="/create-transactions"
             element={<CreateTransactions />}
           ></Route>
         </Routes>
+
+        {changePhotoModal && (
+          <ModalChangePhotoProfile closeModal={closeChangePhotoModal} />
+        )}
       </main>
       <footer></footer>
       <Toaster />

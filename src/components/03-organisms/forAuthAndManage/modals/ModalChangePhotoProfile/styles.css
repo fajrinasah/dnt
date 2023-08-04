@@ -4,7 +4,11 @@ MODAL CHANGE PHOTO PROFILE
 
 .modal.change-photo-profile {
   margin: 0 calc((100% - 35%) / 2);
-  max-width: 35%;
+  width: 35%;
+
+  position: absolute;
+  top: 85px;
+  right: 0;
 }
 
 .modal.change-photo-profile .image-container {

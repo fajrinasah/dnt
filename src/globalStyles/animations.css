@@ -2,7 +2,8 @@
 ANIMATIONS
 ===============================================*/
 button:hover,
-.button-standard:hover {
+.button-standard:hover,
+.navlink-container .icon:hover {
   transform: scale(0.97);
   box-shadow: -1px 1px 2px 0px grey;
 }
