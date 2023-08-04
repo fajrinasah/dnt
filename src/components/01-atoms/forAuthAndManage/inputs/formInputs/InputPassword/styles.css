@@ -1,5 +1,6 @@
 /*-----------------PASSWORD-------------------*/
 .input-password {
+  width: 60rem !important;
   height: 45px !important;
   display: grid !important;
   grid-template: 1fr 1fr / 25rem 1fr 1fr !important;

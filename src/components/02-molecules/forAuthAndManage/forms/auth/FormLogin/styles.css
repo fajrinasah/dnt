@@ -5,14 +5,17 @@ FORM LOGIN
   margin-top: 12rem;
 }
 
-.form.login .error-container {
-  width: 65rem;
+.form.login .error-container.data,
+.form.login .error-container.password {
+  width: 60rem;
+  padding: 1rem;
 }
 
 .form.login .error-container.password {
-  margin-top: 10rem;
+  margin-top: 12rem;
 }
 
+.form.login .error-container.data .modal-default-text,
 .form.login .error-container.password .modal-default-text {
-  margin: 0;
+  width: 100%;
 }
