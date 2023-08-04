@@ -32,6 +32,8 @@ import SalesReports from "./components/05-pages/Reports/SalesReports";
 import ProductSold from "./components/05-pages/Reports/ProductSold";
 import SalesAggregates from "./components/05-pages/Reports/SalesAggregates";
 
+import PageNotFound from "./components/05-pages/forAuthAndManage/PageNotFound";
+
 import "./App.css";
 
 function App() {
@@ -172,6 +174,8 @@ function App() {
               </GeneralProtectedRoute>
             }
           ></Route>
+
+          <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
 
         {changePhotoModal && (
