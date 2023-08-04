@@ -24,6 +24,9 @@ import PageManageProducts from "./components/05-pages/forAuthAndManage/PageManag
 import PageManageCategories from "./components/05-pages/forAuthAndManage/PageManageCategories";
 
 import CreateTransactions from "./components/05-pages/CreateTransactions";
+import SalesReports from "./components/05-pages/Reports/SalesReports";
+import ProductSold from "./components/05-pages/Reports/ProductSold";
+import SalesAggregates from "./components/05-pages/Reports/SalesAggregates";
 
 function App() {
   const dispatch = useDispatch();
@@ -56,6 +59,9 @@ function App() {
           <Route path="/manage/cashiers" element={<PageManageCashiers />} />
           <Route path="/manage/products" element={<PageManageProducts />} />
           <Route path="/manage/categories" element={<PageManageCategories />} />
+          <Route path="/manage/reports/sales-reports" element={<SalesReports />} />
+          <Route path="/manage/reports/product-sold" element={<ProductSold />} />
+          <Route path="/manage/reports/sales-aggregates" element={<SalesAggregates />} />
 
           <Route
             path="/create-transactions"

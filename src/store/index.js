@@ -6,6 +6,7 @@ import cashiersReducer from "./slices/manageCashiers";
 import categoriesReducer from "./slices/manageCategories";
 import productsReducer from "./slices/manageProducts";
 import transactionsReducer from "./slices/transactions";
+import reportsSlice from "./slices/reports"
 
 // configure store
 const store = configureStore({
@@ -14,7 +15,8 @@ const store = configureStore({
     cashiers: cashiersReducer,
     categories: categoriesReducer,
     products: productsReducer,
-    transactions: transactionsReducer
+    transactions: transactionsReducer,
+    reports: reportsSlice
   },
 });
 
