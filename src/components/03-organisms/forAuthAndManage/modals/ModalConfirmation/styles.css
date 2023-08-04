@@ -12,6 +12,11 @@ MODAL CONFIRMATION
   transition: all 0.3s ease-in-out;
 }
 
+.modal.confirmation h4 {
+  font-size: larger;
+  font-weight: bold;
+}
+
 .modal.confirmation h4,
 .modal.confirmation p {
   text-align: center;

@@ -28,7 +28,7 @@ const INITIAL_STATE = {
     categories: [],
   },
   productsList: {
-    page: 1,
+    page: null,
     total_pages: 1,
     total_products: 0,
     products: [],

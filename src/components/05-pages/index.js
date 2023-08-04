@@ -1,2 +1,1 @@
-export * from './CreateTransactions';
-export * from "./forAuthAndManage";
+export * from "./CreateTransactions";

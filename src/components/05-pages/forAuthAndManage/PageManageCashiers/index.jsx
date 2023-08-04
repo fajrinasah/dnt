@@ -55,8 +55,8 @@ export default function PageManageCashiers() {
 
   /*===============PAGINATION CONFIGURATIONS================*/
 
-  const disabledPrevious = page === 1;
-  const disabledNext = page >= total_pages;
+  const disabledPrevious = !page || page === "1" || page === 1;
+  const disabledNext = page == total_pages;
 
   const onChangePagination = (page) => {
     if (page === "previous") {

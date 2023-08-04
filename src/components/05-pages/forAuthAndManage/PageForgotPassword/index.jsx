@@ -2,8 +2,8 @@
 // IMPORT FROM DEPENDENCIES
 /*-------------------------------------------------*/
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
-// import { redirect } from "react-router";
 
 /*-------------------------------------------------*/
 // IMPORT FROM PROJECT'S FILES
@@ -16,6 +16,7 @@ import FormForgotPassword from "../../../02-molecules/forAuthAndManage/forms/aut
 
 export default function PageForgotPassword() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <div className="page forgot-password d-flex-col">
@@ -39,8 +40,7 @@ export default function PageForgotPassword() {
 
             setSubmitting(false);
 
-            // redirect to landing page (when landing page has been made)
-            // redirect("/");
+            navigate("/auth/login");
           } catch (error) {
             console.log("error", error?.message);
             return { message: error?.message };

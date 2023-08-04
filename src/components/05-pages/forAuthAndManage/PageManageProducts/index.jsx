@@ -19,7 +19,6 @@ import ModalAddProduct from "../../../03-organisms/forAuthAndManage/modals/produ
 import ModalEditProduct from "../../../03-organisms/forAuthAndManage/modals/products/ModalEditProduct";
 
 import "./styles.css";
-import { toastBlank } from "../../../02-molecules/forAuthAndManage/customToasts";
 
 export default function PageManageProducts() {
   const dispatch = useDispatch();
@@ -83,9 +82,8 @@ export default function PageManageProducts() {
   }, []);
 
   /*===============PAGINATION CONFIGURATIONS================*/
-
-  const disabledPrevious = page === 1;
-  const disabledNext = page >= total_pages;
+  const disabledPrevious = !page || page === "1";
+  const disabledNext = page == total_pages;
 
   const onChangePagination = (page) => {
     if (page === "previous") {
@@ -258,7 +256,8 @@ export default function PageManageProducts() {
 
       <ManageCashiersProductsPagination
         totalPage={total_pages}
-        page={page}
+        disabledNext={disabledNext}
+        disabledPrevious={disabledPrevious}
         onChangePagination={onChangePagination}
       />
     </div>

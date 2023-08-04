@@ -107,27 +107,6 @@ export default function ModalChangePhotoProfile({ closeModal = () => {} }) {
     }
   }, [isPhotoUploaded]);
 
-  // /*===================CLOSE MODAL WHEN USER CLICKED THE AREA OUTSIDE OF MODAL============================*/
-  // codes below will be moved to landing page when landing page has been created
-  // document.addEventListener(
-  //   "click",
-  //   function (event) {
-  //     // If user either clicks "Back" button OR clicks outside the modal window, then close modal by calling closeModal()
-  //     if (
-  //       event.target.matches("#button-close-change-photo") ||
-  //       !event.target.closest(".modal.change-photo-profile")
-  //     ) {
-  //       closeModal();
-  //     }
-  //   },
-  //   false
-  // );
-
-  // function closeModal() {
-  //   // setIsModalOpened(false);
-  //   document.querySelector(".modal-background").style.display = "none";
-  // }
-
   return (
     <div className="modal-background change-photo-profile">
       <section className="modal change-photo-profile d-flex-col">

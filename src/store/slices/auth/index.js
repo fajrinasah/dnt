@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { toastBlank } from "../../../../src/components/02-molecules/forAuthAndManage/customToasts";
-
 // THUNKS
 import {
   verifyOtpToken,
@@ -47,7 +45,6 @@ const authSlice = createSlice({
     // VERIFY OTP TOKEN
     builder.addCase(verifyOtpToken.pending, (state, action) => {
       state.isLoading = true;
-      toastBlank("Loading...");
     });
 
     builder.addCase(verifyOtpToken.fulfilled, (state, action) => {
@@ -57,7 +54,6 @@ const authSlice = createSlice({
     // FORGOT PASSSWORD
     builder.addCase(forgotPassword.pending, (state, action) => {
       state.isForgotPasswordLoading = true;
-      toastBlank("Loading...");
     });
 
     builder.addCase(forgotPassword.fulfilled, (state, action) => {
@@ -67,7 +63,6 @@ const authSlice = createSlice({
     // RESET PASSSWORD
     builder.addCase(resetPassword.pending, (state, action) => {
       state.isLoading = true;
-      toastBlank("Loading...");
     });
 
     builder.addCase(resetPassword.fulfilled, (state, action) => {

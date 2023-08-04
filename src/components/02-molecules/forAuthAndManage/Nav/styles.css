@@ -1,0 +1,66 @@
+/* ===============================================
+NAV
+=================================================*/
+ul.nav {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+li.navlink-li {
+  padding: 0 1rem;
+}
+
+li.navlink-li.reports {
+  width: 50px;
+  height: 50px;
+  margin-right: 2rem;
+}
+
+.navlink-container .icon {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  box-shadow: -1px 1px 2px 0px black;
+}
+
+.navlink-container.cashiers .icon {
+  background-image: url(/public/images/cashiers.png);
+}
+
+.navlink-container.categories .icon {
+  background-image: url(/public/images/categories.png);
+}
+
+.navlink-container.products .icon {
+  background-image: url(/public/images/products.png);
+}
+
+.navlink-container.reports .icon {
+  background-image: url(/public/images/reports.png);
+}
+
+.navlink-container.reports {
+  position: absolute;
+}
+.subnav.reports-dropdown {
+  position: absolute;
+  top: 85px;
+  left: 55%;
+  padding: 1rem;
+  z-index: 5;
+
+  background-color: var(--accent);
+  border-radius: 5px;
+  box-shadow: -1px 1px 2px 0px grey;
+}
+
+.navlink-container-text {
+  margin: 0.5rem 0;
+}
+
+.navlink-container-text:hover {
+  border-bottom: 1px solid var(--main);
+}

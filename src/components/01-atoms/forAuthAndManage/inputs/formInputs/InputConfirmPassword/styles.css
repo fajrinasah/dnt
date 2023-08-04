@@ -1,5 +1,7 @@
 /*-----------------PASSWORD-------------------*/
 .input-confirm-password {
+  width: 60rem !important;
+  margin-left: 2rem !important;
   display: grid !important;
   grid-template: 1fr 1fr / 25rem 1fr !important;
   grid-template-areas: "label show" "input input" !important;

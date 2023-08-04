@@ -37,10 +37,19 @@ export default function PageLogin() {
   };
 
   // redirect to landing page when user logged in
-  const currentUsername = useSelector((state) => {
-    return state.auth?.user?.username;
+  const { username, role_id } = useSelector((state) => {
+    return state.auth?.user;
   });
-  if (currentUsername) return <Navigate to="/" replace />;
+
+  if (username) {
+    if (role_id === 1) {
+      // for admin
+      return <Navigate to="/manage/products" replace />;
+    } else {
+      // for cashier
+      return <Navigate to="/create-transactions" replace />;
+    }
+  }
 
   return (
     <div className="page login d-flex-col">

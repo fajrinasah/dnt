@@ -1,4 +1,5 @@
 import ManageCategoriesAndProductsTableRow from "../../../../02-molecules/forAuthAndManage/tableRows/ManageCategoriesAndProductsTableRow";
+
 import "../styles.css";
 
 export default function TableCategories({

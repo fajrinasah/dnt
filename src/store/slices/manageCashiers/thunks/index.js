@@ -1,9 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-hot-toast";
 
 import api from "../../../utils/api.instance";
 import {
-  toastBlank,
   toastError,
   toastSuccess,
 } from "../../../../../src/components/02-molecules/forAuthAndManage/customToasts";

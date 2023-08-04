@@ -3,7 +3,7 @@
 /*-------------------------------------------------*/
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
-import { Navigate, redirect } from "react-router";
+import { useNavigate } from "react-router";
 
 /*-------------------------------------------------*/
 // IMPORT FROM PROJECT'S FILES
@@ -17,6 +17,7 @@ import FormVerifyOtp from "../../../02-molecules/forAuthAndManage/forms/auth/For
 
 export default function PageTokenVerification() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const uuidWithContext = useGetUuidWithContext();
 
@@ -46,13 +47,7 @@ export default function PageTokenVerification() {
 
             setSubmitting(false);
 
-            // redirect to reset password page
-            // redirect(`/auth/reset-password/${uuidWithContext}`);
-            // redirect("/auth/forgot-password");
-            <Navigate
-              to={`/auth/reset-password/${uuidWithContext}`}
-              replace={true}
-            />;
+            navigate(`/auth/reset-password/${uuidWithContext}`);
           } catch (error) {
             console.log("error", error?.message);
             return { message: error?.message };

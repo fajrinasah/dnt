@@ -1,0 +1,10 @@
+/*===============================================
+PAGE NOT FOUND
+===============================================*/
+.page.not-found p#not-found-code {
+  font-size: 10rem;
+}
+
+.page.not-found p {
+  text-align: center;
+}

@@ -11,9 +11,7 @@ export default function InputFile({
   multiple = true,
   accept = "",
   title = "",
-  // value,
   onChange,
-  // onBlur,
 }) {
   return (
     <div
@@ -32,9 +30,7 @@ export default function InputFile({
         multiple={multiple}
         accept={accept}
         title={title}
-        // value={value}
         onChange={onChange}
-        // onBlur={onBlur}
       />
     </div>
   );

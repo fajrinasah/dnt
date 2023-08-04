@@ -23,7 +23,7 @@ const INITIAL_STATE = {
     updated_at: "",
   },
   cashiersList: {
-    page: 1,
+    page: null,
     total_pages: 1,
     total_cashiers: 0,
     cashiers_limit: 0,

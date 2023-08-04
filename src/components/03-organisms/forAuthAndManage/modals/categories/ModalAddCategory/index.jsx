@@ -8,7 +8,6 @@ import TitleSection from "../../../../../01-atoms/forAuthAndManage/texts/titles/
 import FormAddCategory from "../../../../../02-molecules/forAuthAndManage/forms/categories/FormAddCategory";
 
 import "../../styles.css";
-import "./styles.css";
 
 export default function ModalAddCategory({ closeModal = () => {} }) {
   const dispatch = useDispatch();
