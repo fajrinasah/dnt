@@ -6,11 +6,12 @@
   grid-template: 1fr 1fr / 25rem 1fr 1fr !important;
   grid-template-areas: "label help show" "input input input" !important;
 
-  padding: 3rem 1rem !important;
+  padding: 3rem 0 !important;
 }
 
 .input-password .label-for-input {
   grid-area: label !important;
+  margin: 0 1rem !important;
 }
 
 .input-password .button-help {
@@ -19,6 +20,7 @@
 
 .input-password .input-for-label {
   grid-area: input !important;
+  margin: 0 1rem !important;
 }
 
 .input-password .checkbox-show-password {
