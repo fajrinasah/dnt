@@ -19,6 +19,7 @@ button:disabled,
 a:disabled {
   opacity: 0.6;
   transform: none;
+  cursor: not-allowed !important;
 }
 
 a:hover {
