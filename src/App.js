@@ -1,17 +1,19 @@
 /*-------------------------------------------------*/
 // IMPORT FROM DEPENDENCIES
 /*-------------------------------------------------*/
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+
 /*-------------------------------------------------*/
 // IMPORT FROM PROJECT'S FILES
 /*-------------------------------------------------*/
 import { keepLogin, logout } from "../src/store/slices/auth/thunks";
 
-import "./App.css";
-
+import GeneralProtectedRoute from "./helpers/general.protected.routes";
+import AdminProtectedRoute from "./helpers/admin.protected.routes";
+import CashierProtectedRoute from "./helpers/cashier.protected.routes";
 import Header from "./components/03-organisms/forAuthAndManage/Header";
 import ModalChangePhotoProfile from "./components/03-organisms/forAuthAndManage/modals/ModalChangePhotoProfile";
 
@@ -20,8 +22,7 @@ import PageLogin from "./components/05-pages/forAuthAndManage/PageLogin";
 import PageForgotPassword from "./components/05-pages/forAuthAndManage/PageForgotPassword";
 import PageTokenVerification from "./components/05-pages/forAuthAndManage/PageTokenVerification";
 import PageResetPassword from "./components/05-pages/forAuthAndManage/PageResetPassword";
-import { GeneralTest } from "./components/04-templates/forAuthAndManage/GeneralTest";
-import TempHome from "./components/04-templates/forAuthAndManage/TempHome";
+
 import PageManageCashiers from "./components/05-pages/forAuthAndManage/PageManageCashiers";
 import PageManageProducts from "./components/05-pages/forAuthAndManage/PageManageProducts";
 import PageManageCategories from "./components/05-pages/forAuthAndManage/PageManageCategories";
@@ -31,6 +32,8 @@ import SalesReports from "./components/05-pages/Reports/SalesReports";
 import ProductSold from "./components/05-pages/Reports/ProductSold";
 import SalesAggregates from "./components/05-pages/Reports/SalesAggregates";
 
+import "./App.css";
+
 function App() {
   const dispatch = useDispatch();
 
@@ -38,7 +41,7 @@ function App() {
   const [reportsDropdown, showReportsDropdown] = useState(false);
   const [changePhotoModal, showChangePhotoModal] = useState(false);
 
-  const { photo_profile, role_id } = useSelector((state) => {
+  const { username, photo_profile, role_id } = useSelector((state) => {
     return state.auth?.user;
   });
 
@@ -64,11 +67,13 @@ function App() {
 
   const logoutHandler = () => {
     dispatch(logout());
+    return <Navigate to="/auth/login" replace />;
   };
 
   return (
     <div className="App">
       <Header
+        username={username}
         roleId={role_id}
         userPhoto={photo_profile}
         toggleReportsDropdown={toggleReportsDropdown}
@@ -81,9 +86,7 @@ function App() {
 
       <main>
         <Routes>
-          <Route path="/test" element={<GeneralTest />} />
-          <Route path="/temp" element={<TempHome />} />
-
+          <Route path="/auth/login" element={<PageLogin />} />
           <Route path="/auth/login" element={<PageLogin />} />
           <Route
             path="/auth/forgot-password"
@@ -98,25 +101,76 @@ function App() {
             element={<PageResetPassword />}
           />
 
-          <Route path="/manage/cashiers" element={<PageManageCashiers />} />
-          <Route path="/manage/products" element={<PageManageProducts />} />
-          <Route path="/manage/categories" element={<PageManageCategories />} />
+          <Route
+            path="/manage/cashiers"
+            element={
+              <GeneralProtectedRoute>
+                <AdminProtectedRoute>
+                  <PageManageCashiers />
+                </AdminProtectedRoute>
+              </GeneralProtectedRoute>
+            }
+          />
+          <Route
+            path="/manage/products"
+            element={
+              <GeneralProtectedRoute>
+                <AdminProtectedRoute>
+                  <PageManageProducts />
+                </AdminProtectedRoute>
+              </GeneralProtectedRoute>
+            }
+          />
+          <Route
+            path="/manage/categories"
+            element={
+              <GeneralProtectedRoute>
+                <AdminProtectedRoute>
+                  <PageManageCategories />
+                </AdminProtectedRoute>
+              </GeneralProtectedRoute>
+            }
+          />
           <Route
             path="/manage/reports/sales-reports"
-            element={<SalesReports />}
+            element={
+              <GeneralProtectedRoute>
+                <AdminProtectedRoute>
+                  <SalesReports />
+                </AdminProtectedRoute>
+              </GeneralProtectedRoute>
+            }
           />
           <Route
             path="/manage/reports/product-sold"
-            element={<ProductSold />}
+            element={
+              <GeneralProtectedRoute>
+                <AdminProtectedRoute>
+                  <ProductSold />
+                </AdminProtectedRoute>
+              </GeneralProtectedRoute>
+            }
           />
           <Route
             path="/manage/reports/sales-aggregates"
-            element={<SalesAggregates />}
+            element={
+              <GeneralProtectedRoute>
+                <AdminProtectedRoute>
+                  <SalesAggregates />
+                </AdminProtectedRoute>
+              </GeneralProtectedRoute>
+            }
           />
 
           <Route
             path="/create-transactions"
-            element={<CreateTransactions />}
+            element={
+              <GeneralProtectedRoute>
+                <CashierProtectedRoute>
+                  <CreateTransactions />
+                </CashierProtectedRoute>
+              </GeneralProtectedRoute>
+            }
           ></Route>
         </Routes>
 
