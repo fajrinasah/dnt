@@ -3,7 +3,7 @@
 /*-------------------------------------------------*/
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 
 /*-------------------------------------------------*/
@@ -25,6 +25,7 @@ import "./styles.css";
 
 export default function PageResetPassword() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const uuidWithContext = useGetUuidWithContext();
   const context = useGetContext();
 
@@ -87,7 +88,7 @@ export default function PageResetPassword() {
             setSubmitting(false);
 
             // redirect to login page
-            redirect("/auth/login");
+            navigate("/auth/login");
           } catch (error) {
             console.log("error", error?.message);
             return { message: error?.message };
