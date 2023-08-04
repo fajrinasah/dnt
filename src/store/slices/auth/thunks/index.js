@@ -1,9 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-hot-toast";
 
 import api from "../../../utils/api.instance";
 import {
-  toastBlank,
   toastError,
   toastSuccess,
 } from "../../../../../src/components/02-molecules/forAuthAndManage/customToasts";
@@ -95,13 +93,6 @@ export const keepLogin = createAsyncThunk(
 
       return data;
     } catch (error) {
-      // toastError(
-      //   error.name === "AxiosError"
-      //     ? error?.message
-      //     : error.response
-      //     ? error.response.data?.message + ". Please login."
-      //     : error
-      // );
       return rejectWithValue(
         error.response
           ? error.response.data?.message + ". Please login."

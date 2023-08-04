@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { toastBlank } from "../../../../src/components/02-molecules/forAuthAndManage/customToasts";
-
 // THUNKS
 import {
   verifyOtpToken,
