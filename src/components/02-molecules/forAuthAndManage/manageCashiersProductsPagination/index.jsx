@@ -41,7 +41,7 @@ export default function ManageCashiersProductsPagination({
 
       <button
         className="next"
-        disabled={page === totalPage}
+        disabled={page >= totalPage}
         onClick={() => onChangePagination(`next`)}
       >
         Next

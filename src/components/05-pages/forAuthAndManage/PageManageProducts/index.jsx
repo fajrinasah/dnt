@@ -83,9 +83,6 @@ export default function PageManageProducts() {
 
   /*===============PAGINATION CONFIGURATIONS================*/
 
-  const disabledPrevious = page === 1;
-  const disabledNext = page >= total_pages;
-
   const onChangePagination = (page) => {
     if (page === "previous") {
       console.log(`DISPATCHED: getArticles(${currentQuery}&page=${page - 1})`);
