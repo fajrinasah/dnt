@@ -236,6 +236,7 @@ export default function PageManageProducts() {
 
       <div className="table-container products">
         <TableProducts
+          page={page ? page : 1}
           productsArr={products}
           openEditProductModal={openEditProductModal}
         />

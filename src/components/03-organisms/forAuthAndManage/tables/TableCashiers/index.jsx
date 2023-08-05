@@ -3,6 +3,7 @@ import ManageCashiersTableRow from "../../../../02-molecules/forAuthAndManage/ta
 import "../styles.css";
 
 export default function TableCashiers({
+  page,
   cashiersArr = [],
   openEditCashierModal = ({
     cashierPhoto = "",
@@ -20,7 +21,9 @@ export default function TableCashiers({
         <ManageCashiersTableRow
           key={`cashier-data-${i}`}
           type={i === 0 || i % 2 === 0 ? "bodyrow-light" : "bodyrow-dark"}
-          numberValue={i + 1}
+          numberValue={
+            page === 1 || page === "1" ? i + 1 : (page - 1) * 10 + (i + 1)
+          }
           photoValue={cashiersArr[i].photo_profile}
           usernameValue={cashiersArr[i].username}
           emailValue={cashiersArr[i].email}

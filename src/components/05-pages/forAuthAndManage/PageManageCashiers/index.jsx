@@ -197,6 +197,7 @@ export default function PageManageCashiers() {
 
       <div className="table-container cashiers">
         <TableCashiers
+          page={page}
           cashiersArr={cashiers}
           openEditCashierModal={openEditCashierModal}
         />
